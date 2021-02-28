@@ -18,6 +18,8 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
+
+
 export default function App() {
   const classes = useStyles();
 
@@ -27,7 +29,7 @@ export default function App() {
       <Switch>
         <div>
           <Route exact path="/" component={LandingPageContainer} />
-          <Route path="/home" component={UserDashboardContainer} />
+          <Route path="/homepage" component={UserDashboardContainer} />
           <Route exact path="/signup" component={SignUpContainer} />
           <Route path="/login" component={LogInContainer} /> 
         </div>
