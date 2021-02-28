@@ -17,12 +17,12 @@ import Button from '@material-ui/core/Button'
       padding: theme.spacing(2, 4),
       display: "absolute",
       left: "20%",
-      height: "80vh",
-      width: "120vh"
+      height: "50vh",
+      width: "100vh"
     },
   }))
 
-export default function SignUpForm(){ 
+export default function SignUpForm(props){ 
   const history = useHistory();
   const classes = useStyles();
 
@@ -46,6 +46,10 @@ export default function SignUpForm(){
       setPassword( event.target.value )
   }
 
+  const redirect = () => {
+    props.history.push( '/' )
+}
+
   const handleSubmit = ( event ) => {
     event.preventDefault();
     const { firstname, lastname, email, password, password_confirmation } = this.state
@@ -56,19 +60,19 @@ export default function SignUpForm(){
         password: password,
     }
 
-    // axios.post( 'http://localhost:3001/users', { user }, { withCredentials: true } )
-    //   .then( response => {
-    //       if ( response.data.status === 'created' ) {
-    //           props.handleLogin( response.data )
-    //           redirect()
-    //       }
-    //       else {
-    //           setErrors( {
-    //               errors: response.data.errors
-    //           } )
-    //       }
-    //   } )
-    //   .catch( error => console.log( 'api errors:', error ) )
+    axios.post( 'http://localhost:3001/users', { user }, { withCredentials: true } )
+      .then( response => {
+          if ( response.data.status === 'created' ) {
+              props.handleLogin( response.data )
+              redirect()
+          }
+          else {
+              setErrors( {
+                  errors: response.data.errors
+              } )
+          }
+      } )
+      .catch( error => console.log( 'api errors:', error ) )
     };
 
     const handleNewUserSubmit = ( event ) => {
@@ -85,9 +89,9 @@ export default function SignUpForm(){
           } )
       }
       fetch( "http://localhost:3001/users", requestPackage )
-          .then( rsp => rsp.json() )
-      // .then(console.log)
-      history.push( "/home" )
+        .then( rsp => rsp.json() )
+      .then(console.log)
+        // history.push( "/home" )
   }
 
 
@@ -99,10 +103,10 @@ export default function SignUpForm(){
             noValidate
             onSubmit={ ( event ) => {
                 handleNewUserSubmit( event )
-            } }>
-                                        
+            } }>                      
             <TextField 
               fullWidth
+              onChange={handleFirstname}
               id="outlined-basic" 
               label="First Name" 
               variant="outlined" 
@@ -110,6 +114,7 @@ export default function SignUpForm(){
             <br /> <br />
             <TextField 
               fullWidth
+              onChange={handleLastname}
               id="outlined-basic" 
               label="Last Name" 
               variant="outlined" 
@@ -117,6 +122,7 @@ export default function SignUpForm(){
             <br /> <br />
             <TextField 
               fullWidth
+              onChange={handleEmail}
               id="outlined-basic" 
               label="Email" 
               variant="outlined" 
@@ -124,6 +130,7 @@ export default function SignUpForm(){
             <br /> <br />
             <TextField
               fullWidth
+              onChange={handlePassword}
               id="outlined-multiline-static"
               label="Password"
               multiline
