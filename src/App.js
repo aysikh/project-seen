@@ -2,24 +2,19 @@ import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { CssBaseline, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import LandingPageContainer from './LandingPageContainer';
-import LogInContainer from './LogInContainer';
-import SignUpContainer from './SignUpContainer';
-import UserDashboardContainer from './UserDashboardContainer'
+import LandingPageContainer from './containers/LandingPageContainer';
+import LogInContainer from './containers/LogInContainer';
+import SignUpContainer from './containers/SignUpContainer';
+import UserDashboardContainer from './containers/UserDashboardContainer'
 
 
 const useStyles = makeStyles(() => ({
   bg: {
-  minHeight: '100vh',
-  backgroundColor: '#EADCA7'
-  // backgroundImage: `url(${})`,
-  // backgroundRepeat: 'no-repeat',
-  // backgroundSize: 'cover',
-  },
-  appbarWrapper: {
-  width: '80%',
-  margin: '0px',
-  boxShadow: 'none'
+    minHeight: '100vh',
+    backgroundColor: '#EADCA7'
+    // backgroundImage: `url(${})`,
+    // backgroundRepeat: 'no-repeat',
+    // backgroundSize: 'cover',
   },
 }));
 
@@ -29,17 +24,12 @@ export default function App() {
   return(
     <BrowserRouter>
       <div className={classes.bg}>
-      <CssBaseline /> 
-        {/* <Toolbar className={classes.appbarWrapper} >  */}
-          <Navbar2 /> 
-        {/* </Toolbar> */}
       <Switch>
         <div>
           <Route exact path="/" component={LandingPageContainer} />
           <Route path="/home" component={UserDashboardContainer} />
           <Route exact path="/signup" component={SignUpContainer} />
           <Route path="/login" component={LogInContainer} /> 
-
         </div>
       </Switch>
       </div>
