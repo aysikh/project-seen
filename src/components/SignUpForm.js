@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
 import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
@@ -60,7 +59,7 @@ export default function SignUpForm(props){
         password: password,
     }
 
-    axios.post( 'http://localhost:3001/users', { user }, { withCredentials: true } )
+    axios.post( 'http://localhost:3000/users', { user }, { withCredentials: true } )
       .then( response => {
           if ( response.data.status === 'created' ) {
               props.handleLogin( response.data )
@@ -88,7 +87,7 @@ export default function SignUpForm(props){
               password: password,
           } )
       }
-      fetch( "http://localhost:3001/users", requestPackage )
+      fetch( "http://localhost:3000/users", requestPackage )
         .then( rsp => rsp.json() )
       .then(console.log)
         // history.push( "/home" )
