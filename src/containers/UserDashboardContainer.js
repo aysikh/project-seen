@@ -8,19 +8,19 @@ const USER_URL = "http://localhost:3000/users"
 
 export default function UserDashboardContainer() {
 
-  const getUser = async () => {
-    try {
-        const userUser = await
-            axios.get( USER_URL )
-        setUser( userUser.data )
-    } catch ( err ) {
-        alert( err.message )
-    }
-}
+//   const getUser = async () => {
+//     try {
+//         const userUser = await
+//             axios.get( USER_URL )
+//         setUser( userUser.data )
+//     } catch ( err ) {
+//         alert( err.message )
+//     }
+// }
 
-  useEffect( () => {
-    getUser()
-  }, [] )
+//   useEffect( () => {
+//     getUser()
+//   }, [] )
 
   return(
     <div>

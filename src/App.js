@@ -11,7 +11,7 @@ import UserDashboardContainer from './containers/UserDashboardContainer'
 const useStyles = makeStyles(() => ({
   bg: {
     minHeight: '100vh',
-    backgroundColor: '#EADCA7'
+    // backgroundColor: '#EADCA7'
     // backgroundImage: `url(${})`,
     // backgroundRepeat: 'no-repeat',
     // backgroundSize: 'cover',

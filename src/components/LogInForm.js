@@ -30,6 +30,33 @@ export default function LogInForm(){
   const [ email, setEmail ] = useState("")
   const [ password, setPassword ] = useState("")
 
+  const handleSubmit = (event) => {
+    event.preventDefault()
+
+    let user = {
+          email: email,
+          password: password
+        }
+      
+    fetch('http://localhost:3000/login', {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(user)
+    })
+      .then(response => response.json())
+      .then(data => {
+      console.log(data)
+        if (data.errors) {
+          alert("Invalid Credentials")
+        }
+        else {
+          // props.setCurrentUser(data.info)
+          console.log(data.info)
+          history.push('/homepage')
+        }
+      })
+    
+  };
 
   return(
     <div>
@@ -37,9 +64,8 @@ export default function LogInForm(){
       <Paper elevation={3}>
         <form autoComplete="on"
           noValidate
-          onSubmit={ ( event ) => {
-              handleNewUserSubmit( event )
-          } }>                      
+          onSubmit={handleSubmit}
+          >                      
           <TextField 
             fullWidth
             onChange={handleFirstname}
