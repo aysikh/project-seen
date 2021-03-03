@@ -24,22 +24,28 @@ import Button from '@material-ui/core/Button'
 export default function NewReviewForm(props){ 
   const history = useHistory();
   const classes = useStyles();
-
-  const [ title, setTitle ] = useState("")
-  const [ position, setPosition ] = useState("")
-  const [ pros, setPros ] = useState("")
-  const [ cons, setCons ] = useState("")
-  const [ rating, setRating ] = useState(null)
-  const [ isCurrentlyEmployed, setIsCurrentlyEmployed] = useState(null)
-  const [ yearsEmployed, setYearsEmployed] = useState(null)
-  const [ isUseful, setIsUseful ] = useState(null)
-  const [ isNotUseful, setIsNotUseful ] = useState(null)
   const [ errors, setErrors ] = useState( [] )
 
-  const handleFirstname = ( event ) => {
-    setFirstname( event.target.value )
-  }
+  const [state, setState ] = useState({
+    title: "", 
+    position: "", 
+    pros: "", 
+    cons: "", 
+    rating: null,
+    isCurrentlyEmployed: null, 
+    yearsEmployed: null, 
+    isUseful: null, 
+    isNotUseful: null
+  })
 
+
+  const handleChange = (event) => {
+    let {id, value} = event.target
+    setState(prevState => ({
+      ...prevState,
+      [id] : value
+    }))
+  }
 
   const redirect = () => {
     props.history.push( '/' )
@@ -82,15 +88,15 @@ export default function NewReviewForm(props){
           headers: { 'Content-Type': 'application/json' },
           method: 'POST',
           body: JSON.stringify( {
-            title: title, 
-            position: position, 
-            pros: pros, 
-            cons: cons, 
-            rating: rating, 
-            isCurrentlyEmployed: isCurrentlyEmployed, 
-            yearsEmployed: yearsEmployed, 
-            isUseful: isUseful, 
-            isNotUseful: isNotUseful
+            title: state.title, 
+            position: state.position, 
+            pros: state.pros, 
+            cons: state.cons, 
+            rating: state.rating, 
+            isCurrentlyEmployed: state.isCurrentlyEmployed, 
+            yearsEmployed: state.yearsEmployed, 
+            isUseful: state.isUseful, 
+            isNotUseful: state.isNotUseful
           } )
       }
       fetch( "http://localhost:3000/reviews", requestPackage )
