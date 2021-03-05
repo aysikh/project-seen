@@ -7,6 +7,12 @@ import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button'
 
+import ThumbUpIcon from '@material-ui/icons/ThumbUp';
+import ThumbDownIcon from '@material-ui/icons/ThumbDown';
+import Rating from '@material-ui/lab/Rating';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+
 
   const useStyles = makeStyles((theme) => ({
     paper: {
@@ -25,6 +31,7 @@ export default function NewReviewForm(props){
   const history = useHistory();
   const classes = useStyles();
   const [ errors, setErrors ] = useState( [] )
+  const [value, setValue] = React.useState(1);
 
   const [state, setState ] = useState({
     title: "", 
@@ -34,8 +41,7 @@ export default function NewReviewForm(props){
     rating: null,
     isCurrentlyEmployed: null, 
     yearsEmployed: null, 
-    isUseful: null, 
-    isNotUseful: null
+
   })
 
 
@@ -95,8 +101,6 @@ export default function NewReviewForm(props){
             rating: state.rating, 
             isCurrentlyEmployed: state.isCurrentlyEmployed, 
             yearsEmployed: state.yearsEmployed, 
-            isUseful: state.isUseful, 
-            isNotUseful: state.isNotUseful
           } )
       }
       fetch( "http://localhost:3000/reviews", requestPackage )
@@ -113,36 +117,58 @@ export default function NewReviewForm(props){
             noValidate
             onSubmit={ ( event ) => {
                 handleNewReviewSubmit( event )
-            } }>                      
+            } }>
             <TextField 
               fullWidth
-              onChange={handleFirstname}
+              onChange={handleChange}
               id="outlined-basic" 
-              label="First Name" 
+              label="Title" 
+              variant="outlined" 
+            />
+            <br /> <br />
+            <Box component="fieldset" mb={3} borderColor="transparent">
+            <Typography component="legend">Controlled</Typography>
+              <Rating
+                name="half-rating"
+                precision={0.5}
+                style={{color: '#007F80', fontSize: '4rem'}}
+                value={value}
+                onChange={(event, newValue) => {
+                  setValue(newValue);
+                }}
+              />
+              </Box>
+              {console.log(value)}
+              <Box component="fieldset" mb={3} borderColor="transparent">
+                <Typography component="legend">Read only</Typography>
+                <Rating 
+                  name="read-only" 
+                  style={{color: '#99EEBB', fontSize: '4rem'}} 
+                  precision={0.5} 
+                  value={value} 
+                  readOnly />
+            </Box>
+            <TextField 
+              fullWidth
+              onChange={handleChange}
+              id="outlined-basic" 
+              label="Position" 
               variant="outlined" 
             />
             <br /> <br />
             <TextField 
               fullWidth
-              onChange={handleLastname}
+              onChange={handleChange}
               id="outlined-basic" 
-              label="Last Name" 
-              variant="outlined" 
-            />
-            <br /> <br />
-            <TextField 
-              fullWidth
-              onChange={handleEmail}
-              id="outlined-basic" 
-              label="Email" 
+              label="Pros" 
               variant="outlined" 
             />
             <br /> <br />
             <TextField
               fullWidth
-              onChange={handlePassword}
+              onChange={handleChange}
               id="outlined-multiline-static"
-              label="Password"
+              label="Cons"
               multiline
               variant="outlined"
             />
