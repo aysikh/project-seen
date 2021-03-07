@@ -25,17 +25,25 @@ export default function LogInForm(){
   const history = useHistory();
   const classes = useStyles();
 
-  const [ firstname, setFirstname ] = useState("")
-  const [ lastname, setLastname ] = useState("")
-  const [ email, setEmail ] = useState("")
-  const [ password, setPassword ] = useState("")
+  const [state, setState] = useState({
+    email: "", 
+    password: ""
+  })
+
+  const handleChange = (event) => {
+    let {id, value} = event.target
+    setState(prevState => ({
+      ...prevState,
+      [id] : value
+    }))
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault()
 
     let user = {
-          email: email,
-          password: password
+          email: state.email,
+          password: state.password
         }
       
     fetch('http://localhost:3000/login', {
@@ -66,25 +74,10 @@ export default function LogInForm(){
           noValidate
           onSubmit={handleSubmit}
           >                      
-          <TextField 
-            fullWidth
-            onChange={handleFirstname}
-            id="outlined-basic" 
-            label="First Name" 
-            variant="outlined" 
-          />
           <br /> <br />
           <TextField 
             fullWidth
-            onChange={handleLastname}
-            id="outlined-basic" 
-            label="Last Name" 
-            variant="outlined" 
-          />
-          <br /> <br />
-          <TextField 
-            fullWidth
-            onChange={handleEmail}
+            onChange={handleChange}
             id="outlined-basic" 
             label="Email" 
             variant="outlined" 
@@ -92,7 +85,7 @@ export default function LogInForm(){
           <br /> <br />
           <TextField
             fullWidth
-            onChange={handlePassword}
+            onChange={handleChange}
             id="outlined-multiline-static"
             label="Password"
             multiline

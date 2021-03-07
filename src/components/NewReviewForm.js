@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 import Container from '@material-ui/core/Container';
@@ -13,6 +13,11 @@ import Rating from '@material-ui/lab/Rating';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import InputBase from '@material-ui/core/InputBase';
+
 
   const useStyles = makeStyles((theme) => ({
     paper: {
@@ -22,36 +27,79 @@ import Box from '@material-ui/core/Box';
       padding: theme.spacing(2, 4),
       display: "absolute",
       left: "20%",
-      height: "50vh",
+      height: "80vh",
       width: "100vh"
-    },
+    }
   }))
+
+  const BootstrapInput = withStyles((theme) => ({
+    root: {
+      'label + &': {
+        marginTop: theme.spacing(3),
+      },
+    },
+    input: {
+      borderRadius: 4,
+      position: 'relative',
+      backgroundColor: theme.palette.background.paper,
+      border: '1px solid #ced4da',
+      fontSize: 16,
+      padding: '10px 26px 10px 12px',
+      transition: theme.transitions.create(['border-color', 'box-shadow']),
+      // Use the system font instead of the default Roboto font.
+      fontFamily: [
+        '-apple-system',
+        'BlinkMacSystemFont',
+        '"Segoe UI"',
+        'Roboto',
+        '"Helvetica Neue"',
+        'Arial',
+        'sans-serif',
+        '"Apple Color Emoji"',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"',
+      ].join(','),
+      '&:focus': {
+        borderRadius: 4,
+        borderColor: '#80bdff',
+        boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',
+      },
+    },
+  }))(InputBase);
 
 export default function NewReviewForm(props){ 
   const history = useHistory();
   const classes = useStyles();
-  const [ errors, setErrors ] = useState( [] )
+  const [title, setTitle] = React.useState('');
+  const [position, setPosition] = React.useState('');
+  const [pros, setPros] = React.useState('');
+  const [cons, setCons] = React.useState('');
   const [value, setValue] = React.useState(1);
+  const [yearsEmployed, setYear] = React.useState(1);
+  const [isCurrentlyEmployed, setIsCurrentlyEmployed] = React.useState(true);
 
-  const [state, setState ] = useState({
-    title: "", 
-    position: "", 
-    pros: "", 
-    cons: "", 
-    rating: null,
-    isCurrentlyEmployed: null, 
-    yearsEmployed: null, 
+  const handleTitle = (event) => {
+    setTitle(event.target.value)
+  };
+  const handlePosition = (event) => {
+    setPosition(event.target.value)
+  };
+  const handlePros = (event) => {
+    setPros(event.target.value)
+  };
+  const handleCons = (event) => {
+    setCons(event.target.value)
+  };
+  const handleEmployed = (event) => {
+    setIsCurrentlyEmployed(event.target.value)
+  };
+  const handleYear = (event) => {
+    setYear(event.target.value);
+  };
+  const handleValue = (event) => {
+    setValue(event.target.value);
+  };
 
-  })
-
-
-  const handleChange = (event) => {
-    let {id, value} = event.target
-    setState(prevState => ({
-      ...prevState,
-      [id] : value
-    }))
-  }
 
   const redirect = () => {
     props.history.push( '/' )
@@ -94,16 +142,17 @@ export default function NewReviewForm(props){
           headers: { 'Content-Type': 'application/json' },
           method: 'POST',
           body: JSON.stringify( {
-            title: state.title, 
-            position: state.position, 
-            pros: state.pros, 
-            cons: state.cons, 
-            rating: state.rating, 
-            isCurrentlyEmployed: state.isCurrentlyEmployed, 
-            yearsEmployed: state.yearsEmployed, 
+            title: title, 
+            position: position, 
+            pros: pros, 
+            cons: cons, 
+            rating: value, 
+            isCurrentlyEmployed: isCurrentlyEmployed, 
+            yearsEmployed: yearsEmployed,
+            // I need to grab the user-id and company-id 
           } )
       }
-      fetch( "http://localhost:3000/reviews", requestPackage )
+      fetch( "http://localhost:3002/reviews", requestPackage )
         .then( rsp => rsp.json() )
       .then(console.log)
         // history.push( "/homepage" )
@@ -120,7 +169,7 @@ export default function NewReviewForm(props){
             } }>
             <TextField 
               fullWidth
-              onChange={handleChange}
+              onChange={handleTitle}
               id="outlined-basic" 
               label="Title" 
               variant="outlined" 
@@ -131,26 +180,24 @@ export default function NewReviewForm(props){
               <Rating
                 name="half-rating"
                 precision={0.5}
-                style={{color: '#007F80', fontSize: '4rem'}}
+                style={{color: '#007F80', fontSize: '5rem'}}
                 value={value}
-                onChange={(event, newValue) => {
-                  setValue(newValue);
-                }}
+                onChange={handleValue}
               />
-              </Box>
               {console.log(value)}
+              </Box>
               <Box component="fieldset" mb={3} borderColor="transparent">
                 <Typography component="legend">Read only</Typography>
                 <Rating 
                   name="read-only" 
-                  style={{color: '#99EEBB', fontSize: '4rem'}} 
+                  style={{color: '#99EEBB', fontSize: '5rem'}} 
                   precision={0.5} 
                   value={value} 
                   readOnly />
             </Box>
             <TextField 
               fullWidth
-              onChange={handleChange}
+              onChange={handlePosition}
               id="outlined-basic" 
               label="Position" 
               variant="outlined" 
@@ -158,7 +205,7 @@ export default function NewReviewForm(props){
             <br /> <br />
             <TextField 
               fullWidth
-              onChange={handleChange}
+              onChange={handlePros}
               id="outlined-basic" 
               label="Pros" 
               variant="outlined" 
@@ -166,12 +213,42 @@ export default function NewReviewForm(props){
             <br /> <br />
             <TextField
               fullWidth
-              onChange={handleChange}
+              onChange={handleCons}
               id="outlined-multiline-static"
               label="Cons"
               multiline
               variant="outlined"
             />
+                 <h4> Currently Employed? </h4> 
+      <FormControl >
+        <Select
+          value={isCurrentlyEmployed}
+          onChange={handleEmployed}
+          input={<BootstrapInput />}
+        >
+          <MenuItem value={true}>Yes</MenuItem>
+          <MenuItem value={false}>No</MenuItem>
+        </Select>
+      </FormControl>
+      <h4> Years Employed </h4> 
+      <FormControl >
+        <Select
+          value={yearsEmployed}
+          onChange={handleYear}
+          input={<BootstrapInput />}
+        >
+          <MenuItem value={1}>1</MenuItem>
+          <MenuItem value={2}>2</MenuItem>
+          <MenuItem value={3}>3</MenuItem>
+          <MenuItem value={4}>4</MenuItem>
+          <MenuItem value={5}>5</MenuItem>
+          <MenuItem value={6}>6</MenuItem>
+          <MenuItem value={7}>7</MenuItem>
+          <MenuItem value={8}>8</MenuItem>
+          <MenuItem value={9}>9</MenuItem>
+          <MenuItem value={10}>10+</MenuItem>
+        </Select>
+      </FormControl>
             <br/> <br/> 
             <Button 
               type="submit" 
