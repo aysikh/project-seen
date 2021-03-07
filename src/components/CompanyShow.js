@@ -8,13 +8,14 @@ const COMPANY_URL = "http://localhost:3000/companies"
 export default function ComponentShow(){
   
   const [company, setCompany] = useState([]);
+  const [singleCompany, setSingleCompany] = useState([])
 
   const getCompanies = async () => {
     try{
       let companies = await
       axios.get(COMPANY_URL)
       setCompany(companies.data)
-      console.log(companies)
+      // console.log(companies)
     } catch (err) {
       alert(err.message);
     }
@@ -24,6 +25,9 @@ export default function ComponentShow(){
     getCompanies();
   }, [])
 
+  const handleCompany = (event, comp) =>{
+    setSingleCompany(comp)
+  }
 
   return (
     <div>
