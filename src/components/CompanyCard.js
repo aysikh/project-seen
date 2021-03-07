@@ -3,9 +3,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 
+import Rating from '@material-ui/lab/Rating';
 import BusinessIcon from '@material-ui/icons/Business';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import PeopleIcon from '@material-ui/icons/People';
+import DemographicChart from './DemographicChart'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -13,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   paper: {
+    fontFamily: 'Josefin Sans',
     height: '25rem',
     width: '28rem',
     margin: '3.5rem'
@@ -66,7 +69,7 @@ export default function CompanyCard(props){
         <Grid container justify="center">
             <Grid>
               <Paper className={classes.paper} >
-                Demographic Chart hurrr
+                <DemographicChart />
               </Paper>
             </Grid>
             <Grid>
@@ -80,9 +83,16 @@ export default function CompanyCard(props){
             <Grid>
               <Paper className={classes.paper} >
                 <center>
-                  Rating stars here
+                <br/><br/>
+                <span style={{fontSize:'3rem'}}>DEI Rating:</span>
+                <Rating 
+                name="read-only" 
+                style={{color: '#99EEBB', fontSize: '5rem', marginTop: '3rem'}} 
+                precision={0.5} 
+                value={4.5} 
+                readOnly />
                   <br /> 
-                  Average score here
+                  <span style={{fontSize: '5.5rem'}}>4.5</span>
                 </center>
               </Paper>
             </Grid>
