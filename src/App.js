@@ -5,7 +5,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import LandingPageContainer from './containers/LandingPageContainer';
 import LogInContainer from './containers/LogInContainer';
 import SignUpContainer from './containers/SignUpContainer';
-import UserDashboardContainer from './containers/UserDashboardContainer'
 import NewReviewForm from './components/NewReviewForm'
 import CompanyShow from './components/CompanyShow'
 
@@ -30,7 +29,6 @@ export default function App() {
       <Switch>
         <div>
           <Route exact path="/" component={LandingPageContainer} />
-          <Route path="/homepage" component={UserDashboardContainer} />
           <Route exact path="/sign-up" component={SignUpContainer} />
           <Route path="/log-in" component={LogInContainer} /> 
           <Route path='/new-review' component={NewReviewForm} /> 

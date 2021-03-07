@@ -1,37 +1,35 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-import { withStyles } from '@material-ui/core/styles';
 
+import { withStyles } from '@material-ui/core/styles';
+import CompanyCard from './CompanyCard'
 
 const COMPANY_URL = "http://localhost:3000/companies"
 
 export default function ComponentShow(){
   
   const [company, setCompany] = useState([]);
-  const [singleCompany, setSingleCompany] = useState([])
+  // const [singleCompany, setSingleCompany] = useState([])
 
-  const getCompanies = async () => {
-    try{
-      let companies = await
-      axios.get(COMPANY_URL)
-      setCompany(companies.data)
-      // console.log(companies)
-    } catch (err) {
-      alert(err.message);
-    }
+  const getCompanies = () => {
+    fetch(COMPANY_URL)
+    .then(rsp => rsp.json())
+    .then(companies => setCompany(companies))
   }
-
   useEffect(()=>{
     getCompanies();
   }, [])
 
-  const handleCompany = (event, comp) =>{
-    setSingleCompany(comp)
-  }
+  // const handleCompany = (event, comp) =>{
+  //   setSingleCompany(comp)
+  // }
 
   return (
     <div>
       <h1> Hello company show page here </h1> 
+      { company.map(comp => {
+        // console.log(comp)
+        return <CompanyCard comp={comp} key={comp.id} />
+      })}
     </div>
   )
 
