@@ -25,7 +25,6 @@ export default function ComponentShow(){
 
   return (
     <div>
-      <h1> Hello company show page here </h1> 
       { company.map(comp => {
         // console.log(comp)
         return <CompanyCard comp={comp} key={comp.id} />
