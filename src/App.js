@@ -7,6 +7,7 @@ import LogInContainer from './containers/LogInContainer';
 import SignUpContainer from './containers/SignUpContainer';
 import UserDashboardContainer from './containers/UserDashboardContainer'
 import NewReviewForm from './components/NewReviewForm'
+import CompanyShow from './components/CompanyShow'
 
 const useStyles = makeStyles(() => ({
   bg: {
@@ -33,6 +34,7 @@ export default function App() {
           <Route exact path="/sign-up" component={SignUpContainer} />
           <Route path="/log-in" component={LogInContainer} /> 
           <Route path='/new-review' component={NewReviewForm} /> 
+          <Route path="/company" component={CompanyShow} />
         </div>
       </Switch>
       </div>

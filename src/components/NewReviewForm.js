@@ -27,7 +27,7 @@ import InputBase from '@material-ui/core/InputBase';
       padding: theme.spacing(2, 4),
       display: "absolute",
       left: "20%",
-      height: "80vh",
+      height: "100vh",
       width: "100vh"
     }
   }))
@@ -152,7 +152,7 @@ export default function NewReviewForm(props){
             // I need to grab the user-id and company-id 
           } )
       }
-      fetch( "http://localhost:3002/reviews", requestPackage )
+      fetch( "http://localhost:3000/reviews", requestPackage )
         .then( rsp => rsp.json() )
       .then(console.log)
         // history.push( "/homepage" )
