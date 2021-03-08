@@ -4,9 +4,9 @@ import LandingPageAppInfo from '../components/LandingPageAppInfo'
 
 export default function LandingPageContainer() {
   return (
-    <div class="Landing Page"> 
-      <center> <img src={Logo} />  </center>
+    <div class="Landing Page" style={{marginTop: '15rem'}}> 
       <LandingPageAppInfo /> 
+      <center> <img src={Logo} style={{marginTop: '10rem'}}/>  </center>
     </div> 
   )
 }

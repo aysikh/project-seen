@@ -127,7 +127,9 @@ export default function LandingPageAppInfo(){
   return(
     <div>
       <center>
-      <h1> Are you a Black woman currently interviewing at a tech company? </h1>
+      <span style={{fontSize: '4.5rem', fontFamily: 'Josefin Sans', margin: '10px', padding: '50px'}}> Would you like to know what Black women are saying about tech companies? </span>
+      <br /> 
+      <br />
       <AppBar position="static" className={classes.appBar}>
       <Autocomplete
       id="combo-box-demo"
