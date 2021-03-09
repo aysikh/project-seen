@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { matchPath } from "react-router";
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -46,11 +47,18 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Cardo', 
     display: "absolute",
   }
-
 }))
 
 export default function CompanyCard(props){
   const classes = useStyles();
+
+  const match = matchPath("/company/1", {
+    path: "/company/:id",
+    exact: true,
+    strict: true
+  });
+
+  console.log(match)
 
   return(
     <div className="company-info-container">
