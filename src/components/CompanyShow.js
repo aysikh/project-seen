@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-
 import { withStyles } from '@material-ui/core/styles';
 import CompanyCard from './CompanyCard'
 

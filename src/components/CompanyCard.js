@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { matchPath } from "react-router";
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';

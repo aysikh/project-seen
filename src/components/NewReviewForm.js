@@ -16,6 +16,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import InputBase from '@material-ui/core/InputBase';
+import { ListItemAvatar } from '@material-ui/core';
 
 
   const useStyles = makeStyles((theme) => ({
@@ -262,3 +263,10 @@ export default function NewReviewForm(props){
     </div>
   )
 }
+
+// Diversity Across Organization: Rate your company on how diverse it is as a whole - are employees representative of the general population in disability, ethnicity, gender, race, religion, sexual orientation, etc., and is everyone seen as equals? 
+// Diversity in Leadership: Rate your company on how diverse the mid- and senior-level leadership is - are underrepresented employees equitably reperesented and welcomed in leadership positions?
+// Work/Life Balance: Rate your company on overall work/life balance - does the company encourage employeese to balance work and other aspects of life such as family, personal development, social life, health, and other needs? 
+// Overall Inclusiveness: Rate your company on its overall inclusion - do all employees feel like their voices are heard and treated fairly and respectfully? That they have equal access to opportunities and resources? And that they can contribute fully to the organization's success? 
+// D& I Benefits and Resources: Rate your company on its D&I benefits and resources- does your company offer equivalent benefits and resources for all employees such as family and adoptive leave, fertility SVGComponentTransferFunctionElement, same sex partner benefits, flex time for religious observations, etc? 
+// eNPS: Rate your company on how likely you would recommend as a place of employement to a friend. 

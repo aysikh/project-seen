@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { BrowserRouter, Switch, Route, matchPath } from 'react-router-dom';
-import { CssBaseline, Grid } from '@material-ui/core';
+import ReactDOM from 'react-dom'
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import LandingPageContainer from './containers/LandingPageContainer';
 import LogInContainer from './containers/LogInContainer';
 import SignUpContainer from './containers/SignUpContainer';
 import NewReviewForm from './components/NewReviewForm'
 import CompanyShow from './components/CompanyShow'
-import CompanyCard from './components/CompanyShow'
+import DummyTest from './components/DummyTest'
 
 const COMPANY_URL = "http://localhost:3000/companies"
 
@@ -55,6 +55,7 @@ export default function App({history}) {
           <Route path="/log-in" component={LogInContainer} /> 
           <Route path='/new-review' component={NewReviewForm} /> 
           <Route path="/company" component={CompanyShow} />
+          <Route path="/dummy" component={DummyTest} />
         </div>
       </Switch>
       </div>
