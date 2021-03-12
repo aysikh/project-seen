@@ -2,32 +2,36 @@ import React, { useState, useEffect } from 'react'
 import { withStyles } from '@material-ui/core/styles';
 import CompanyCard from './CompanyCard'
 
-const COMPANY_URL = "http://localhost:3000/companies"
+const COMPANY_URL = "http://localhost:3000/companies/"
 
-export default function ComponentShow(){
-  
-  const [company, setCompany] = useState([]);
-  // const [singleCompany, setSingleCompany] = useState([])
+export default function ComponentShow({match}){
 
-  const getCompanies = () => {
-    fetch(COMPANY_URL)
-    .then(rsp => rsp.json())
-    .then(companies => setCompany(companies))
-  }
-  useEffect(()=>{
-    getCompanies();
-  }, [])
+  const {
+    params: { name },
+  } = match;
 
-  // const handleCompany = (event, comp) =>{
-  //   setSingleCompany(comp)
-  // }
+  const [company, setCompany] = useState(null);
+
+  useEffect(() => {
+    console.log(name)
+    console.log("hello")
+    fetch(COMPANY_URL + `${name}`, {
+      headers : { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+       }
+    })
+      .then((res) => res.json())
+      .then((response) => {
+        setCompany(response.company);
+        console.log(response.company)
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   return (
     <div>
-      { company.map(comp => {
-        // console.log(comp)
-        return <CompanyCard comp={comp} key={comp.id} />
-      })}
+        {company ? <CompanyCard comp={company} key={company.id} /> : <div>didn't work</div> }
     </div>
   )
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useHistory } from "react-router-dom";
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -22,7 +23,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function LandingPageAppInfo(){
   const classes = useStyles();
+  const history = useHistory();
   const [company, setCompany] = useState([]);
+  const [value, setValue] = React.useState('');
 
   const getCompanies = () => {
     fetch(COMPANY_URL)
@@ -33,24 +36,37 @@ export default function LandingPageAppInfo(){
     getCompanies();
   }, [])
 
+  function handleSubmit(e){
+    // e.preventDefault();
+    console.log(e)
+    history.push("company/" + e.name)
+    // if(value != ""){
+    //   history.push("company/"+ value)
+    // }
+      
+  }
+
   return(
     <div>
       <center>
       <span style={{fontSize: '4.5rem', fontFamily: 'Josefin Sans', margin: '10px', padding: '50px'}}> Would you like to know what Black women are saying about tech companies? </span>
-      <br /> 
-      <br />
-      <AppBar position="static" className={classes.appBar}>
-      <Autocomplete
-      id="combo-box-demo"
-      options={company}
-      getOptionLabel={(option) => option.name}
-      style={{ width: '100%' }}
-      renderInput={(params) => <TextField {...params} label="Search for a Company..." variant="outlined" />}
-      />
-      </AppBar>
+      <br /> <br />
+        <AppBar position="static" className={classes.appBar}>
+            <Autocomplete
+              id="combo-box-demo"
+              options={company}
+              value={value}
+              onChange={(e, value) => handleSubmit(value)}
+              getOptionLabel={(option) => option.name}
+              style={{ width: '100%' }}
+              renderInput={(params) => <TextField {...params} label="Search for a Company..." variant="outlined" />}
+            />
+        </AppBar>
       </center>
     </div>
   )
 }
 
+
+//  on submit 
 
