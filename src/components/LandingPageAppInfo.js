@@ -39,11 +39,13 @@ export default function LandingPageAppInfo(){
   function handleSubmit(e){
     // e.preventDefault();
     console.log(e)
+    // console.log(value)
     history.push("company/" + e.name)
-    // if(value != ""){
-    //   history.push("company/"+ value)
+    // if(e != ""){
+    //   history.push("company/"+ e.name)
+    // } else {
+    //   return null
     // }
-      
   }
 
   return(

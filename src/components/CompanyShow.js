@@ -1,10 +1,23 @@
 import React, { useState, useEffect } from 'react'
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 import CompanyCard from './CompanyCard'
+
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 const COMPANY_URL = "http://localhost:3000/companies/"
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: '100%',
+    height: '10%',
+    '& > * + *': {
+      marginTop: theme.spacing(2),
+    },
+  },
+}));
+
 export default function ComponentShow({match}){
+  const classes = useStyles(); 
 
   const {
     params: { name },
@@ -31,7 +44,7 @@ export default function ComponentShow({match}){
 
   return (
     <div>
-        {company ? <CompanyCard comp={company} key={company.id} /> : <div>didn't work</div> }
+        {company ? <CompanyCard comp={company} key={company.id} /> : <LinearProgress className={classes.root}/>  }
     </div>
   )
 

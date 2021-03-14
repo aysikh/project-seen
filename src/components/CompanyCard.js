@@ -52,13 +52,6 @@ const useStyles = makeStyles((theme) => ({
 export default function CompanyCard(props){
   const classes = useStyles();
 
-  // const match = matchPath("/company/1", {
-  //   path: "/company/:id",
-  //   exact: true,
-  //   strict: true
-  // });
-
-  // console.log(match)
 
   return(
     <div className="company-info-container">

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Logo from '../assets/seen-logo-dummy.png'
+import Logo from '../assets/seen-logo-2.png'
 import LandingPageAppInfo from '../components/LandingPageAppInfo'
 
 export default function LandingPageContainer() {
