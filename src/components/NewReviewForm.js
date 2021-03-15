@@ -315,7 +315,7 @@ export default function NewReviewForm() {
                     />
                 </Paper> 
               </Grid>
-              
+
         {/* RATING ON THE RIGHT */}
           <Grid item xs={4} style={{backgroundColor: 'green', marginTop: '2rem'}}>
             <Paper style={{padding: '15px'}} elevation={5}>
@@ -329,7 +329,7 @@ export default function NewReviewForm() {
                   {Diversity()}
                 </Grid>
                   <Rating
-                    name="half-rating"
+                    name="diversity"
                     precision={0.5}
                     style={{color: 'brown', fontSize: '3.5rem'}}
                     value={diversity}
@@ -346,7 +346,7 @@ export default function NewReviewForm() {
                   {Leadership()}
                 </Grid>
                 <Rating
-                  name="half-rating"
+                  name="leadership"
                   precision={0.5}
                   style={{color: 'brown', fontSize: '3.5rem'}}
                   value={leadership}
@@ -363,7 +363,7 @@ export default function NewReviewForm() {
                   {WorkLife()}
                 </Grid>
                 <Rating
-                  name="half-rating"
+                  name="worklife"
                   precision={0.5}
                   style={{color: 'brown', fontSize: '3.5rem'}}
                   value={worklife}
@@ -380,7 +380,7 @@ export default function NewReviewForm() {
                   {Inclusiveness()}
                 </Grid>
                 <Rating
-                  name="half-rating"
+                  name="inclusiveness"
                   precision={0.5}
                   style={{color: 'brown', fontSize: '3.5rem'}}
                   value={inclusiveness}
@@ -397,7 +397,7 @@ export default function NewReviewForm() {
                   {Benefits()}
                 </Grid>
                 <Rating
-                  name="half-rating"
+                  name="benefits"
                   precision={0.5}
                   style={{color: 'brown', fontSize: '3.5rem'}}
                   value={benefits}
@@ -414,7 +414,7 @@ export default function NewReviewForm() {
                   {Recommend()}
                 </Grid>
                 <Rating
-                  name="half-rating"
+                  name="recommend"
                   precision={0.5}
                   style={{color: 'brown', fontSize: '3.5rem'}}
                   value={recommendation}
