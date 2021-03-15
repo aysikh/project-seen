@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { withStyles, makeStyles } from '@material-ui/core/styles';
-import CompanyCard from './CompanyCard'
+import ReviewCard from './ReviewCard'
 
 import LinearProgress from '@material-ui/core/LinearProgress';
 
@@ -19,29 +19,29 @@ const useStyles = makeStyles((theme) => ({
 export default function ReviewShow(){
   const classes = useStyles(); 
 
-  const [reviews, setReviews] = useState(null);
+  const [reviews, setReviews] = useState([]);
 
-  useEffect(() => {
-    console.log(name)
-    console.log("hello")
-    fetch(REVIEW_URL + `${name}`, {
-      headers : { 
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-       }
-    })
-      .then((res) => res.json())
-      .then((response) => {
-        // setReviews(response.reviews);
-        console.log(response.reviews)
-      })
-      .catch((error) => console.log(error));
-  }, []);
+  const getReviews = () => {
+    fetch(REVIEW_URL)
+    .then(rsp => rsp.json())
+    .then(reviews => setReviews(reviews))
+  }
+
+  useEffect(()=> {
+    getReviews();
+  }, [])
+
+  const Map = () => {
+      console.log(reviews)
+      let r = []
+      reviews.forEach(review => r.push(<ReviewCard review={review} key={review.id} /> ))
+      console.log(r)
+      return r
+  }
 
   return (
     <div>
-        {company ? <CompanyCard comp={company} key={company.id} /> : <LinearProgress className={classes.root}/>  }
+      {Map()}
     </div>
   )
-
 }

@@ -26,8 +26,8 @@ export default function ComponentShow({match}){
   const [company, setCompany] = useState(null);
 
   useEffect(() => {
-    console.log(name)
-    console.log("hello")
+    // console.log(name)
+    // console.log("hello")
     fetch(COMPANY_URL + `${name}`, {
       headers : { 
         'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ export default function ComponentShow({match}){
       .then((res) => res.json())
       .then((response) => {
         setCompany(response.company);
-        console.log(response.company)
+        // console.log(response)
       })
       .catch((error) => console.log(error));
   }, []);

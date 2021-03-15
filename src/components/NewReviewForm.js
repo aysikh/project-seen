@@ -313,10 +313,9 @@ export default function NewReviewForm() {
                       onChange={handleContent}
                       variant="outlined" 
                     />
-
-
                 </Paper> 
               </Grid>
+              
         {/* RATING ON THE RIGHT */}
           <Grid item xs={4} style={{backgroundColor: 'green', marginTop: '2rem'}}>
             <Paper style={{padding: '15px'}} elevation={5}>

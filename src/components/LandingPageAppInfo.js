@@ -40,12 +40,12 @@ export default function LandingPageAppInfo(){
     // e.preventDefault();
     console.log(e)
     // console.log(value)
-    history.push("company/" + e.name)
-    // if(e != ""){
-    //   history.push("company/"+ e.name)
-    // } else {
-    //   return null
-    // }
+    // history.push("company/" + e.name)
+    if(e != null){
+      history.push("company/"+ e.name)
+    } else {
+      return ""
+    }
   }
 
   return(

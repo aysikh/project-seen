@@ -52,7 +52,6 @@ const useStyles = makeStyles((theme) => ({
 export default function CompanyCard(props){
   const classes = useStyles();
 
-
   return(
     <div className="company-info-container">
       <div id="company-name" className={classes.topInfo}>
@@ -65,41 +64,41 @@ export default function CompanyCard(props){
         <h2 style={{color: 'white'}}>{props.comp.description}</h2>
       </div>
       <div id="company-stats" className={classes.stats}>
-      <Grid container className={classes.root} spacing={2}>
-      <Grid item xs={12}>
-        <Grid container justify="center">
-            <Grid>
-              <Paper className={classes.paper} >
-                <DemographicChart />
-              </Paper>
+        <Grid container className={classes.root} spacing={2}>
+          <Grid item xs={12}>
+            <Grid container justify="center">
+                <Grid>
+                  <Paper className={classes.paper} >
+                    <DemographicChart />
+                  </Paper>
+                </Grid>
+                <Grid>
+                  <Paper className={classes.paper} >
+                    <center> 
+                      <PeopleIcon style={{fontSize: '10rem', color: 'gray'}}/>
+                      <h1>{props.comp.size} employees</h1>
+                    </center>
+                  </Paper>
+                </Grid>
+                <Grid>
+                  <Paper className={classes.paper} >
+                    <center>
+                    <br/><br/>
+                    <span style={{fontSize:'3rem'}}>DEI Rating:</span>
+                    <Rating 
+                    name="read-only" 
+                    style={{color: '#99EEBB', fontSize: '5rem', marginTop: '3rem'}} 
+                    precision={0.5} 
+                    value={4.5} 
+                    readOnly />
+                      <br /> 
+                      <span style={{fontSize: '5.5rem'}}>4.5</span>
+                    </center>
+                  </Paper>
+                </Grid>
             </Grid>
-            <Grid>
-              <Paper className={classes.paper} >
-                <center> 
-                  <PeopleIcon style={{fontSize: '10rem', color: 'gray'}}/>
-                  <h1>{props.comp.size} employees</h1>
-                </center>
-              </Paper>
-            </Grid>
-            <Grid>
-              <Paper className={classes.paper} >
-                <center>
-                <br/><br/>
-                <span style={{fontSize:'3rem'}}>DEI Rating:</span>
-                <Rating 
-                name="read-only" 
-                style={{color: '#99EEBB', fontSize: '5rem', marginTop: '3rem'}} 
-                precision={0.5} 
-                value={4.5} 
-                readOnly />
-                  <br /> 
-                  <span style={{fontSize: '5.5rem'}}>4.5</span>
-                </center>
-              </Paper>
-            </Grid>
+          </Grid>
         </Grid>
-      </Grid>
-    </Grid>
       </div>
     </div>
   )

@@ -7,7 +7,7 @@ import LogInContainer from './containers/LogInContainer';
 import SignUpContainer from './containers/SignUpContainer';
 import NewReviewForm from './components/NewReviewForm'
 import CompanyShow from './components/CompanyShow'
-import DummyTest from './components/DummyTest'
+import ReviewShow from './components/ReviewShow'
 
 const COMPANY_URL = "http://localhost:3000/companies"
 
@@ -55,6 +55,7 @@ export default function App({history}) {
           <Route path="/log-in" component={LogInContainer} /> 
           <Route path='/new-review' component={NewReviewForm} /> 
           <Route path="/company/:name" component={CompanyShow} />
+          <Route path="/reviews" component={ReviewShow} /> 
         </div>
       </Switch>
       </div>
