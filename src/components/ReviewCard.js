@@ -79,37 +79,37 @@ export default function ReviewCard(props){
                   <StarsIcon style={{fontSize:'2.5rem'}}/> 
                   <br/><br/>
                   <Grid container>
-                    <Grid item xs={2} style={{marginLeft: '15px'}}> 
+                    <Grid item xs={2} style={{marginLeft: '18px'}}> 
                         {props.review.diversity}
                     </Grid>
                     <Grid item xs={8}>
                   <span style={{fontSize:'15px'}}>Diversity in Organization</span> <br/>
                     </Grid>
-                    <Grid item xs={2} style={{marginLeft: '15px'}}> 
+                    <Grid item xs={2} style={{marginLeft: '18px'}}> 
                         {props.review.leadership}
                     </Grid>
                     <Grid item xs={8}>
                     <span style={{fontSize:'15px'}}>Diversity in Leadership</span> <br /> 
                     </Grid>
-                    <Grid item xs={2} style={{marginLeft: '15px'}}> 
+                    <Grid item xs={2} style={{marginLeft: '18px'}}> 
                         {props.review.worklife}
                     </Grid>
                     <Grid item xs={8}>
                     <span style={{fontSize:'15px'}}>Work/Life Balance</span> <br /> 
                     </Grid>
-                    <Grid item xs={2} style={{marginLeft: '15px'}}> 
+                    <Grid item xs={2} style={{marginLeft: '18px'}}> 
                         {props.review.inclusiveness}
                     </Grid>
                     <Grid item xs={8}>
                     <span style={{fontSize:'15px'}}>Inclusiveness</span> <br /> 
                     </Grid>
-                    <Grid item xs={2} style={{marginLeft: '15px'}}> 
+                    <Grid item xs={2} style={{marginLeft: '18px'}}> 
                         {props.review.benefits}
                     </Grid>
                     <Grid item xs={8}>
                     <span style={{fontSize:'15px'}}>Benefits At Company</span> <br />
                     </Grid>
-                    <Grid item xs={2} style={{marginLeft: '15px'}}> 
+                    <Grid item xs={2} style={{marginLeft: '18px'}}> 
                         {props.review.recommendation}
                     </Grid>
                     <Grid item xs={8}>

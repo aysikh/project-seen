@@ -24,6 +24,11 @@ const useStyles = makeStyles((theme) => ({
   info: {
     width: '20rem', 
     height: 'auto'
+  },
+  question: {
+    backgroundColor: "#b39ddb", 
+    color: 'white', 
+    maxHeight: '20px'
   }
 }));
 
@@ -34,7 +39,7 @@ export default function NewReviewForm() {
       <PopupState variant="popover" popupId="1">
         {(popupState) => (
           <div>
-            <Button variant="contained" color="primary" {...bindTrigger(popupState)}>
+            <Button variant="contained" className={classes.question}{...bindTrigger(popupState)}>
               ?
             </Button>
             <Popover
@@ -63,7 +68,7 @@ export default function NewReviewForm() {
       <PopupState variant="popover" popupId="2">
         {(popupState) => (
           <div>
-            <Button variant="contained" color="primary" {...bindTrigger(popupState)}>
+            <Button variant="contained" className={classes.question}{...bindTrigger(popupState)}>
               ?
             </Button>
             <Popover
@@ -92,7 +97,7 @@ export default function NewReviewForm() {
       <PopupState variant="popover" popupId="1">
         {(popupState) => (
           <div>
-            <Button variant="contained" color="primary" {...bindTrigger(popupState)}>
+            <Button variant="contained" className={classes.question}{...bindTrigger(popupState)}>
               ?
             </Button>
             <Popover
@@ -121,7 +126,7 @@ export default function NewReviewForm() {
       <PopupState variant="popover" popupId="1">
         {(popupState) => (
           <div>
-            <Button variant="contained" color="primary" {...bindTrigger(popupState)}>
+            <Button variant="contained" className={classes.question}{...bindTrigger(popupState)}>
               ?
             </Button>
             <Popover
@@ -150,7 +155,7 @@ export default function NewReviewForm() {
       <PopupState variant="popover" popupId="1">
         {(popupState) => (
           <div>
-            <Button variant="contained" color="primary" {...bindTrigger(popupState)}>
+            <Button variant="contained" className={classes.question} {...bindTrigger(popupState)}>
               ?
             </Button>
             <Popover
@@ -179,7 +184,7 @@ export default function NewReviewForm() {
       <PopupState variant="popover" popupId="1">
         {(popupState) => (
           <div>
-            <Button variant="contained" color="primary" {...bindTrigger(popupState)}>
+            <Button variant="contained" className={classes.question} {...bindTrigger(popupState)}>
               ?
             </Button>
             <Popover
@@ -316,12 +321,12 @@ export default function NewReviewForm() {
                 </Paper> 
               </Grid>
 
-        {/* RATING ON THE RIGHT */}
-          <Grid item xs={4} style={{backgroundColor: 'green', marginTop: '2rem'}}>
+{/* RATING ON THE RIGHT */}
+<Grid item xs={4} style={{marginTop: '2rem'}}>
             <Paper style={{padding: '15px'}} elevation={5}>
             <h1> Hi Rating here</h1> 
             <Box component="fieldset" mb={3} borderColor="transparent">
-              <Grid container spacing={3} style={{backgroundColor: 'pink'}}>
+              <Grid container spacing={3}>
                 <Grid item xs={9}>
                   <Typography component="legend">Diversity in Organization</Typography>
                 </Grid>
@@ -329,9 +334,9 @@ export default function NewReviewForm() {
                   {Diversity()}
                 </Grid>
                   <Rating
-                    name="diversity"
+                    name="half-rating"
                     precision={0.5}
-                    style={{color: 'brown', fontSize: '3.5rem'}}
+                    style={{color: '#D2C7E0', fontSize: '3.5rem'}}
                     value={diversity}
                     onChange={handleDiversity}
                   />
@@ -346,9 +351,9 @@ export default function NewReviewForm() {
                   {Leadership()}
                 </Grid>
                 <Rating
-                  name="leadership"
+                  name="half-rating"
                   precision={0.5}
-                  style={{color: 'brown', fontSize: '3.5rem'}}
+                  style={{color: '#b39ddb', fontSize: '3.5rem'}}
                   value={leadership}
                   onChange={handleLeadership}
                 />
@@ -363,9 +368,9 @@ export default function NewReviewForm() {
                   {WorkLife()}
                 </Grid>
                 <Rating
-                  name="worklife"
+                  name="half-rating"
                   precision={0.5}
-                  style={{color: 'brown', fontSize: '3.5rem'}}
+                  style={{color: '#c1b9f7', fontSize: '3.5rem'}}
                   value={worklife}
                   onChange={handleWorklife}
                 />
@@ -380,9 +385,9 @@ export default function NewReviewForm() {
                   {Inclusiveness()}
                 </Grid>
                 <Rating
-                  name="inclusiveness"
+                  name="half-rating"
                   precision={0.5}
-                  style={{color: 'brown', fontSize: '3.5rem'}}
+                  style={{color: '#D2C7E0', fontSize: '3.5rem'}}
                   value={inclusiveness}
                   onChange={handleInclusiveness}
                 />
@@ -397,9 +402,9 @@ export default function NewReviewForm() {
                   {Benefits()}
                 </Grid>
                 <Rating
-                  name="benefits"
+                  name="half-rating"
                   precision={0.5}
-                  style={{color: 'brown', fontSize: '3.5rem'}}
+                  style={{color: '#b39ddb', fontSize: '3.5rem'}}
                   value={benefits}
                   onChange={handleBenefits}
                 />
@@ -414,9 +419,9 @@ export default function NewReviewForm() {
                   {Recommend()}
                 </Grid>
                 <Rating
-                  name="recommend"
+                  name="half-rating"
                   precision={0.5}
-                  style={{color: 'brown', fontSize: '3.5rem'}}
+                  style={{color: '#bbabf7', fontSize: '3.5rem'}}
                   value={recommendation}
                   onChange={handleRecommendation}
                 />
@@ -425,7 +430,7 @@ export default function NewReviewForm() {
             </Paper>
           </Grid>
           <Button 
-              style={{backgroundColor: 'teal', marginLeft: '60rem'}}
+              style={{backgroundColor: '#c1b9f7', marginLeft: '60rem'}}
               type="submit" 
               variant="contained" 
               color="primary">
