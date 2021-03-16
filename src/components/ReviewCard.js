@@ -130,10 +130,14 @@ export default function ReviewCard(props){
               <center>
                 <span> {props.review.isNotUseful} </span>
                   <IconButton>
-                    <ThumbDownIcon style={{fontSize: '2rem', padding: '1px'}}/>
+                    <ThumbDownIcon 
+                    style={{fontSize: '2rem', padding: '1px'}} 
+                    onClick={(e) => (props.updateNotUseful(e))} />
                   </IconButton> 
                   <IconButton>
-                    <ThumbUpIcon style={{fontSize: '2rem', padding: '1px'}}/>
+                    <ThumbUpIcon 
+                    style={{fontSize: '2rem', padding: '1px'}}
+                    onClick={(e) => (props.updateUseful(e))} />
                   </IconButton> 
                 <span> {props.review.isUseful} </span>
               </center>
