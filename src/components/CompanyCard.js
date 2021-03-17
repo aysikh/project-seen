@@ -60,16 +60,16 @@ export default function CompanyCard(props){
         <br /><br />
         <LocationOnIcon /> <span style={{fontSize: '1.25rem'}}>{props.comp.location}</span>
       </div>
-      <div className={classes.description}>
+      {/* <div className={classes.description}>
         <h2 style={{color: 'white'}}>{props.comp.description}</h2>
-      </div>
+      </div> */}
       <div id="company-stats" className={classes.stats}>
         <Grid container className={classes.root} spacing={2}>
           <Grid item xs={12}>
             <Grid container justify="center">
                 <Grid>
                   <Paper className={classes.paper} >
-                    <DemographicChart />
+                    <h2>{props.comp.description}</h2>
                   </Paper>
                 </Grid>
                 <Grid>

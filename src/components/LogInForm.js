@@ -60,7 +60,7 @@ export default function LogInForm(){
         else {
           // props.setCurrentUser(data.info)
           console.log(data.info)
-          history.push('/homepage')
+          history.push('/')
         }
       })
     

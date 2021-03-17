@@ -54,7 +54,7 @@ export default function App({history}) {
           <Route exact path="/sign-up" component={SignUpContainer} />
           <Route path="/log-in" component={LogInContainer} /> 
           <Route path='/new-review' component={NewReviewForm} /> 
-          <Route path="/company/:name" component={CompanyShow} />
+          <Route exact path="/company/:name" component={CompanyShow} />
           <Route path="/reviews" component={ReviewShow} /> 
         </div>
       </Switch>

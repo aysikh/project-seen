@@ -334,7 +334,7 @@ export default function NewReviewForm() {
                   {Diversity()}
                 </Grid>
                   <Rating
-                    name="half-rating"
+                    name="diversity"
                     precision={0.5}
                     style={{color: '#D2C7E0', fontSize: '3.5rem'}}
                     value={diversity}
@@ -351,7 +351,7 @@ export default function NewReviewForm() {
                   {Leadership()}
                 </Grid>
                 <Rating
-                  name="half-rating"
+                  name="leadership"
                   precision={0.5}
                   style={{color: '#b39ddb', fontSize: '3.5rem'}}
                   value={leadership}
@@ -368,7 +368,7 @@ export default function NewReviewForm() {
                   {WorkLife()}
                 </Grid>
                 <Rating
-                  name="half-rating"
+                  name="worklife"
                   precision={0.5}
                   style={{color: '#c1b9f7', fontSize: '3.5rem'}}
                   value={worklife}
@@ -385,7 +385,7 @@ export default function NewReviewForm() {
                   {Inclusiveness()}
                 </Grid>
                 <Rating
-                  name="half-rating"
+                  name="inclusiveness"
                   precision={0.5}
                   style={{color: '#D2C7E0', fontSize: '3.5rem'}}
                   value={inclusiveness}
@@ -402,7 +402,7 @@ export default function NewReviewForm() {
                   {Benefits()}
                 </Grid>
                 <Rating
-                  name="half-rating"
+                  name="benefits"
                   precision={0.5}
                   style={{color: '#b39ddb', fontSize: '3.5rem'}}
                   value={benefits}
@@ -419,7 +419,7 @@ export default function NewReviewForm() {
                   {Recommend()}
                 </Grid>
                 <Rating
-                  name="half-rating"
+                  name="recommendation"
                   precision={0.5}
                   style={{color: '#bbabf7', fontSize: '3.5rem'}}
                   value={recommendation}
