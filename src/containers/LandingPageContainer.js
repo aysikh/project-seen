@@ -7,13 +7,12 @@ import LandingPageAppInfo from '../components/LandingPageAppInfo'
 
 const useStyles = makeStyles((theme) => ({
   bg: {
-      minHeight: '100vh',
+      width: '100%', 
+      minHeight: '90vh',
       backgroundImage: `url(${white})`,
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
       backgroundAttachment: 'fixed',
-      overflow: 'hidden',
-      overflowY: 'scroll'
     },
   }));
 

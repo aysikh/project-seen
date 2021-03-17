@@ -6,7 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
-
+import BG from '../assets/purple.png'
 import LinearProgress from '@material-ui/core/LinearProgress';
 
 const COMPANY_URL = "http://localhost:3000/companies/"
@@ -18,6 +18,14 @@ const useStyles = makeStyles((theme) => ({
     '& > * + *': {
       marginTop: theme.spacing(2),
     },
+  },
+  bg: {
+    width: '100%', 
+    minHeight: '90vh',
+    backgroundImage: `url(${BG})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    backgroundAttachment: 'fixed',
   },
 }));
 
@@ -74,7 +82,7 @@ export default function ComponentShow({match}){
   }
 
   return (
-    <div>
+    <div className={classes.bg}>
       <center>
         <br/> <br/>
         <AppBar style={{backgroundColor: 'white', width: '40rem', position: 'relative'}}>
