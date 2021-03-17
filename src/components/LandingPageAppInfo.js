@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from "react-router-dom";
-import { fade, makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 
 import TextField from '@material-ui/core/TextField';
@@ -12,10 +12,11 @@ const useStyles = makeStyles((theme) => ({
   appBar:{
     backgroundColor: 'white',
     width: '60rem',
+    marginBottom: '3rem'
   },
   grow: {
     flexGrow: 1,
-  }
+  }, 
 }));
 
 
@@ -49,7 +50,8 @@ export default function LandingPageAppInfo(){
   return(
     <div>
       <center>
-      <span style={{fontSize: '4.5rem', fontFamily: 'Josefin Sans', margin: '10px', padding: '50px'}}> Would you like to know what Black women are saying about tech companies? </span>
+        <br/> <br/> <br/> <br/>
+      <span style={{fontSize: '5rem', fontFamily: 'Josefin Sans', margin: '25px', padding: '100px'}}> Would you like to know what Black women are saying about tech companies? </span>
       <br /> <br />
         <AppBar position="static" className={classes.appBar}>
             <Autocomplete

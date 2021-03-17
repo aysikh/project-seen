@@ -8,6 +8,8 @@ import SignUpContainer from './containers/SignUpContainer';
 import NewReviewForm from './components/NewReviewForm'
 import CompanyShow from './components/CompanyShow'
 import ReviewShow from './components/ReviewShow'
+import NavBar from './components/NavBar'
+
 
 const COMPANY_URL = "http://localhost:3000/companies"
 
@@ -46,19 +48,22 @@ export default function App({history}) {
   // }
 
   return(
-    <BrowserRouter>
-      <div className={classes.bg}>
-      <Switch>
-        <div>
-          <Route exact path="/" component={LandingPageContainer} />
-          <Route exact path="/sign-up" component={SignUpContainer} />
-          <Route path="/log-in" component={LogInContainer} /> 
-          <Route path='/new-review' component={NewReviewForm} /> 
-          <Route exact path="/company/:name" component={CompanyShow} />
-          <Route path="/reviews" component={ReviewShow} /> 
+    <div>
+      <NavBar /> 
+      <BrowserRouter>
+        <div className={classes.bg}>
+        <Switch>
+          <div>
+            <Route exact path="/" component={LandingPageContainer} />
+            <Route exact path="/sign-up" component={SignUpContainer} />
+            <Route path="/log-in" component={LogInContainer} /> 
+            <Route path='/new-review' component={NewReviewForm} /> 
+            <Route exact path="/company/:name" component={CompanyShow} />
+            <Route path="/reviews" component={ReviewShow} /> 
+          </div>
+        </Switch>
         </div>
-      </Switch>
-      </div>
-    </BrowserRouter>
+      </BrowserRouter>
+    </div>
   )
 }
