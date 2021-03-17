@@ -17,8 +17,20 @@ const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
   }, 
+  text1:{
+    fontSize: '6.5rem', 
+    fontFamily: 'Josefin Sans', 
+    margin: '25px', 
+    padding: theme.spacing(4),
+  },
+  text2:{
+    fontSize: '4.5rem', 
+    fontFamily: 'Josefin Sans', 
+    margin: '25px', 
+    // padding: '100px', 
+    padding: theme.spacing(2, 4),
+  }
 }));
-
 
 export default function LandingPageAppInfo(){
   const classes = useStyles();
@@ -50,9 +62,11 @@ export default function LandingPageAppInfo(){
   return(
     <div>
       <center>
-        <br/> <br/> <br/> <br/>
-      <span style={{fontSize: '5rem', fontFamily: 'Josefin Sans', margin: '25px', padding: '100px'}}> Would you like to know what Black women are saying about tech companies? </span>
-      <br /> <br />
+      <br/> <br/> 
+      <span className={classes.text1}> Are you a Black woman? </span>
+      <br/> <br/> <br/>
+      <span className={classes.text2}> Find out what other Black women are saying about a company.  </span>
+      <br /> <br /> <br/> <br/>
         <AppBar position="static" className={classes.appBar}>
             <Autocomplete
               id="combo-box-demo"
