@@ -6,7 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
-import BG from '../assets/purple.png'
+import BG from '../assets/bg-2.jpeg'
 import LinearProgress from '@material-ui/core/LinearProgress';
 
 const COMPANY_URL = "http://localhost:3000/companies/"

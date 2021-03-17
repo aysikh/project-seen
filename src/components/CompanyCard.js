@@ -19,7 +19,9 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Josefin Sans',
     height: '25rem',
     width: '28rem',
-    margin: '3.5rem'
+    margin: '3.5rem',
+    boxShadow: theme.shadows[5],
+        padding: theme.spacing(2, 4),
   },
   topInfo: {
     fontFamily: 'Josefin Sans',
@@ -87,7 +89,7 @@ export default function CompanyCard(props){
                     <span style={{fontSize:'3rem'}}>DEI Rating:</span>
                     <Rating 
                     name="read-only" 
-                    style={{color: '#99EEBB', fontSize: '5rem', marginTop: '3rem'}} 
+                    style={{color: '#D2C7E0', fontSize: '5rem', marginTop: '3rem'}} 
                     precision={0.5} 
                     value={4.5} 
                     readOnly />

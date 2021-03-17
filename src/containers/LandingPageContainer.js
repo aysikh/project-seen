@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { makeStyles } from '@material-ui/core/styles'
-import Logo from '../assets/seen-logo-2.png'
-import white from '../assets/white.png'
+import Logo from '../assets/seenlogo1.png'
+import white from '../assets/bg-7.jpeg'
 import LandingPageAppInfo from '../components/LandingPageAppInfo'
 
 
@@ -23,7 +23,7 @@ export default function LandingPageContainer() {
   return (
     <div className={classes.bg} > 
       <LandingPageAppInfo /> 
-      <center> <img src={Logo} style={{marginTop: '5rem'}}/>  </center>
+      <center> <img src={Logo} style={{marginTop: '7rem'}}/>  </center>
     </div> 
   )
 }

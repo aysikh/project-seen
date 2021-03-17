@@ -9,6 +9,8 @@ import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Popover from '@material-ui/core/Popover';
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
+import BG from '../assets/bg-8.jpeg'
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,7 +31,15 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#b39ddb", 
     color: 'white', 
     maxHeight: '20px'
-  }
+  },
+  bg: {
+    width: '100%', 
+    minHeight: '90vh',
+    backgroundImage: `url(${BG})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    backgroundAttachment: 'fixed',
+  },
 }));
 
 
@@ -280,7 +290,7 @@ export default function NewReviewForm() {
   }
 
   return (
-    <div>
+    <div className={classes.bg}>
       <form 
         autoComplete="on"
         noValidate
@@ -289,7 +299,7 @@ export default function NewReviewForm() {
         } }>
       <Grid container xl={20} className={classes.root} >
           <Grid container justify="center" spacing={6} >
-              <Grid item xs={4} style={{backgroundColor: 'red', marginTop: '2rem'}}>
+              <Grid item xs={4} style={{marginTop: '2rem'}}>
                 <Paper style={{padding: '15px'}} elevation={5}>
                 <Typography>Write your Review!</Typography>
                 <br/> <br/> 
