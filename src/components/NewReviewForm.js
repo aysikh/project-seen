@@ -10,18 +10,30 @@ import Button from '@material-ui/core/Button';
 import Popover from '@material-ui/core/Popover';
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 import BG from '../assets/bg-8.jpeg'
-
+import test from '../assets/test.png'
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    // backgroundColor: 'pink',
   },
   paper: {
+    height: '46.2rem',
+    width: '33rem',
+    display: 'inline-block',
+    padding: '15px',
+    margin: '2px',
+    backgroundColor: '#dcc8ff',
+  },
+  imgBox: {
     height: 'auto',
     width: 'auto',
     display: 'inline-block',
     padding: '10px',
-    margin: '2px'
+    margin: '2px',
+    backgroundColor: 'white',
+    marginLeft: '-9.5rem',
+    marginTop: '28.5rem',
   },
   info: {
     width: '20rem', 
@@ -35,7 +47,8 @@ const useStyles = makeStyles((theme) => ({
   bg: {
     width: '100%', 
     minHeight: '90vh',
-    backgroundImage: `url(${BG})`,
+    backgroundColor: 'white',
+    // backgroundImage: `url(${test})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundAttachment: 'fixed',
@@ -297,13 +310,14 @@ export default function NewReviewForm() {
         onSubmit={ ( event ) => {
             handleNewReviewSubmit( event )
         } }>
-      <Grid container xl={20} className={classes.root} >
-          <Grid container justify="center" spacing={6} >
+      <Grid container xl={10} className={classes.root} >
+          <Grid container justify="center"  >
               <Grid item xs={4} style={{marginTop: '2rem'}}>
-                <Paper style={{padding: '15px'}} elevation={5}>
-                <Typography>Write your Review!</Typography>
-                <br/> <br/> 
+                <Paper className={classes.paper} elevation={5}>
+                <h3>Write your Review!</h3>
+                <br/>
                     <TextField 
+                      style={{backgroundColor: 'white', fontFamily: 'Josefin Sans'}}
                       fullWidth
                       onChange={handleTitle}
                       id="outlined-basic" 
@@ -312,6 +326,7 @@ export default function NewReviewForm() {
                     />
                     <br /> <br />
                     <TextField 
+                    style={{backgroundColor: 'white'}}
                       fullWidth
                       onChange={handlePosition}
                       id="outlined-basic" 
@@ -320,6 +335,7 @@ export default function NewReviewForm() {
                     />
                     <br /> <br /> 
                     <TextField
+                      style={{backgroundColor: 'white'}}
                       fullWidth
                       multiline
                       rows={15}
@@ -328,11 +344,12 @@ export default function NewReviewForm() {
                       onChange={handleContent}
                       variant="outlined" 
                     />
+                    <br /> <br /> 
                 </Paper> 
               </Grid>
 
       {/* RATING ON THE RIGHT */}
-      <Grid item xs={4} style={{marginTop: '2rem'}}>
+      <Grid item xs={3} style={{marginTop: '2rem'}}>
             <Paper style={{padding: '15px'}} elevation={5}>
             <Box component="fieldset" mb={3} borderColor="transparent">
               <Grid container spacing={3}>
@@ -438,13 +455,25 @@ export default function NewReviewForm() {
               </Box>
             </Paper>
           </Grid>
-          <Button 
-              style={{backgroundColor: '#c1b9f7', marginLeft: '60rem'}}
-              type="submit" 
-              variant="contained" 
-              color="primary">
-              Submit
-            </Button> 
+          <Grid container xs={3} >
+                <Grid container justify="center" >
+                    <Grid item xs={2} style={{marginTop: '3.5rem'}}>
+                      <Paper className={classes.imgBox} elevation={5}>
+                          <center>
+                          <img src={test} style={{width: '28rem'}}/>
+
+                          <Button 
+                            style={{backgroundColor: '#c1b9f7', width: '25rem'}}
+                            type="submit" 
+                            variant="contained" 
+                            color="primary">
+                            Submit
+                          </Button> 
+                          </center>
+                        </Paper> 
+                    </Grid> 
+                </Grid>
+            </Grid> 
         </Grid>
       </Grid>
       </form>

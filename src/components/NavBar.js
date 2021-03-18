@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link, BrowserRouter, Route, Router} from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import SeenSimple from '../assets/seen-simple.png'
 import AppBar from '@material-ui/core/AppBar';
@@ -21,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative', 
     backgroundColor: 'inherit', 
     color: 'black',
-    marginLeft: '10px'
+    marginLeft: '15px',
   },
   navlogo: {
     display: 'fixed',
@@ -35,6 +36,7 @@ export default function NavBar() {
 
   return(
     <div>
+
       <AppBar position="static" className={classes.logo}>
         <Toolbar>
           <Box> 
@@ -43,9 +45,14 @@ export default function NavBar() {
           </a> 
           </Box>
           <Button className={classes.profileButton}>Profile</Button>
-          <Button className={classes.logoutButton}>Log Out</Button>
+          {/* <Link href="/sign-up"> */}
+            <Button className={classes.logoutButton}>
+              Log In / Sign Up
+            </Button>
+          {/* </Link> */}
         </Toolbar>
       </AppBar>
+
     </div>
   )
 }
