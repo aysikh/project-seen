@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'inline-block',
     padding: '15px',
     margin: '2px',
-    backgroundColor: '#dcc8ff',
+    backgroundColor: '#c1b9f7',
   },
   imgBox: {
     height: 'auto',
@@ -53,6 +53,11 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: 'cover',
     backgroundAttachment: 'fixed',
   },
+  row: {
+    dislay: 'table', 
+    content: "", 
+    clear: 'both',
+  }
 }));
 
 
@@ -314,8 +319,11 @@ export default function NewReviewForm() {
           <Grid container justify="center"  >
               <Grid item xs={4} style={{marginTop: '2rem'}}>
                 <Paper className={classes.paper} elevation={5}>
-                <h3>Write your Review!</h3>
-                <br/>
+                  <div className={classes.row}>
+                    <h3>Write your Review!</h3>
+                  </div>
+                  <br/>
+                  <div className={classes.row}>
                     <TextField 
                       style={{backgroundColor: 'white', fontFamily: 'Josefin Sans'}}
                       fullWidth
@@ -323,8 +331,10 @@ export default function NewReviewForm() {
                       id="outlined-basic" 
                       label="Enter a title for your review..." 
                       variant="outlined" 
-                    />
-                    <br /> <br />
+                      />
+                  </div>
+                  <br /> <br />
+                  <div>
                     <TextField 
                     style={{backgroundColor: 'white'}}
                       fullWidth
@@ -333,7 +343,9 @@ export default function NewReviewForm() {
                       label="What was your position here? " 
                       variant="outlined" 
                     />
-                    <br /> <br /> 
+                  </div>
+                  <br /> <br /> 
+                  <div>
                     <TextField
                       style={{backgroundColor: 'white'}}
                       fullWidth
@@ -344,7 +356,8 @@ export default function NewReviewForm() {
                       onChange={handleContent}
                       variant="outlined" 
                     />
-                    <br /> <br /> 
+                  </div>
+                  <br /> <br /> 
                 </Paper> 
               </Grid>
 
