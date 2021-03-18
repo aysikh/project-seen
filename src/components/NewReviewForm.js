@@ -331,10 +331,9 @@ export default function NewReviewForm() {
                 </Paper> 
               </Grid>
 
-{/* RATING ON THE RIGHT */}
-<Grid item xs={4} style={{marginTop: '2rem'}}>
+      {/* RATING ON THE RIGHT */}
+      <Grid item xs={4} style={{marginTop: '2rem'}}>
             <Paper style={{padding: '15px'}} elevation={5}>
-            <h1> Hi Rating here</h1> 
             <Box component="fieldset" mb={3} borderColor="transparent">
               <Grid container spacing={3}>
                 <Grid item xs={9}>

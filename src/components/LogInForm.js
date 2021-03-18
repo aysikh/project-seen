@@ -7,15 +7,15 @@ import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button'
 
+import LogIn from '../assets/login.png'
 
 const useStyles = makeStyles((theme) => ({
   paper: {
     backgroundColor: theme.palette.background.paper,
-    border: '1px solid #000',
+    border: '3px solid #000',
     boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4),
+    padding: theme.spacing(2, 2),
     display: "absolute",
-    left: "20%",
     height: "50vh",
     width: "100vh"
   },
@@ -25,82 +25,98 @@ export default function LogInForm(){
   const history = useHistory();
   const classes = useStyles();
 
-  const [state, setState] = useState({
-    email: "", 
-    password: ""
-  })
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
 
-  const handleChange = (event) => {
-    let {id, value} = event.target
-    setState(prevState => ({
-      ...prevState,
-      [id] : value
-    }))
+  const handleEmail = (e) => {
+    setEmail(e.target.value)
   }
+  const handlePassword = (e) => {
+    setPassword(e.target.value)
+  }
+
+  // const [state, setState] = useState({
+  //   email: "", 
+  //   password: ""
+  // })
+
+  // const handleChange = (event) => {
+  //   let {id, value} = event.target
+  //   // console.log(event.target.value)
+  //   setState(prevState => ({
+  //     ...prevState,
+  //     [id] : value
+  //   }))
+  // }
 
   const handleSubmit = (event) => {
     event.preventDefault()
 
-    let user = {
-          email: state.email,
-          password: state.password
-        }
+    // let user = {
+    //       email: email,
+    //       password: password
+    //     }
       
     fetch('http://localhost:3000/login', {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(user)
+      body: JSON.stringify({
+        email: email, 
+        password: password
+      })
     })
       .then(response => response.json())
       .then(data => {
       console.log(data)
-        if (data.errors) {
-          alert("Invalid Credentials")
-        }
-        else {
-          // props.setCurrentUser(data.info)
-          console.log(data.info)
-          history.push('/')
-        }
+        // if (data.errors) {
+        //   alert("Invalid Credentials")
+        // }
+        // else {
+        //   // props.setCurrentUser(data.info)
+        //   console.log(data.info)
+        //   // history.push('/')
+        // }
       })
     
   };
 
   return(
     <div>
-    <Container className={classes.paper}>
-      <Paper elevation={3}>
+    <Container>
+      <br /> <br /> 
+      <center>
+      <Paper elevation={5} className={classes.paper}>
+      <img src={LogIn} style={{width: '20rem'}}/> 
         <form autoComplete="on"
           noValidate
           onSubmit={handleSubmit}
           >                      
           <br /> <br />
           <TextField 
-            fullWidth
-            onChange={handleChange}
-            id="outlined-basic" 
+            style={{width: '50rem', position: 'relative', marginLeft: '3.5rem'}}
+            onChange={handleEmail}
+            id="email" 
             label="Email" 
             variant="outlined" 
           />
           <br /> <br />
           <TextField
-            fullWidth
-            onChange={handleChange}
-            id="outlined-multiline-static"
+            style={{width: '50rem', position: 'relative', marginLeft: '3.5rem'}}
+            onChange={handlePassword}
+            id="password"
             label="Password"
-            multiline
             variant="outlined"
           />
           <br/> <br/> 
           <Button 
+            style={{fontSize: '1rem', position: 'relative', width: '15rem', backgroundColor: '#c1b9f7'}}
             type="submit" 
-            variant="contained" 
-            color="primary">
-            Submit
+            variant="contained">
+            LOG IN
           </Button> 
         </form>
       </Paper>
-      <br /> <br /> 
+      </center>
     </Container>
   </div>
   )

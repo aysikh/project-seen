@@ -9,7 +9,7 @@ import NewReviewForm from './components/NewReviewForm'
 import CompanyShow from './components/CompanyShow'
 import ReviewShow from './components/ReviewShow'
 import NavBar from './components/NavBar'
-
+import ProfileShow from './containers/ProfileShow'
 
 const COMPANY_URL = "http://localhost:3000/companies"
 
@@ -62,6 +62,7 @@ export default function App({history}) {
             <Route path='/new-review' component={NewReviewForm} /> 
             <Route exact path="/company/:name" component={CompanyShow} />
             <Route path="/reviews" component={ReviewShow} /> 
+            <Route path="/profile" component={ProfileShow} />
           </div>
         </Switch>
         </div>

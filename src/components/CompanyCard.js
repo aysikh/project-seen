@@ -1,15 +1,13 @@
 import React from 'react';
-// import { matchPath } from "react-router";
+import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import Rating from '@material-ui/lab/Rating';
-import BusinessIcon from '@material-ui/icons/Business';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import PeopleIcon from '@material-ui/icons/People';
-import DemographicChart from './DemographicChart'
-import { Link } from 'react-router-dom'
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
