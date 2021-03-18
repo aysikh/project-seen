@@ -55,8 +55,8 @@ export default function CompanyCard(props){
   return(
     <div className="company-info-container">
       <div id="company-name" className={classes.topInfo}>
-        <img src={props.comp.logo} style={{height: '6rem', marginTop: '.5rem', marginRight: '.5rem'}}/> 
-        <span style={{fontSize: '3rem'}}>{props.comp.name}</span>
+        <img src={props.comp.logo} style={{height: '6.5rem', marginTop: '.5rem', marginRight: '.5rem'}}/> 
+        <span style={{fontSize: '3.5rem'}}>{props.comp.name}</span>
         <br /><br />
         <LocationOnIcon /> <span style={{fontSize: '1.25rem'}}>{props.comp.location}</span>
       </div>
