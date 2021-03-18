@@ -3,13 +3,13 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-
+import Button from '@material-ui/core/Button';
 import Rating from '@material-ui/lab/Rating';
 import BusinessIcon from '@material-ui/icons/Business';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import PeopleIcon from '@material-ui/icons/People';
 import DemographicChart from './DemographicChart'
-
+import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,9 +19,9 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Josefin Sans',
     height: '25rem',
     width: '28rem',
-    margin: '3.5rem',
+    margin: '2rem',
     boxShadow: theme.shadows[5],
-        padding: theme.spacing(2, 4),
+        padding: theme.spacing(4, 4),
   },
   topInfo: {
     fontFamily: 'Josefin Sans',
@@ -95,6 +95,10 @@ export default function CompanyCard(props){
                     readOnly />
                       <br /> 
                       <span style={{fontSize: '5.5rem'}}>4.5</span>
+                      <br /> 
+                      <Button component={Link} to="/new-review" variant="contained" style={{backgroundColor: "#D2C7E0"}}>  
+                        Write a Review
+                      </Button>
                     </center>
                   </Paper>
                 </Grid>

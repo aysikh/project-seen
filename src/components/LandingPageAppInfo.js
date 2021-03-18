@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(4),
   },
   text2:{
-    fontSize: '4.5rem', 
+    fontSize: '3.5rem', 
     fontFamily: 'Josefin Sans', 
     margin: '25px', 
     // padding: '100px', 

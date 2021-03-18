@@ -74,11 +74,11 @@ export default function ComponentShow({match}){
     // console.log(value)
     // history.push("company/" + e.name)
     console.log("hello hai")
-    // if(e != null){
-    //   <li><Link href="/reviews"></Link> </li>
-    // } else {
-    //   return ""
-    // }
+    if(e != null){
+      <a href={"company/" + e.name}></a> 
+    } else {
+      return ""
+    }
   }
 
   return (
