@@ -19,6 +19,11 @@ const useStyles = makeStyles((theme) => ({
     height: "50vh",
     width: "100vh"
   },
+  textfield: {
+    width: '50rem', 
+    position: 'relative', 
+    marginLeft: '3.5rem'
+  }
 }))
 
 export default function LogInForm(){
@@ -93,7 +98,7 @@ export default function LogInForm(){
           >                      
           <br /> <br />
           <TextField 
-            style={{width: '50rem', position: 'relative', marginLeft: '3.5rem'}}
+            className={classes.textfield}
             onChange={handleEmail}
             id="email" 
             label="Email" 
@@ -101,7 +106,7 @@ export default function LogInForm(){
           />
           <br /> <br />
           <TextField
-            style={{width: '50rem', position: 'relative', marginLeft: '3.5rem'}}
+            className={classes.textfield}
             onChange={handlePassword}
             id="password"
             label="Password"
@@ -109,9 +114,10 @@ export default function LogInForm(){
           />
           <br/> <br/> 
           <Button 
-            style={{fontSize: '1rem', position: 'relative', width: '15rem', backgroundColor: '#c1b9f7'}}
+            style={{fontSize: '1rem', position: 'relative', width: '20rem', backgroundColor: '#c1b9f7'}}
             type="submit" 
-            variant="contained">
+            variant="contained"
+            >
             LOG IN
           </Button> 
         </form>

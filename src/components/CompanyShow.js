@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundAttachment: 'fixed',
-  },
+  }
 }));
 
 export default function ComponentShow({match}){

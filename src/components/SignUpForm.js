@@ -6,18 +6,23 @@ import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button'
+import SignUp from '../assets/signup.png'
 
   const useStyles = makeStyles((theme) => ({
     paper: {
       backgroundColor: theme.palette.background.paper,
-      border: '1px solid #000',
+      border: '3px solid #000',
       boxShadow: theme.shadows[5],
       padding: theme.spacing(2, 4),
       display: "absolute",
-      left: "20%",
-      height: "50vh",
+      height: "60vh",
       width: "100vh"
     },
+    textfield: {
+      width: '50rem', 
+      position: 'relative', 
+      marginLeft: '3.5rem'
+    }
   }))
 
 export default function SignUpForm(props){ 
@@ -95,54 +100,58 @@ export default function SignUpForm(props){
 
   return (
     <div>
-      <Container className={classes.paper}>
-        <Paper elevation={3}>
+      <Container >
+        <br /> <br /> 
+        <center>
+        <Paper elevation={3} className={classes.paper}>
+          <img src={SignUp} style={{width: '20rem'}}/> 
           <form autoComplete="on"
             noValidate
             onSubmit={ ( event ) => {
                 handleNewUserSubmit( event )
             } }>                      
             <TextField 
-              fullWidth
+              className={classes.textfield}
               onChange={handleFirstname}
-              id="outlined-basic" 
+              id="first-name" 
               label="First Name" 
               variant="outlined" 
             />
             <br /> <br />
             <TextField 
-              fullWidth
+              className={classes.textfield}
               onChange={handleLastname}
-              id="outlined-basic" 
+              id="last-name" 
               label="Last Name" 
               variant="outlined" 
             />
             <br /> <br />
             <TextField 
-              fullWidth
+              className={classes.textfield}
               onChange={handleEmail}
-              id="outlined-basic" 
+              id="email" 
               label="Email" 
               variant="outlined" 
             />
             <br /> <br />
             <TextField
-              fullWidth
+              className={classes.textfield}
               onChange={handlePassword}
-              id="outlined-multiline-static"
+              id="password"
               label="Password"
-              multiline
               variant="outlined"
             />
             <br/> <br/> 
             <Button 
+              style={{fontSize: '1rem', position: 'relative', width: '20rem', backgroundColor: '#c1b9f7'}}
               type="submit" 
               variant="contained" 
-              color="primary">
-              Submit
+              >
+              SUBMIT
             </Button> 
           </form>
         </Paper>
+        </center>
         <br /> <br /> 
       </Container>
     </div>

@@ -1,10 +1,22 @@
 import React, { Component } from 'react'
+import { makeStyles } from '@material-ui/core/styles';
+import BG from '../assets/bg-5.png';
 import SignUpForm from '../components/SignUpForm';
 
+const useStyles = makeStyles(() => ({
+  bg: {
+    minHeight: '100vh',
+    backgroundImage: `url(${BG})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+  },
+}));
+
 export default function SignUpContainer() {
+  const classes = useStyles();
+
   return (
-    <div>
-      <h1> Hiya I'm the sign up container </h1>
+    <div className={classes.bg}>
       <SignUpForm /> 
     </div>
   )
