@@ -18,8 +18,8 @@ const useStyles = makeStyles((theme) => ({
     // backgroundColor: 'pink',
   },
   paper: {
-    height: '46.2rem',
-    width: '33rem',
+    height: '96%',
+    width: '90%',
     display: 'inline-block',
     padding: '15px',
     margin: '2px',
@@ -32,8 +32,8 @@ const useStyles = makeStyles((theme) => ({
     padding: '10px',
     margin: '2px',
     backgroundColor: 'white',
-    marginLeft: '-9.5rem',
-    marginTop: '28.5rem',
+    marginLeft: '-9.3rem',
+    marginTop: '30rem',
   },
   info: {
     width: '20rem', 
@@ -54,9 +54,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundAttachment: 'fixed',
   },
   row: {
-    dislay: 'table', 
-    content: "", 
-    clear: 'both',
+    WebkitBoxSizing: 'border-box', 
+    MozBoxSizing: 'border-box',
+    boxSizing: 'border-box', 
+    width: '30rem'
   }
 }));
 
@@ -319,36 +320,36 @@ export default function NewReviewForm() {
           <Grid container justify="center"  >
               <Grid item xs={4} style={{marginTop: '2rem'}}>
                 <Paper className={classes.paper} elevation={5}>
-                  <div className={classes.row}>
+                  {/* <div className={classes.row}> */}
                     <h3>Write your Review!</h3>
-                  </div>
+                  {/* </div> */}
                   <br/>
-                  <div className={classes.row}>
+                  {/* <div className={classes.row}> */}
                     <TextField 
-                      style={{backgroundColor: 'white', fontFamily: 'Josefin Sans'}}
-                      fullWidth
+                      style={{backgroundColor: 'white', fontFamily: 'Josefin Sans', width: '100%'}}
+                      // fullWidth
                       onChange={handleTitle}
                       id="outlined-basic" 
                       label="Enter a title for your review..." 
                       variant="outlined" 
                       />
-                  </div>
+                  {/* </div> */}
                   <br /> <br />
-                  <div>
+                  {/* <div> */}
                     <TextField 
-                    style={{backgroundColor: 'white'}}
-                      fullWidth
+                      style={{backgroundColor: 'white', width: '100%'}}
+                      // fullWidth
                       onChange={handlePosition}
                       id="outlined-basic" 
                       label="What was your position here? " 
                       variant="outlined" 
                     />
-                  </div>
+                  {/* </div> */}
                   <br /> <br /> 
-                  <div>
+                  {/* <div> */}
                     <TextField
-                      style={{backgroundColor: 'white'}}
-                      fullWidth
+                      style={{backgroundColor: 'white', width: '100%'}}
+                      // fullWidth
                       multiline
                       rows={15}
                       id="standard-multiline-static"
@@ -356,14 +357,14 @@ export default function NewReviewForm() {
                       onChange={handleContent}
                       variant="outlined" 
                     />
-                  </div>
+                  {/* </div> */}
                   <br /> <br /> 
                 </Paper> 
               </Grid>
 
       {/* RATING ON THE RIGHT */}
       <Grid item xs={3} style={{marginTop: '2rem'}}>
-            <Paper style={{padding: '15px'}} elevation={5}>
+            <Paper style={{padding: '15px', height: '96.4%'}} elevation={5}>
             <Box component="fieldset" mb={3} borderColor="transparent">
               <Grid container spacing={3}>
                 <Grid item xs={9}>
