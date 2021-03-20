@@ -17,52 +17,51 @@ const COMPANY_URL = "http://localhost:3000/companies"
 const useStyles = makeStyles(() => ({
   bg: {
     minHeight: '100vh',
-    // overflow: 'hidden',
-    // overflowY: 'scroll'
-    // backgroundColor: '#EADCA7'
-    // backgroundImage: `url(${})`,
-    // backgroundRepeat: 'no-repeat',
-    // backgroundSize: 'cover',
   },
 }));
 
 export default function App({history}) {
   const classes = useStyles();
-  const [company, setCompany] = useState([]);
-  const [loggedIn, setLoggedIn ] = useState(true)
+  const [companies, setCompanies] = useState([]);
+  const [isLoggedIn, setLoggedIn ] = useState(false)
+  sessionStorage.setItem('email', 'value');
 
   const getCompanies = () => {
     fetch(COMPANY_URL)
     .then(rsp => rsp.json())
-    .then(companies => setCompany(companies))
+    .then(companies => setCompanies(companies))
   }
   useEffect(()=>{
     getCompanies();
   }, [])
 
-
-  // const match = matchPath(history.location.pathname, {
-  //   path: "/company/:id"
-  // });
-
-  // let companyId;
-
-  // if (match && match.params.id) {
-  //   companyId = match.params.id;
-  // }
-
   return(
     <div>
       <Router>
-        <NavBar loggedIn={loggedIn} /> 
+        <NavBar isLoggedIn={isLoggedIn} /> 
           <div >
             <Switch>
               <div>
-                <Route exact path="/" component={LandingPageContainer} />
+                <Route exact path="/" render={(props) => (
+                  <LandingPageContainer
+                    {...props}
+                    companies={companies}
+                  /> 
+                )} />
                 <Route exact path="/sign-up" component={SignUpContainer} />
-                <Route path="/login" component={LogInContainer} /> 
+                <Route path="/login" render={(props) => (
+                  <LogInContainer 
+                    {...props} 
+                    setLoggedIn={setLoggedIn} 
+                  />
+                )} /> 
+                <Route path="/company/:name" render={(props) => (
+                  <CompanyShow 
+                    {...props}
+                    companies={companies}
+                  /> 
+                  )} />
                 <Route path='/new-review' component={NewReviewForm} /> 
-                <Route exact path="/company/:name" component={CompanyShow} />
                 <Route path="/reviews" component={ReviewShow} /> 
                 <Route path="/profile" component={ProfileShow} />
               </div>

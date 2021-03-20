@@ -13,12 +13,14 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default function LogInContainer(){
+export default function LogInContainer(props){
   const classes = useStyles();
 
   return(
     <div className={classes.bg}>
-      <LogInForm /> 
+      <LogInForm 
+      setLoggedIn={props.setLoggedIn}
+      /> 
     </div>
   )
 }

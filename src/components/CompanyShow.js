@@ -8,6 +8,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import BG from '../assets/bg-2.jpeg'
 import LinearProgress from '@material-ui/core/LinearProgress';
+import CompaniesAutocomplete from './CompaniesAutocomplete'
 
 const COMPANY_URL = "http://localhost:3000/companies/"
 
@@ -29,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function ComponentShow({match}){
+export default function CompanyShow( props){
   const classes = useStyles(); 
   const history = useHistory();
   const [company, setCompany] = useState(null);
@@ -38,12 +39,12 @@ export default function ComponentShow({match}){
 
   const {
     params: { name },
-  } = match;
+  } = props.match;
 
 
   useEffect(() => {
-    // console.log(name)
-    // console.log("hello")
+    console.log(name)
+    console.log("NAME:", name)
     fetch(COMPANY_URL + `${name}`, {
       headers : { 
         'Content-Type': 'application/json',
@@ -53,51 +54,18 @@ export default function ComponentShow({match}){
       .then((res) => res.json())
       .then((response) => {
         setCompany(response.company);
-        // console.log(response)
       })
       .catch((error) => console.log(error));
-  }, []);
-
-  // search bar at top 
-  const getCompanies = () => {
-    fetch(COMPANY_URL)
-    .then(rsp => rsp.json())
-    .then(companies => setComp(companies))
-  }
-  useEffect(()=>{
-    getCompanies();
-  }, [])
-
-  function handleSubmit(e){
-    // e.preventDefault();
-    console.log(e.name)
-    // console.log(value)
-    // history.push("company/" + e.name)
-    if(e != null){
-      <Link to={COMPANY_URL + e.name}></Link> 
-    } else {
-      return ""
-    }
-  }
+  }, [name]);
 
   return (
     <div className={classes.bg}>
       <center>
         <br/> <br/>
         <AppBar style={{backgroundColor: 'white', width: '40rem', position: 'relative'}}>
-        <Autocomplete
-              id="navbar"
-              options={comp}
-              value={value}
-              onChange={(e, value) => handleSubmit(value)}
-              getOptionLabel={(option) => option.name}
-              style={{ width: '100%' }}
-              renderInput={(params) => <TextField {...params} label="Search for another Company..." variant="outlined" />}
-            />
+          <CompaniesAutocomplete {...props}/> 
         </AppBar>
-          {/* <Button style={{backgroundColor: 'red'}}>
-            <NavLink to="/">HOME</NavLink> 
-          </Button>  */}
+
     </center>
     <br/> <br/>
         {company ? <CompanyCard comp={company} key={company.id} /> : <LinearProgress className={classes.root}/>  }

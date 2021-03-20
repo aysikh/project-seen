@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-export default function LogInForm(){
+export default function LogInForm(props){
   const history = useHistory();
   const classes = useStyles();
 
@@ -72,16 +72,16 @@ export default function LogInForm(){
     })
       .then(response => response.json())
       .then(data => {
-      console.log(data)
-      history.push('/profile')
-        // if (data.errors) {
-        //   alert("Invalid Credentials")
-        // }
-        // else {
-        //   // props.setCurrentUser(data.info)
-        //   console.log(data.info)
-        //   // history.push('/')
-        // }
+      // console.log(data)
+      // history.push('/profile')
+        if (data.errors) {
+          alert("Invalid Credentials")
+        }
+        else {
+          console.log(data.info)
+          props.setLoggedIn(true)
+          history.push('/')
+        }
       })
     
   };

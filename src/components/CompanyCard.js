@@ -124,9 +124,9 @@ export default function CompanyCard(props){
                         </Grid>
                       </Grid>
                       <br /> <br />
-                      <Button component={Link} to="/new-review" variant="contained" style={{backgroundColor: "#D2C7E0"}}>  
+                      {/* <Button component={Link} to="/new-review" variant="contained" style={{backgroundColor: "#D2C7E0"}}>  
                         Write a Review
-                      </Button>
+                      </Button> */}
                       <Button component={Link} to="/reviews" variant="contained" style={{backgroundColor: "#D2C7E0", marginLeft: '10px'}}>  
                         View Reviews
                       </Button>

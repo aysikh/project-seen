@@ -38,7 +38,7 @@ export default function NavBar(props) {
   return(
     <div>
 
-    {props.loggedIn ? 
+    {props.isLoggedIn ? 
       <AppBar position="static" className={classes.logo}>
         <Toolbar>
           <Box> 
@@ -46,7 +46,10 @@ export default function NavBar(props) {
           <img src={SeenSimple} className={classes.navlogo}/>
           </a> 
           </Box>
-          <Button className={classes.profileButton} component={Link} to="/profile">
+          <Button component={Link} className={classes.profileButton} to="/new-review">
+            Write a Review
+          </Button>
+          <Button component={Link} to="/profile">
             Profile
           </Button>
           <Button component={Link} to="/login">
@@ -54,8 +57,8 @@ export default function NavBar(props) {
           </Button>
         </Toolbar>
       </AppBar>
-      : 
-        <AppBar position="static" className={classes.logo}>
+       : 
+      <AppBar position="static" className={classes.logo}>
         <Toolbar>
           <Box> 
           <a href="/"> 
@@ -63,7 +66,7 @@ export default function NavBar(props) {
           </a> 
           </Box>
           <Button className={classes.profileButton} component={Link} to="/login"> 
-            Log In
+            Sign In
           </Button> 
         </Toolbar>
       </AppBar>

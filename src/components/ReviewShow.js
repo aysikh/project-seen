@@ -32,23 +32,23 @@ export default function ReviewShow(){
     getReviews();
   }, [])
 
-  // const updateUseful = (review) => {
-  //   console.log(review)
-  //   fetch(REVIEW_URL + review.id), {
-  //     method: "PATCH", 
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     }, 
-  //     body: JSON.stringify({
-  //       isUseful: review.isUseful + 1 
-  //     })
-  //   }
-  //   .then(res => res.json())
-  //   .then(updatedReview => {
-  //     setSingleReview(updatedReview)
-  //     console.log(updatedReview)
-  //   })
-  // }
+  const updateUseful = (e) => {
+    console.log(e)
+    // fetch(REVIEW_URL + review.id), {
+    //   method: "PATCH", 
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   }, 
+    //   body: JSON.stringify({
+    //     isUseful: review.isUseful + 1 
+    //   })
+    // }
+    // .then(res => res.json())
+    // .then(updatedReview => {
+    //   setSingleReview(updatedReview)
+    //   console.log(updatedReview)
+    // })
+  }
 
 
   // const updateNotUseful = (review) => {
@@ -71,15 +71,15 @@ export default function ReviewShow(){
   // }
 
   const Map = () => {
-      console.log(reviews)
+      // console.log(reviews)
       let r = []
       reviews.forEach(review => r.push(<ReviewCard 
-        // updateUseful={updateUseful}
+        updateUseful={updateUseful}
         // updateNotUseful={updateNotUseful}
         review={review} 
         key={review.id} 
         /> ))
-      console.log(r)
+      // console.log(r)
       return r
   }
 

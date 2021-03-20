@@ -17,13 +17,13 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 
-export default function LandingPageContainer() {
+export default function LandingPageContainer(props) {
   const classes = useStyles();
 
   return (
     <div className={classes.bg} > 
-      <LandingPageAppInfo /> 
-      <center> <img src={Logo} style={{marginTop: '7rem'}}/>  </center>
+      <LandingPageAppInfo {...props} /> 
+      <center> <img src={Logo} style={{marginTop: '-3rem', width: '37rem'}}/>  </center>
     </div> 
   )
 }
