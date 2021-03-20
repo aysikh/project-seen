@@ -9,8 +9,10 @@ import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Popover from '@material-ui/core/Popover';
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
-import BG from '../assets/bg-8.jpeg'
+import BG from '../assets/grid.png'
 import test from '../assets/test.png'
+import desk from '../assets/woman-at-desk.png'
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -48,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%', 
     minHeight: '90vh',
     backgroundColor: 'white',
-    // backgroundImage: `url(${test})`,
+    // backgroundImage: `url(${BG})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundAttachment: 'fixed',
@@ -471,13 +473,13 @@ export default function NewReviewForm() {
           </Grid>
           <Grid container xs={3} >
                 <Grid container justify="center" >
-                    <Grid item xs={2} style={{marginTop: '3.5rem'}}>
+                    <Grid item xs={2} style={{marginTop: '-3rem'}}>
                       <Paper className={classes.imgBox} elevation={5}>
                           <center>
-                          <img src={test} style={{width: '28rem'}}/>
+                          <img src={desk} style={{width: '24rem'}}/>
 
                           <Button 
-                            style={{backgroundColor: '#c1b9f7', width: '25rem'}}
+                            style={{backgroundColor: '#c1b9f7', width: '23rem'}}
                             type="submit" 
                             variant="contained" 
                             color="primary">

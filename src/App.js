@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import LandingPageContainer from './containers/LandingPageContainer';
 import LogInContainer from './containers/LogInContainer';
@@ -28,6 +29,7 @@ const useStyles = makeStyles(() => ({
 export default function App({history}) {
   const classes = useStyles();
   const [company, setCompany] = useState([]);
+  const [loggedIn, setLoggedIn ] = useState(true)
 
   const getCompanies = () => {
     fetch(COMPANY_URL)
@@ -51,22 +53,22 @@ export default function App({history}) {
 
   return(
     <div>
-      <NavBar /> 
-      <BrowserRouter>
-        <div >
-        <Switch>
-          <div>
-            <Route exact path="/" component={LandingPageContainer} />
-            <Route exact path="/sign-up" component={SignUpContainer} />
-            <Route path="/login" component={LogInContainer} /> 
-            <Route path='/new-review' component={NewReviewForm} /> 
-            <Route exact path="/company/:name" component={CompanyShow} />
-            <Route path="/reviews" component={ReviewShow} /> 
-            <Route path="/profile" component={ProfileShow} />
+      <Router>
+        <NavBar loggedIn={loggedIn} /> 
+          <div >
+            <Switch>
+              <div>
+                <Route exact path="/" component={LandingPageContainer} />
+                <Route exact path="/sign-up" component={SignUpContainer} />
+                <Route path="/login" component={LogInContainer} /> 
+                <Route path='/new-review' component={NewReviewForm} /> 
+                <Route exact path="/company/:name" component={CompanyShow} />
+                <Route path="/reviews" component={ReviewShow} /> 
+                <Route path="/profile" component={ProfileShow} />
+              </div>
+            </Switch>
           </div>
-        </Switch>
-        </div>
-      </BrowserRouter>
+      </Router>
     </div>
   )
 }

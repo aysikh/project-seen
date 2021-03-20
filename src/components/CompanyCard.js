@@ -83,17 +83,55 @@ export default function CompanyCard(props){
                 <Grid>
                   <Paper className={classes.paper} >
                     <center>
-                    <br/><br/>
-                    <span style={{fontSize:'3rem'}}>DEI Rating:</span>
+                    {/* <span style={{fontSize:'1.5rem'}}>Average DEI Rating:</span> */}
                     <Rating 
                     name="read-only" 
-                    style={{color: '#D2C7E0', fontSize: '5rem', marginTop: '3rem'}} 
+                    style={{color: '#D2C7E0', fontSize: '5rem'}} 
                     precision={0.5} 
                     value={4.5} 
                     readOnly />
-                      <br /> 
-                      <span style={{fontSize: '5.5rem'}}>4.5</span>
-                      <br /> 
+                    <br/> <br/>
+                    <span style={{fontSize:'5rem'}}>4.3</span>
+                      <br /> <br />
+                      <Grid container xs={14}>
+                        <Grid item xs={3} style={{marginLeft: '20px', fontSize: '25px'}}> 
+                            {/* {props.review.diversity} */} 4
+                        </Grid>
+                        <Grid item xs={8}>
+                      <span style={{fontSize:'22px'}}>Diversity in Organization</span> <br/>
+                        </Grid>
+                        <Grid item xs={3} style={{marginLeft: '20px', fontSize: '25px'}}> 
+                            {/* {props.review.leadership} */} 5
+                        </Grid>
+                        <Grid item xs={8}>
+                        <span style={{fontSize:'22px'}}>Diversity in Leadership</span> <br /> 
+                        </Grid>
+                        <Grid item xs={3} style={{marginLeft: '20px', fontSize: '25px'}}> 
+                            {/* {props.review.worklife} */} 4
+                        </Grid>
+                        <Grid item xs={8}>
+                        <span style={{fontSize:'22px'}}>Work/Life Balance</span> <br /> 
+                        </Grid>
+                        <Grid item xs={3} style={{marginLeft: '20px', fontSize: '25px'}}> 
+                            {/* {props.review.inclusiveness} */} 4
+                        </Grid>
+                        <Grid item xs={8}>
+                        <span style={{fontSize:'22px'}}>Inclusiveness</span> <br /> 
+                        </Grid>
+                        <Grid item xs={3} style={{marginLeft: '20px', fontSize: '25px'}}> 
+                            {/* {props.review.benefits} */} 4
+                        </Grid>
+                        <Grid item xs={8}>
+                        <span style={{fontSize:'22px'}}>Benefits At Company</span> <br />
+                        </Grid>
+                        <Grid item xs={3} style={{marginLeft: '20px', fontSize: '25px'}}> 
+                            {/* {props.review.recommendation} */} 4
+                        </Grid>
+                        <Grid item xs={8}>
+                        <span style={{fontSize:'22px'}}>Recommend to Friend</span>
+                        </Grid>
+                      </Grid>
+                      <br /> <br />
                       <Button component={Link} to="/new-review" variant="contained" style={{backgroundColor: "#D2C7E0"}}>  
                         Write a Review
                       </Button>

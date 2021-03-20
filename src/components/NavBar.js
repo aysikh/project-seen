@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState }  from 'react'
 import { Link, BrowserRouter, Route, Router} from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import SeenSimple from '../assets/seen-simple.png'
@@ -6,6 +6,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button'; 
 import Toolbar from '@material-ui/core/Toolbar';
 import Box from '@material-ui/core/Box'
+import LogInContainer from '../containers/LogInContainer';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -31,12 +32,13 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function NavBar() {
+export default function NavBar(props) {
   const classes = useStyles();
 
   return(
     <div>
 
+    {props.loggedIn ? 
       <AppBar position="static" className={classes.logo}>
         <Toolbar>
           <Box> 
@@ -44,15 +46,28 @@ export default function NavBar() {
           <img src={SeenSimple} className={classes.navlogo}/>
           </a> 
           </Box>
-          <Button className={classes.profileButton}>Profile</Button>
-          {/* <Link href="/sign-up"> */}
-            <Button className={classes.logoutButton}>
-              Log In / Sign Up
-            </Button>
-          {/* </Link> */}
+          <Button className={classes.profileButton} component={Link} to="/profile">
+            Profile
+          </Button>
+          <Button component={Link} to="/login">
+            Log Out
+          </Button>
         </Toolbar>
       </AppBar>
-
+      : 
+        <AppBar position="static" className={classes.logo}>
+        <Toolbar>
+          <Box> 
+          <a href="/"> 
+          <img src={SeenSimple} className={classes.navlogo}/>
+          </a> 
+          </Box>
+          <Button className={classes.profileButton} component={Link} to="/login"> 
+            Log In
+          </Button> 
+        </Toolbar>
+      </AppBar>
+    }
     </div>
   )
 }
