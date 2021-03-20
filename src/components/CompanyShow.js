@@ -70,12 +70,11 @@ export default function ComponentShow({match}){
 
   function handleSubmit(e){
     // e.preventDefault();
-    // console.log(e.name)
+    console.log(e.name)
     // console.log(value)
     // history.push("company/" + e.name)
-    console.log("hello hai")
     if(e != null){
-      <a href={"company/" + e.name}></a> 
+      <Link to={COMPANY_URL + e.name}></Link> 
     } else {
       return ""
     }

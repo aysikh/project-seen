@@ -93,8 +93,8 @@ export default function SignUpForm(props){
       }
       fetch( "http://localhost:3000/users", requestPackage )
         .then( rsp => rsp.json() )
-      // .then(console.log)
-        history.push( "/homepage" )
+      .then(console.log)
+        // history.push( "/profile" )
   }
 
 

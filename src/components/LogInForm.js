@@ -73,6 +73,7 @@ export default function LogInForm(){
       .then(response => response.json())
       .then(data => {
       console.log(data)
+      history.push('/profile')
         // if (data.errors) {
         //   alert("Invalid Credentials")
         // }

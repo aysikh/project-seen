@@ -74,14 +74,6 @@ export default function CompanyCard(props){
                 </Grid>
                 <Grid>
                   <Paper className={classes.paper} >
-                    <center> 
-                      <PeopleIcon style={{fontSize: '10rem', color: 'gray'}}/>
-                      <h1>{props.comp.size} employees</h1>
-                    </center>
-                  </Paper>
-                </Grid>
-                <Grid>
-                  <Paper className={classes.paper} >
                     <center>
                     {/* <span style={{fontSize:'1.5rem'}}>Average DEI Rating:</span> */}
                     <Rating 
@@ -135,6 +127,17 @@ export default function CompanyCard(props){
                       <Button component={Link} to="/new-review" variant="contained" style={{backgroundColor: "#D2C7E0"}}>  
                         Write a Review
                       </Button>
+                      <Button component={Link} to="/reviews" variant="contained" style={{backgroundColor: "#D2C7E0", marginLeft: '10px'}}>  
+                        View Reviews
+                      </Button>
+                    </center>
+                  </Paper>
+                </Grid>
+                <Grid>
+                  <Paper className={classes.paper} >
+                    <center> 
+                      <PeopleIcon style={{fontSize: '10rem', color: 'gray'}}/>
+                      <h1>{props.comp.size} employees</h1>
                     </center>
                   </Paper>
                 </Grid>
