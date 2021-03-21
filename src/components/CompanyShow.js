@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import CompanyCard from './CompanyCard'
 import AppBar from '@material-ui/core/AppBar';
-import BG from '../assets/bg-2.jpeg'
+import BG from '../assets/bg-7.jpeg'
 import LinearProgress from '@material-ui/core/LinearProgress';
 import CompaniesAutocomplete from './CompaniesAutocomplete'
 

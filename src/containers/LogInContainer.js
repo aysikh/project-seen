@@ -19,7 +19,8 @@ export default function LogInContainer(props){
   return(
     <div className={classes.bg}>
       <LogInForm 
-      setLoggedIn={props.setLoggedIn}
+        setLoggedIn={props.setLoggedIn}
+        setUserLoggedIn={props.setUserLoggedIn}
       /> 
     </div>
   )

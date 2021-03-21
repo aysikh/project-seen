@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function ProfileShow(){
+export default function ProfileShow(props){
 
   return(
     <div>
-      <h1>user's profile page</h1>
+      <h1>{props.userLoggedIn.firstname}</h1>
     </div>
   )
 }

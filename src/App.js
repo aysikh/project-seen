@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Switch, Route } from 'react-router-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
-// import { makeStyles } from '@material-ui/core/styles';
 import LandingPageContainer from './containers/LandingPageContainer';
 import LogInContainer from './containers/LogInContainer';
 import SignUpContainer from './containers/SignUpContainer';
@@ -13,17 +12,11 @@ import ProfileShow from './containers/ProfileShow'
 
 const COMPANY_URL = "http://localhost:3000/companies"
 
-// const useStyles = makeStyles(() => ({
-//   bg: {
-//     minHeight: '100vh',
-//   },
-// }));
-
 export default function App({history}) {
-  // const classes = useStyles();
+
   const [companies, setCompanies] = useState([]);
   const [isLoggedIn, setLoggedIn ] = useState(false)
-  // const [currentCompany, setCurrentCompany] = useState("")
+  const [userLoggedIn, setUserLoggedIn] = useState('')
 
   // sessionStorage.setItem('email', 'value');
 
@@ -55,7 +48,8 @@ export default function App({history}) {
                 <Route path="/login" render={(props) => (
                   <LogInContainer 
                     {...props} 
-                    setLoggedIn={setLoggedIn} 
+                    setLoggedIn={setLoggedIn}
+                    setUserLoggedIn={setUserLoggedIn}
                   />
                 )} /> 
                 <Route exact path="/company/:name" render={(props) => (
@@ -73,7 +67,12 @@ export default function App({history}) {
                   /> 
                 )} /> 
                 <Route path='/new-review' component={NewReviewForm} /> 
-                <Route path="/profile" component={ProfileShow} />
+                <Route path="/profile" render={(props) => (
+                  <ProfileShow
+                    {...props}
+                    userLoggedIn={userLoggedIn}
+                  />
+                 )} />
               </div>
             </Switch>
           </div>

@@ -53,15 +53,22 @@ export default function LogInForm(props){
     })
       .then(response => response.json())
       .then(data => {
-        if (data.errors) {
-          props.setLoggedIn(false)
-        }
-        else {
-          console.log(data.info)
-          props.setLoggedIn(true)
-          history.push('/')
-        }
-      })
+        localStorage.setItem('token', data.token)
+        props.setUserLoggedIn(data.user)
+        props.setLoggedIn(true)
+        history.push('/profile')
+      }
+      //   {
+      //   if (data.errors) {
+      //     props.setLoggedIn(false)
+      //   }
+      //   else {
+      //     console.log(data.info)
+      //     props.setLoggedIn(true)
+      //     history.push('/')
+      //   }
+      // }
+      )
     
   };
 
