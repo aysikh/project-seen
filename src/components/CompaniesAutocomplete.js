@@ -1,25 +1,24 @@
-import React, {useState, useEffect} from 'react'
-import { useHistory, Link } from "react-router-dom";
+import React from 'react'
+import { useHistory} from "react-router-dom";
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField';
 
-const COMPANY_URL = "http://localhost:3000/companies"
-
+// const COMPANY_URL = "http://localhost:3000/companies"
 
 export default function CompaniesAutocomplete(props){
-  const [companies, setCompanies] = useState([]);
-  const [value, setValue] = React.useState('');
+  // const [companies, setCompanies] = useState([]);
+  const [value, setValue] = React.useState(null);
   const history = useHistory(); 
 
-  const getCompanies = () => {
-    fetch(COMPANY_URL)
-    .then(rsp => rsp.json())
-    .then(companies => setCompanies(companies))
-  }
+  // const getCompanies = () => {
+  //   fetch(COMPANY_URL)
+  //   .then(rsp => rsp.json())
+  //   .then(companies => setCompanies(companies))
+  // }
   
-  useEffect(()=>{
-    getCompanies();
-  }, [])
+  // useEffect(()=>{
+  //   getCompanies();
+  // }, [])
 
   function handleSubmit(e){
     // console.log(e)
@@ -39,7 +38,11 @@ export default function CompaniesAutocomplete(props){
       onChange={(e, value) => handleSubmit(value)}
       getOptionLabel={(option) => option.name}
       style={{ width: '100%' }}
-      renderInput={(params) => <TextField {...params} label="Search for a Company..." variant="outlined" />}
+      renderInput={(params) => 
+        <TextField {...params} 
+        label="Search for a Company..." 
+        variant="outlined" 
+        />}
     />
   )
 }

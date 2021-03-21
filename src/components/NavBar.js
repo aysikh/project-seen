@@ -1,13 +1,11 @@
-import React, { useState }  from 'react'
-import { Link, BrowserRouter, Route, Router} from 'react-router-dom'
+import React from 'react'
+import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import SeenSimple from '../assets/seen-simple.png'
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button'; 
 import Toolbar from '@material-ui/core/Toolbar';
 import Box from '@material-ui/core/Box'
-import LogInContainer from '../containers/LogInContainer';
-
 
 const useStyles = makeStyles((theme) => ({
   logo: {
@@ -42,7 +40,7 @@ export default function NavBar(props) {
         <Toolbar>
           <Box> 
           <Link to="/"> 
-          <img src={SeenSimple} className={classes.navlogo}/>
+          <img src={SeenSimple} alt="nav-seen-logo-logged-in" className={classes.navlogo}/>
           </Link> 
           </Box>
           <Button component={Link} className={classes.profileButton} to="/new-review">
@@ -61,7 +59,7 @@ export default function NavBar(props) {
         <Toolbar>
           <Box> 
           <Link to="/"> 
-          <img src={SeenSimple} className={classes.navlogo}/>
+          <img src={SeenSimple} alt="nav-seen-logo-logged-out" className={classes.navlogo}/>
           </Link> 
           </Box>
           <Button className={classes.profileButton} component={Link} to="/login"> 

@@ -3,7 +3,6 @@ import * as ReactDOM from "react-dom";
 import './index.css';
 import App from './App';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 
 const theme = createMuiTheme({
   typography: {

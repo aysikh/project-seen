@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import ReactDOM from 'react-dom'
 import { Switch, Route } from 'react-router-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
+// import { makeStyles } from '@material-ui/core/styles';
 import LandingPageContainer from './containers/LandingPageContainer';
 import LogInContainer from './containers/LogInContainer';
 import SignUpContainer from './containers/SignUpContainer';
@@ -14,14 +13,14 @@ import ProfileShow from './containers/ProfileShow'
 
 const COMPANY_URL = "http://localhost:3000/companies"
 
-const useStyles = makeStyles(() => ({
-  bg: {
-    minHeight: '100vh',
-  },
-}));
+// const useStyles = makeStyles(() => ({
+//   bg: {
+//     minHeight: '100vh',
+//   },
+// }));
 
 export default function App({history}) {
-  const classes = useStyles();
+  // const classes = useStyles();
   const [companies, setCompanies] = useState([]);
   const [isLoggedIn, setLoggedIn ] = useState(false)
   // const [currentCompany, setCurrentCompany] = useState("")

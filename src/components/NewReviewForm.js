@@ -9,8 +9,7 @@ import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Popover from '@material-ui/core/Popover';
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
-import BG from '../assets/grid.png'
-import test from '../assets/test.png'
+
 import desk from '../assets/woman-at-desk.png'
 
 
@@ -294,9 +293,9 @@ export default function NewReviewForm() {
           position: position, 
           content: content,
           diversity: diversity, 
-          leadership, leadership, 
+          leadership: leadership, 
           worklife: worklife, 
-          inclusiveness, inclusiveness, 
+          inclusiveness: inclusiveness, 
           benefits: benefits, 
           recommendation: recommendation,
           // user_id: userID, 
@@ -476,8 +475,7 @@ export default function NewReviewForm() {
                     <Grid item xs={2} style={{marginTop: '-3rem'}}>
                       <Paper className={classes.imgBox} elevation={5}>
                           <center>
-                          <img src={desk} style={{width: '24rem'}}/>
-
+                          <img src={desk} alt="woman-at-desk" style={{width: '24rem'}}/>
                           <Button 
                             style={{backgroundColor: '#c1b9f7', width: '23rem'}}
                             type="submit" 

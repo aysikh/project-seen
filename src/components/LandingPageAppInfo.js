@@ -1,13 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import { useHistory } from "react-router-dom";
+import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
-
-import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
 import CompaniesAutocomplete from './CompaniesAutocomplete'
 
-const COMPANY_URL = "http://localhost:3000/companies"
 
 const useStyles = makeStyles((theme) => ({
   appBar:{
@@ -51,7 +46,3 @@ export default function LandingPageAppInfo(props){
     </div>
   )
 }
-
-
-//  on submit 
-

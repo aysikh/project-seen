@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory, Link, NavLink} from "react-router-dom";
-import { withStyles, makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import CompanyCard from './CompanyCard'
-import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
 import AppBar from '@material-ui/core/AppBar';
-import Button from '@material-ui/core/Button';
 import BG from '../assets/bg-2.jpeg'
 import LinearProgress from '@material-ui/core/LinearProgress';
 import CompaniesAutocomplete from './CompaniesAutocomplete'
@@ -32,10 +28,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CompanyShow(props){
   const classes = useStyles(); 
-  const history = useHistory();
   const [company, setCompany] = useState(null);
-  const [comp, setComp] = useState([]);
-  const [value, setValue] = React.useState('')
+
 
   const {
     params: { name },
@@ -43,8 +37,6 @@ export default function CompanyShow(props){
 
 
   useEffect(() => {
-    // console.log(name)
-    // console.log("NAME:", name)
     fetch(COMPANY_URL + `${name}`, {
       headers : { 
         'Content-Type': 'application/json',

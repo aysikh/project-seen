@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from 'react-router-dom'
-import axios from 'axios'
 import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button'
-
 import LogIn from '../assets/login.png'
+
+// import FlashMessage from "react-flash-message";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -40,27 +40,8 @@ export default function LogInForm(props){
     setPassword(e.target.value)
   }
 
-  // const [state, setState] = useState({
-  //   email: "", 
-  //   password: ""
-  // })
-
-  // const handleChange = (event) => {
-  //   let {id, value} = event.target
-  //   // console.log(event.target.value)
-  //   setState(prevState => ({
-  //     ...prevState,
-  //     [id] : value
-  //   }))
-  // }
-
   const handleSubmit = (event) => {
     event.preventDefault()
-
-    // let user = {
-    //       email: email,
-    //       password: password
-    //     }
       
     fetch('http://localhost:3000/login', {
       method: "POST",
@@ -72,10 +53,8 @@ export default function LogInForm(props){
     })
       .then(response => response.json())
       .then(data => {
-      // console.log(data)
-      // history.push('/profile')
         if (data.errors) {
-          alert("Invalid Credentials")
+          props.setLoggedIn(false)
         }
         else {
           console.log(data.info)
@@ -92,7 +71,7 @@ export default function LogInForm(props){
       <br /> <br /> 
       <center>
       <Paper elevation={5} className={classes.paper}>
-      <img src={LogIn} style={{width: '20rem'}}/> 
+      <img src={LogIn} alt="log-in-banner" style={{width: '20rem'}}/> 
         <form autoComplete="on"
           noValidate
           onSubmit={handleSubmit}
@@ -126,6 +105,11 @@ export default function LogInForm(props){
             >
             LOG IN
           </Button> 
+          {/* {props.isLoggedIn && (
+            <FlashMessage duration={5000}>
+              <strong>I will disapper in 5 seconds!</strong>
+            </FlashMessage>
+          )} */}
         </form>
       </Paper>
       </center>

@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, {useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from 'react-router-dom'
-import axios from 'axios'
 import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
@@ -33,7 +32,6 @@ export default function SignUpForm(props){
   const [ lastname, setLastname ] = useState("")
   const [ email, setEmail ] = useState("")
   const [ password, setPassword ] = useState("")
-  const [ errors, setErrors ] = useState( [] )
 
   const handleFirstname = ( event ) => {
     setFirstname( event.target.value )
@@ -49,52 +47,23 @@ export default function SignUpForm(props){
       setPassword( event.target.value )
   }
 
-  const redirect = () => {
-    props.history.push( '/' )
-}
+  const handleNewUserSubmit = ( event ) => {
+    event.preventDefault()
 
-  const handleSubmit = ( event ) => {
-    event.preventDefault();
-    const { firstname, lastname, email, password, password_confirmation } = this.state
-    let user = {
-        firstname: firstname,
-        lastname: lastname,
-        email: email,
-        password: password,
+    let requestPackage = {
+        headers: { 'Content-Type': 'application/json' },
+        method: 'POST',
+        body: JSON.stringify( {
+            firstname: firstname,
+            lastname: lastname,
+            email: email,
+            password: password,
+        } )
     }
-
-    axios.post( 'http://localhost:3000/users', { user }, { withCredentials: true } )
-      .then( response => {
-          if ( response.data.status === 'created' ) {
-              props.handleLogin( response.data )
-              redirect()
-          }
-          else {
-              setErrors( {
-                  errors: response.data.errors
-              } )
-          }
-      } )
-      .catch( error => console.log( 'api errors:', error ) )
-    };
-
-    const handleNewUserSubmit = ( event ) => {
-      event.preventDefault()
-
-      let requestPackage = {
-          headers: { 'Content-Type': 'application/json' },
-          method: 'POST',
-          body: JSON.stringify( {
-              firstname: firstname,
-              lastname: lastname,
-              email: email,
-              password: password,
-          } )
-      }
-      fetch( "http://localhost:3000/users", requestPackage )
-        .then( rsp => rsp.json() )
-      .then(console.log)
-        // history.push( "/profile" )
+    fetch( "http://localhost:3000/users", requestPackage )
+      .then( rsp => rsp.json() )
+    // .then(console.log)
+      history.push( "/profile" )
   }
 
 
@@ -104,7 +73,7 @@ export default function SignUpForm(props){
         <br /> <br /> 
         <center>
         <Paper elevation={3} className={classes.paper}>
-          <img src={SignUp} style={{width: '20rem'}}/> 
+          <img src={SignUp} alt="sign-up-banner" style={{width: '20rem'}}/> 
           <form autoComplete="on"
             noValidate
             onSubmit={ ( event ) => {
@@ -141,8 +110,8 @@ export default function SignUpForm(props){
               required
               className={classes.textfield}
               onChange={handlePassword}
-              id="password"
               label="Password"
+              type="password"
               id="password"
               name="password"
               variant="outlined"

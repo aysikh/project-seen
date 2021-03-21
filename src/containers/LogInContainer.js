@@ -1,4 +1,4 @@
-import React, { Component } from 'react'; 
+import React from 'react'; 
 import { makeStyles } from '@material-ui/core/styles';
 import BG from '../assets/bg-11.jpeg';
 
