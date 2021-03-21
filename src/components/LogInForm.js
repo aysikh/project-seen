@@ -99,17 +99,22 @@ export default function LogInForm(props){
           >                      
           <br /> <br />
           <TextField 
+            required
             className={classes.textfield}
             onChange={handleEmail}
             id="email" 
             label="Email" 
+            name="email"
             variant="outlined" 
           />
           <br /> <br />
           <TextField
+            required
             className={classes.textfield}
             onChange={handlePassword}
             id="password"
+            name="password"
+            type="password"
             label="Password"
             variant="outlined"
           />

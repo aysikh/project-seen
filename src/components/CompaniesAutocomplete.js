@@ -22,7 +22,7 @@ export default function CompaniesAutocomplete(props){
   }, [])
 
   function handleSubmit(e){
-    console.log(e)
+    // console.log(e)
     if(e && e.name){
       history.push("/company/" + e.name)
     }

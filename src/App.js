@@ -24,7 +24,9 @@ export default function App({history}) {
   const classes = useStyles();
   const [companies, setCompanies] = useState([]);
   const [isLoggedIn, setLoggedIn ] = useState(false)
-  sessionStorage.setItem('email', 'value');
+  // const [currentCompany, setCurrentCompany] = useState("")
+
+  // sessionStorage.setItem('email', 'value');
 
   const getCompanies = () => {
     fetch(COMPANY_URL)
@@ -34,6 +36,8 @@ export default function App({history}) {
   useEffect(()=>{
     getCompanies();
   }, [])
+
+  // console.log(companies)
 
   return(
     <div>
@@ -55,14 +59,21 @@ export default function App({history}) {
                     setLoggedIn={setLoggedIn} 
                   />
                 )} /> 
-                <Route path="/company/:name" render={(props) => (
+                <Route exact path="/company/:name" render={(props) => (
                   <CompanyShow 
                     {...props}
                     companies={companies}
+                    // setCurrentCompany={setCurrentCompany}
                   /> 
                   )} />
+                <Route exact path="/company/:name/reviews" render={(props) => (
+                  <ReviewShow
+                  {...props}
+                  companies={companies} 
+                  // currentCompany={currentCompany}
+                  /> 
+                )} /> 
                 <Route path='/new-review' component={NewReviewForm} /> 
-                <Route path="/reviews" component={ReviewShow} /> 
                 <Route path="/profile" component={ProfileShow} />
               </div>
             </Switch>

@@ -14,6 +14,10 @@ const useStyles = makeStyles((theme) => ({
       backgroundSize: 'cover',
       backgroundAttachment: 'fixed',
     },
+  image: {
+      marginTop: '1rem', 
+      width: '34rem', 
+    }
   }));
 
 
@@ -23,7 +27,7 @@ export default function LandingPageContainer(props) {
   return (
     <div className={classes.bg} > 
       <LandingPageAppInfo {...props} /> 
-      <center> <img src={Logo} style={{marginTop: '-3rem', width: '37rem'}}/>  </center>
+      <center> <img src={Logo} className={classes.image}/>  </center>
     </div> 
   )
 }

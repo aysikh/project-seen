@@ -111,6 +111,7 @@ export default function SignUpForm(props){
                 handleNewUserSubmit( event )
             } }>                      
             <TextField 
+              required
               className={classes.textfield}
               onChange={handleFirstname}
               id="first-name" 
@@ -119,6 +120,7 @@ export default function SignUpForm(props){
             />
             <br /> <br />
             <TextField 
+              required
               className={classes.textfield}
               onChange={handleLastname}
               id="last-name" 
@@ -127,6 +129,7 @@ export default function SignUpForm(props){
             />
             <br /> <br />
             <TextField 
+              required
               className={classes.textfield}
               onChange={handleEmail}
               id="email" 
@@ -135,10 +138,13 @@ export default function SignUpForm(props){
             />
             <br /> <br />
             <TextField
+              required
               className={classes.textfield}
               onChange={handlePassword}
               id="password"
               label="Password"
+              id="password"
+              name="password"
               variant="outlined"
             />
             <br/> <br/> 

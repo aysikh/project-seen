@@ -13,16 +13,17 @@ const useStyles = makeStyles((theme) => ({
   appBar:{
     backgroundColor: 'white',
     width: '60rem',
-    marginBottom: '3rem'
+    marginBottom: '2rem',
+    // marginTop: '4rem',
   },
   grow: {
     flexGrow: 1,
   }, 
   text1:{
-    fontSize: '6.5rem', 
+    fontSize: '4.8rem', 
     fontFamily: 'Josefin Sans', 
-    margin: '25px', 
-    padding: theme.spacing(4),
+    // margin: '50px', 
+    padding: theme.spacing(2),
   },
   text2:{
     fontSize: '3.5rem', 
@@ -40,10 +41,9 @@ export default function LandingPageAppInfo(props){
     <div>
       <center>
       <br/> <br/> 
-      <span className={classes.text1}> Are you a Black woman? </span>
+      <h1 className={classes.text1}> Every Black woman in Tech deserves to feel seen. </h1>
       <br/> <br/> <br/>
-      <span className={classes.text2}> Find out what other Black women are saying about a company.  </span>
-      <br /> <br /> <br/> <br/>
+      {/* <span className={classes.text2}> Find out what other Black women are saying about a company.  </span> */}
         <AppBar position="static" className={classes.appBar}>
           <CompaniesAutocomplete {...props}/> 
         </AppBar>

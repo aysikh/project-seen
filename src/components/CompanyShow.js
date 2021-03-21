@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function CompanyShow( props){
+export default function CompanyShow(props){
   const classes = useStyles(); 
   const history = useHistory();
   const [company, setCompany] = useState(null);
@@ -43,8 +43,8 @@ export default function CompanyShow( props){
 
 
   useEffect(() => {
-    console.log(name)
-    console.log("NAME:", name)
+    // console.log(name)
+    // console.log("NAME:", name)
     fetch(COMPANY_URL + `${name}`, {
       headers : { 
         'Content-Type': 'application/json',
@@ -58,12 +58,14 @@ export default function CompanyShow( props){
       .catch((error) => console.log(error));
   }, [name]);
 
+  // console.log(props.setCurrentCompany("Twitter"))
+
   return (
     <div className={classes.bg}>
       <center>
         <br/> <br/>
         <AppBar style={{backgroundColor: 'white', width: '40rem', position: 'relative'}}>
-          <CompaniesAutocomplete {...props}/> 
+          <CompaniesAutocomplete {...props} /> 
         </AppBar>
 
     </center>
