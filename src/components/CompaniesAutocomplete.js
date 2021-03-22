@@ -10,18 +10,7 @@ export default function CompaniesAutocomplete(props){
   const [value, setValue] = React.useState(null);
   const history = useHistory(); 
 
-  // const getCompanies = () => {
-  //   fetch(COMPANY_URL)
-  //   .then(rsp => rsp.json())
-  //   .then(companies => setCompanies(companies))
-  // }
-  
-  // useEffect(()=>{
-  //   getCompanies();
-  // }, [])
-
   function handleSubmit(e){
-    // console.log(e)
     if(e && e.name){
       history.push("/company/" + e.name)
     }

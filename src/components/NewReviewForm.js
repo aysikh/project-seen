@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { useHistory } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
@@ -278,13 +279,12 @@ export default function NewReviewForm(props) {
   }
 
   const classes = useStyles();
+  const history = useHistory(); 
   const [title, setTitle] = React.useState('');
   const [position, setPosition] = React.useState('');
   const [content, setContent] = React.useState('');
-  // const [value, setValue] = React.useState(1);
   const [reviewCompany, setReviewCompany] = React.useState(0);
   const [companyName, setCompanyName] = React.useState('');
-
   const [diversity, setDiversity] = React.useState(1);
   const [leadership, setLeadership] = React.useState(1);
   const [worklife, setWorklife] = React.useState(1);
@@ -348,7 +348,7 @@ export default function NewReviewForm(props) {
     fetch( URL + companyName + "/reviews", requestPackage )
       .then( rsp => rsp.json() )
       .then(console.log)
-      // history.push( "/homepage" )
+      history.push( "/profile" )
   }
 
   const findCompanyName = (value) => {

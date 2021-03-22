@@ -16,13 +16,21 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 2),
     display: "absolute",
-    height: "50vh",
-    width: "100vh"
+    marginTop: '15rem',
+    height: '50vh', 
+    width: '95%'
   },
   textfield: {
-    width: '50rem', 
+    width: '85%', 
     position: 'relative', 
     marginLeft: '3.5rem'
+  },
+  button: {
+    fontSize: '1.1rem', 
+    position: 'relative', 
+    width: '30rem', 
+    backgroundColor: 'black', 
+    color: 'white'
   }
 }))
 
@@ -53,24 +61,11 @@ export default function LogInForm(props){
     })
       .then(response => response.json())
       .then(data => {
-        // console.log(data)
         localStorage.setItem('token', data.token)
         props.setUserLoggedIn(data)
         props.setLoggedIn(true)
         history.push('/profile')
-      }
-      //   {
-      //   if (data.errors) {
-      //     props.setLoggedIn(false)
-      //   }
-      //   else {
-      //     console.log(data.info)
-      //     props.setLoggedIn(true)
-      //     history.push('/')
-      //   }
-      // }
-      )
-    
+      })
   };
 
   return(
@@ -107,17 +102,12 @@ export default function LogInForm(props){
           />
           <br/> <br/> 
           <Button 
-            style={{fontSize: '1rem', position: 'relative', width: '20rem', backgroundColor: '#c1b9f7'}}
+            className={classes.button}
             type="submit" 
             variant="contained"
             >
             LOG IN
           </Button> 
-          {/* {props.isLoggedIn && (
-            <FlashMessage duration={5000}>
-              <strong>I will disapper in 5 seconds!</strong>
-            </FlashMessage>
-          )} */}
         </form>
       </Paper>
       </center>

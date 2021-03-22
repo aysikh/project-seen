@@ -15,12 +15,19 @@ import SignUp from '../assets/signup.png'
       padding: theme.spacing(2, 4),
       display: "absolute",
       height: "60vh",
-      width: "100vh"
+      width: "95%"
     },
     textfield: {
-      width: '50rem', 
+      width: '85%', 
       position: 'relative', 
       marginLeft: '3.5rem'
+    },
+    button: {
+      fontSize: '1.1rem', 
+      position: 'relative', 
+      width: '30rem', 
+      backgroundColor: 'black', 
+      color: 'white'
     }
   }))
 
@@ -118,7 +125,7 @@ export default function SignUpForm(props){
             />
             <br/> <br/> 
             <Button 
-              style={{fontSize: '1rem', position: 'relative', width: '20rem', backgroundColor: '#c1b9f7'}}
+              className={classes.button}
               type="submit" 
               variant="contained" 
               >

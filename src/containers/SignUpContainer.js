@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-import BG from '../assets/bg-10.jpeg';
+import BG from '../assets/tan-bg.jpeg';
 import SignUpForm from '../components/SignUpForm';
 
 const useStyles = makeStyles(() => ({
@@ -9,6 +9,7 @@ const useStyles = makeStyles(() => ({
     backgroundImage: `url(${BG})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
+    backgroundAttachment: 'fixed'
   },
 }));
 
