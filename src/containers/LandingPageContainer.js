@@ -15,8 +15,8 @@ const useStyles = makeStyles((theme) => ({
       backgroundAttachment: 'fixed',
     },
   image: {
-      marginTop: '1rem', 
-      width: '34rem', 
+      marginTop: '5rem', 
+      width: '25rem', 
     }
   }));
 

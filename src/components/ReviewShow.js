@@ -24,6 +24,80 @@ export default function ReviewShow(props){
     getReviews();
   }, [])
 
+  // console.log(reviews[i].diversity) 
+  // let array = [];
+  
+  const getDiversityScore = () => {
+    let total = 0; 
+    for( let i = 0; i < reviews.length; i++){
+      total += reviews[i].diversity
+    }
+    let average = total / reviews.length
+    let rounded = Math.round(average * 10) / 10
+    // console.log(rounded)
+    return rounded
+  }
+  const getLeadershipScore = () => {
+    let total = 0; 
+    for( let i = 0; i < reviews.length; i++){
+      total += reviews[i].leadership
+    }
+    let average = total / reviews.length
+    let rounded = Math.round(average * 10) / 10
+    // console.log(rounded)
+    return rounded
+  }
+
+  const getWorklifeScore = () => {
+    let total = 0; 
+    for( let i = 0; i < reviews.length; i++){
+      total += reviews[i].worklife
+    }
+    let average = total / reviews.length
+    let rounded = Math.round(average * 10) / 10
+    // console.log(rounded)
+    return rounded
+  }
+
+  const getInclusivenessScore = () => {
+    let total = 0; 
+    for( let i = 0; i < reviews.length; i++){
+      total += reviews[i].inclusiveness
+    }
+    let average = total / reviews.length
+    let rounded = Math.round(average * 10) / 10
+    // console.log(rounded)
+    return rounded
+  }
+
+  const getBenefitsScore = () => {
+    let total = 0; 
+    for( let i = 0; i < reviews.length; i++){
+      total += reviews[i].benefits
+    }
+    let average = total / reviews.length
+    let rounded = Math.round(average * 10) / 10
+    // console.log(rounded)
+    return rounded
+  }
+
+  const getRecommendationScore = () => {
+    let total = 0; 
+    for( let i = 0; i < reviews.length; i++){
+      total += reviews[i].recommendation
+    }
+    let average = total / reviews.length
+    let rounded = Math.round(average * 10) / 10
+    // console.log(rounded)
+    return rounded
+  }
+
+  const getTotalAverage = () => {
+    let total = getDiversityScore() + getLeadershipScore() + getWorklifeScore() + getInclusivenessScore() + getBenefitsScore() + getRecommendationScore() 
+    let average = total / 6 
+    return average 
+
+  }
   // const updateUseful = (e) => {
     // console.log(e)
     // fetch(REVIEW_URL + review.id), {
@@ -63,7 +137,7 @@ export default function ReviewShow(props){
   // }
 
   const getCompanyReviews = () => {
-    console.log(reviews)
+    // console.log(reviews)
     let r = []
     // debugger
     if(reviews){
@@ -84,6 +158,7 @@ export default function ReviewShow(props){
   return (
     <div>
       {getCompanyReviews()}
+      {getTotalAverage()}
     </div>
   )
 }

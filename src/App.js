@@ -66,7 +66,13 @@ export default function App({history}) {
                   // currentCompany={currentCompany}
                   /> 
                 )} /> 
-                <Route path='/new-review' component={NewReviewForm} /> 
+                <Route path='/new-review' render={(props) => (
+                  <NewReviewForm
+                  {...props}
+                  userLoggedIn={userLoggedIn}
+                  companies={companies}
+                  /> 
+                )} /> 
                 <Route path="/profile" render={(props) => (
                   <ProfileShow
                     {...props}

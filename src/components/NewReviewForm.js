@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
@@ -9,9 +9,47 @@ import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Popover from '@material-ui/core/Popover';
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
+import NativeSelect from '@material-ui/core/NativeSelect';
+import InputBase from '@material-ui/core/InputBase';
 
 import desk from '../assets/woman-at-desk.png'
 
+const StyleBox = withStyles((theme) => ({
+  root: {
+    'label + &': {
+      marginTop: theme.spacing(3),
+    },
+  },
+  input: {
+    borderRadius: 4,
+    position: 'relative',
+    backgroundColor: theme.palette.background.paper,
+    border: '1px solid #ced4da',
+    fontSize: 16,
+    padding: '10px 26px 10px 12px',
+    transition: theme.transitions.create(['border-color', 'box-shadow']),
+    // Use the system font instead of the default Roboto font.
+    fontFamily: [
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
+    '&:focus': {
+      borderRadius: 4,
+      borderColor: '#80bdff',
+      boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',
+    },
+  },
+}))(InputBase);
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -62,8 +100,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-
-export default function NewReviewForm() {
+export default function NewReviewForm(props) {
   function Diversity() {
     return (
       <PopupState variant="popover" popupId="1">
@@ -243,7 +280,8 @@ export default function NewReviewForm() {
   const [position, setPosition] = React.useState('');
   const [content, setContent] = React.useState('');
   // const [value, setValue] = React.useState(1);
-  
+  const [reviewCompany, setReviewCompany] = React.useState('');
+
   const [diversity, setDiversity] = React.useState(1);
   const [leadership, setLeadership] = React.useState(1);
   const [worklife, setWorklife] = React.useState(1);
@@ -254,15 +292,15 @@ export default function NewReviewForm() {
   const handleTitle = (event) => {
     setTitle(event.target.value)
   }
-
   const handlePosition = (event) => {
     setPosition(event.target.value)
   }
-
   const handleContent = (event) => {
     setContent(event.target.value)
   }
-
+  const handleCompany = (event) => {
+    setReviewCompany(event.target.value)
+  }
   const handleDiversity = (event) => {
     setDiversity(event.target.value)
   }
@@ -298,9 +336,8 @@ export default function NewReviewForm() {
           inclusiveness: inclusiveness, 
           benefits: benefits, 
           recommendation: recommendation,
-          // user_id: userID, 
-          // company_id: company_id
-          // I need to grab the user-id and company-id 
+          user_id: props.userLoggedIn.id,
+          company_id: reviewCompany
         } )
     }
     fetch( "http://localhost:3000/reviews", requestPackage )
@@ -308,6 +345,8 @@ export default function NewReviewForm() {
     .then(console.log)
       // history.push( "/homepage" )
   }
+
+console.log(props.userLoggedIn.id)
 
   return (
     <div className={classes.bg}>
@@ -325,6 +364,20 @@ export default function NewReviewForm() {
                     <h3>Write your Review!</h3>
                   {/* </div> */}
                   <br/>
+                <FormControl className={classes.root}>
+                  <InputLabel htmlFor="demo-customized-select-native">Age</InputLabel>
+                  <NativeSelect
+                    id="demo-customized-select-native"
+                    value={reviewCompany}
+                    onChange={handleCompany}
+                    input={<StyleBox />}
+                  >
+                    <option aria-label="Company" value="" />
+                    {props.companies.map(company => 
+                      <option value={company.id}> {company.name} </option> 
+                    )}
+                  </NativeSelect>
+                </FormControl>
                   {/* <div className={classes.row}> */}
                     <TextField 
                       style={{backgroundColor: 'white', fontFamily: 'Josefin Sans', width: '100%'}}
@@ -363,7 +416,7 @@ export default function NewReviewForm() {
                 </Paper> 
               </Grid>
 
-      {/* RATING ON THE RIGHT */}
+      {/* RATING */}
       <Grid item xs={3} style={{marginTop: '2rem'}}>
             <Paper style={{padding: '15px', height: '96.4%'}} elevation={5}>
             <Box component="fieldset" mb={3} borderColor="transparent">
