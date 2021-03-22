@@ -14,12 +14,22 @@ const useStyles = makeStyles((theme) => ({
 }));
 export default function ProfileShow(props){
   const classes = useStyles(); 
-  // console.log(props.userLoggedIn.reviews)
+
+  console.log(props.userLoggedIn.user)
+  console.log(props.userLoggedIn.reviews)
   return(
     <div>
       <center> 
-      <h1 className={classes.welcome}>Welcome back, {props.userLoggedIn.firstname}</h1>
-      <h1> Here are a list of all the reviews you've written: </h1> 
+        { props.userLoggedIn ? 
+        <div>
+          <h1 className={classes.welcome}>Welcome back, {props.userLoggedIn.user.firstname}</h1>
+          <h1> Here are a list of all the reviews you've written: </h1> 
+           {props.userLoggedIn.reviews.map(review => 
+            review.title)} 
+        </div>
+      : 
+      null
+      }
       </center>
     </div>
   )

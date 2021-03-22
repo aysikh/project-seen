@@ -53,10 +53,9 @@ export default function LogInForm(props){
     })
       .then(response => response.json())
       .then(data => {
-        console.log(data)
-        console.log(data.user)
+        // console.log(data)
         localStorage.setItem('token', data.token)
-        props.setUserLoggedIn(data.user)
+        props.setUserLoggedIn(data)
         props.setLoggedIn(true)
         history.push('/profile')
       }

@@ -16,6 +16,8 @@ import InputBase from '@material-ui/core/InputBase';
 
 import desk from '../assets/woman-at-desk.png'
 
+const URL = "http://localhost:3000/company/"
+
 const StyleBox = withStyles((theme) => ({
   root: {
     'label + &': {
@@ -280,7 +282,8 @@ export default function NewReviewForm(props) {
   const [position, setPosition] = React.useState('');
   const [content, setContent] = React.useState('');
   // const [value, setValue] = React.useState(1);
-  const [reviewCompany, setReviewCompany] = React.useState('');
+  const [reviewCompany, setReviewCompany] = React.useState(0);
+  const [companyName, setCompanyName] = React.useState('');
 
   const [diversity, setDiversity] = React.useState(1);
   const [leadership, setLeadership] = React.useState(1);
@@ -300,6 +303,7 @@ export default function NewReviewForm(props) {
   }
   const handleCompany = (event) => {
     setReviewCompany(event.target.value)
+    findCompanyName(event.target.value);
   }
   const handleDiversity = (event) => {
     setDiversity(event.target.value)
@@ -337,19 +341,29 @@ export default function NewReviewForm(props) {
           benefits: benefits, 
           recommendation: recommendation,
           user_id: props.userLoggedIn.id,
-          company_id: reviewCompany
+          company_id: parseInt(reviewCompany)
         } )
     }
-    fetch( "http://localhost:3000/reviews", requestPackage )
+    console.log(requestPackage.body)
+    fetch( URL + companyName + "/reviews", requestPackage )
       .then( rsp => rsp.json() )
-    .then(console.log)
+      .then(console.log)
       // history.push( "/homepage" )
   }
 
-console.log(props.userLoggedIn.id)
+  const findCompanyName = (value) => {
+    let x = props.companies.filter(company => 
+      company.id == value)
+      // console.log(x[0].name.toLowerCase())
+      setCompanyName(x[0].name.toLowerCase())
+  }
+
+// console.log(props.userLoggedIn.id)
+// console.log(reviewCompany)
 
   return (
     <div className={classes.bg}>
+      {/* {findCompanyName()} */}
       <form 
         autoComplete="on"
         noValidate
@@ -365,19 +379,20 @@ console.log(props.userLoggedIn.id)
                   {/* </div> */}
                   <br/>
                 <FormControl className={classes.root}>
-                  <InputLabel htmlFor="demo-customized-select-native">Age</InputLabel>
+                  <InputLabel htmlFor="demo-customized-select-native">Choose one of the following companies: </InputLabel>
                   <NativeSelect
                     id="demo-customized-select-native"
                     value={reviewCompany}
                     onChange={handleCompany}
                     input={<StyleBox />}
                   >
-                    <option aria-label="Company" value="" />
+                    <option aria-label="Company" />
                     {props.companies.map(company => 
-                      <option value={company.id}> {company.name} </option> 
+                      <option key={company.id} value={company.id}> {company.name} </option> 
                     )}
                   </NativeSelect>
                 </FormControl>
+                <br/> 
                   {/* <div className={classes.row}> */}
                     <TextField 
                       style={{backgroundColor: 'white', fontFamily: 'Josefin Sans', width: '100%'}}
@@ -404,9 +419,9 @@ console.log(props.userLoggedIn.id)
                     <TextField
                       style={{backgroundColor: 'white', width: '100%'}}
                       // fullWidth
-                      multiline
-                      rows={15}
-                      id="standard-multiline-static"
+                      // multiline
+                      // rows={15}
+                      id="content-box"
                       label="Talk more about your experience here..."
                       onChange={handleContent}
                       variant="outlined" 
