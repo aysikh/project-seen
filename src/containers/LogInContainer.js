@@ -6,11 +6,13 @@ import LogInForm from '../components/LogInForm'
 
 const useStyles = makeStyles(() => ({
   bg: {
-    minHeight: '100vh',
+    minHeight: '90vh',
     backgroundImage: `url(${BG})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
-    backgroundAttachment: 'fixed'
+    backgroundAttachment: 'fixed',
+    overflow:'hidden', 
+    overflowY: 'hidden'
   },
 }));
 

@@ -5,7 +5,7 @@ import SignUpForm from '../components/SignUpForm';
 
 const useStyles = makeStyles(() => ({
   bg: {
-    minHeight: '100vh',
+    minHeight: '90vh',
     backgroundImage: `url(${BG})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',

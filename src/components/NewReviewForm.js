@@ -100,6 +100,9 @@ const useStyles = makeStyles((theme) => ({
     MozBoxSizing: 'border-box',
     boxSizing: 'border-box', 
     width: '30rem'
+  }, 
+  selectionBox: {
+    width: '22rem'
   }
 }));
 
@@ -363,7 +366,6 @@ export default function NewReviewForm(props) {
 
   return (
     <div className={classes.bg}>
-      {/* {findCompanyName()} */}
       <form 
         autoComplete="on"
         noValidate
@@ -374,12 +376,11 @@ export default function NewReviewForm(props) {
           <Grid container justify="center"  >
               <Grid item xs={4} style={{marginTop: '2rem'}}>
                 <Paper className={classes.paper} elevation={5}>
-                  {/* <div className={classes.row}> */}
-                    <h3>Write your Review!</h3>
-                  {/* </div> */}
-                  <br/>
-                <FormControl className={classes.root}>
-                  <InputLabel htmlFor="demo-customized-select-native">Choose one of the following companies: </InputLabel>
+                  <h2>Write your Review!</h2>
+                  <span> Choose a company: </span> 
+                  <br/> <br/>
+                <FormControl className={classes.selectionBox}>
+                  {/* <InputLabel htmlFor="demo-customized-select-native">Choose one of the following companies: </InputLabel> */}
                   <NativeSelect
                     id="demo-customized-select-native"
                     value={reviewCompany}
@@ -392,41 +393,32 @@ export default function NewReviewForm(props) {
                     )}
                   </NativeSelect>
                 </FormControl>
-                <br/> 
-                  {/* <div className={classes.row}> */}
+                <br/> <br/>
                     <TextField 
                       style={{backgroundColor: 'white', fontFamily: 'Josefin Sans', width: '100%'}}
-                      // fullWidth
                       onChange={handleTitle}
                       id="outlined-basic" 
                       label="Enter a title for your review..." 
                       variant="outlined" 
                       />
-                  {/* </div> */}
                   <br /> <br />
-                  {/* <div> */}
                     <TextField 
                       style={{backgroundColor: 'white', width: '100%'}}
-                      // fullWidth
                       onChange={handlePosition}
                       id="outlined-basic" 
                       label="What was your position here? " 
                       variant="outlined" 
                     />
-                  {/* </div> */}
                   <br /> <br /> 
-                  {/* <div> */}
                     <TextField
                       style={{backgroundColor: 'white', width: '100%'}}
-                      // fullWidth
-                      // multiline
-                      // rows={15}
+                      multiline
+                      rows={15}
                       id="content-box"
                       label="Talk more about your experience here..."
                       onChange={handleContent}
                       variant="outlined" 
                     />
-                  {/* </div> */}
                   <br /> <br /> 
                 </Paper> 
               </Grid>

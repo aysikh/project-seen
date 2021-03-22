@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     display: "absolute",
     marginTop: '15rem',
     height: '50vh', 
-    width: '95%'
+    width: '95%',
   },
   textfield: {
     width: '85%', 

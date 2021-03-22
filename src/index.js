@@ -11,6 +11,21 @@ const theme = createMuiTheme({
       textAlign: "center",
       fontFamily: "Josefin Sans"
     },
+    h3: {
+      color: '#4ba3c7',
+      textAlign: "center",
+      fontFamily: "Josefin Sans"
+    },
+    h2: {
+      color: '#4ba3c7',
+      textAlign: "center",
+      fontFamily: "Josefin Sans"
+    },
+    h1: {
+      color: '#4ba3c7',
+      textAlign: "center",
+      fontFamily: "Josefin Sans"
+    },
   },
   palette: {
     primary: {
