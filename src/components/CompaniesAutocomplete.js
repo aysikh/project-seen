@@ -3,8 +3,6 @@ import { useHistory} from "react-router-dom";
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField';
 
-// const COMPANY_URL = "http://localhost:3000/companies"
-
 export default function CompaniesAutocomplete(props){
   // const [companies, setCompanies] = useState([]);
   const [value, setValue] = React.useState(null);

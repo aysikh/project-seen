@@ -6,11 +6,8 @@ import BG from '../assets/brown-bg.jpeg'
 import LinearProgress from '@material-ui/core/LinearProgress';
 import CompaniesAutocomplete from './CompaniesAutocomplete'
 
-
-// might have to pull the company's name off the URL and do the fetch call here
-// to grab the average scores....then pass i tdown to company card because I don't need the average anywhere else
-
-const COMPANY_URL = "http://localhost:3000/companies/"
+const COMPANIES_URL = "http://localhost:3000/companies/"
+const URL = "http://localhost:3000/company/"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,15 +30,27 @@ const useStyles = makeStyles((theme) => ({
 export default function CompanyShow(props){
   const classes = useStyles(); 
   const [company, setCompany] = useState(null);
+  const [reviews, setReviews] = useState([]);
+  var companyName = window.location.href.split('/');
 
-
+  // console.log(companyName[4].toLowerCase()) 
   const {
     params: { name },
   } = props.match;
 
+  const getReviews = () => {
+    fetch(URL + companyName[4].toLowerCase() + "/reviews")
+    .then(rsp => rsp.json())
+    .then(reviews => setReviews(reviews))
+    // console.log(reviews)
+  }
+
+  useEffect(()=> {
+    getReviews();
+  }, [])
 
   useEffect(() => {
-    fetch(COMPANY_URL + `${name}`, {
+    fetch(COMPANIES_URL + `${name}`, {
       headers : { 
         'Content-Type': 'application/json',
         'Accept': 'application/json'
@@ -54,7 +63,114 @@ export default function CompanyShow(props){
       .catch((error) => console.log(error));
   }, [name]);
 
-  // console.log(props.setCurrentCompany("Twitter"))
+  const getDiversityScore = () => {
+    let total = 0; 
+    if(reviews.length > 1){
+      for( let i = 0; i < reviews.length; i++){
+        total += reviews[i].diversity
+      }
+    }
+    else{
+      return 0
+    }
+
+    let average = total / reviews.length
+    let rounded = Math.round(average * 10) / 10
+    // props.setDiversityAverage(rounded)
+    // console.log(rounded)
+    return rounded
+  }
+
+  const getLeadershipScore = () => {
+    let total = 0; 
+    if(reviews.length > 1){
+      for( let i = 0; i < reviews.length; i++){
+        total += reviews[i].leadership
+      }
+    }
+    else{
+      return 0
+    }
+    let average = total / reviews.length
+    let rounded = Math.round(average * 10) / 10
+    // props.setLeadershipAverage(rounded)
+    return rounded
+  }
+
+  const getWorklifeScore = () => {
+    let total = 0; 
+    if(reviews.length > 1){
+      for( let i = 0; i < reviews.length; i++){
+        total += reviews[i].worklife
+      }
+    }
+    else{
+      return 0
+    }
+    let average = total / reviews.length
+    let rounded = Math.round(average * 10) / 10
+    // props.setWorklifeAverage(rounded)
+    return rounded
+  }
+
+  const getInclusivenessScore = () => {
+    let total = 0; 
+    if(reviews.length > 1){
+      for( let i = 0; i < reviews.length; i++){
+        total += reviews[i].inclusiveness
+      }
+    }
+    else{
+      return 0
+    }
+    let average = total / reviews.length
+    let rounded = Math.round(average * 10) / 10
+    // props.setInclusivenessAverage(rounded)
+    return rounded
+  }
+
+  const getBenefitsScore = () => {
+    let total = 0; 
+    if(reviews.length > 1){
+      for( let i = 0; i < reviews.length; i++){
+        total += reviews[i].benefits
+      }
+    }
+    else{
+      return 0
+    }
+    let average = total / reviews.length
+    let rounded = Math.round(average * 10) / 10
+    // props.setBenefitsAverage(rounded)
+    return rounded
+  }
+
+  const getRecommendationScore = () => {
+    let total = 0; 
+    if(reviews.length > 1){
+      for( let i = 0; i < reviews.length; i++){
+        total += reviews[i].recommendation
+      }
+    }
+    else{
+      return 0
+    }
+    let average = total / reviews.length
+    let rounded = Math.round(average * 10) / 10
+    return rounded
+  }
+
+  const getTotalAverage = () => {
+    let total = getDiversityScore() + getLeadershipScore() + getWorklifeScore() + getInclusivenessScore() + getBenefitsScore() + getRecommendationScore() 
+    if(total > 0){
+      let average = total / 6 
+      let rounded = Math.round(average * 10) / 10
+      return rounded 
+    }
+    else{
+      return 0
+    }
+  }
 
   return (
     <div className={classes.bg}>
@@ -66,7 +182,21 @@ export default function CompanyShow(props){
 
     </center>
     <br/> <br/>
-        {company ? <CompanyCard {...props} comp={company} key={company.id} /> : <LinearProgress className={classes.root}/>  }
+        {company ? <CompanyCard 
+          {...props} 
+          comp={company} 
+          key={company.id} 
+          getTotalAverage={getTotalAverage()}
+          getDiversityScore={getDiversityScore()}
+          getLeadershipScore={getLeadershipScore()}
+          getInclusivenessScore={getInclusivenessScore()}
+          getWorklifeScore={getWorklifeScore()}
+          getBenefitsScore={getBenefitsScore()}
+          getRecommendationScore={getRecommendationScore()}
+        /> 
+          : <LinearProgress 
+          className={classes.root}
+          />  }
     </div>
   )
 
