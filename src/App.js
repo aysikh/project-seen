@@ -18,8 +18,16 @@ export default function App({history}) {
   const [isLoggedIn, setLoggedIn ] = useState(false)
   const [userLoggedIn, setUserLoggedIn] = useState('')
 
-  // sessionStorage.setItem('email', 'value');
+  const [diversityAverage, setDiversityAverage] = useState(0)
+  const [leadershipAverage, setLeadershipAverage] = useState(0)
+  const [worklifeAverage, setWorklifeAverage] = useState(0)
+  const [inclusivenessAverage, setInclusivenessAverage] = useState(0)
+  const [benefitsAverage, setBenefitsAverage] = useState(0)
+  const [recommendationAverage, setRecommendationAverage] = useState(0)
+  const [totalAverage, setTotalAverage] = useState(0)
 
+  localStorage.getItem("token")
+  
   const getCompanies = () => {
     fetch(COMPANY_URL)
     .then(rsp => rsp.json())
@@ -28,8 +36,6 @@ export default function App({history}) {
   useEffect(()=>{
     getCompanies();
   }, [])
-
-  // console.log(companies)
 
   return(
     <div>
@@ -56,21 +62,33 @@ export default function App({history}) {
                   <CompanyShow 
                     {...props}
                     companies={companies}
-                    // setCurrentCompany={setCurrentCompany}
+                    diversityAverage={diversityAverage}
+                    leadershipAverage={leadershipAverage}
+                    worklifeAverage={worklifeAverage}
+                    inclusivenessAverage={inclusivenessAverage}
+                    benefitsAverage={benefitsAverage}
+                    recommendationAverage={recommendationAverage}
+                    totalAverage={totalAverage}
                   /> 
                   )} />
                 <Route exact path="/company/:name/reviews" render={(props) => (
                   <ReviewShow
-                  {...props}
-                  companies={companies} 
-                  // currentCompany={currentCompany}
+                    {...props}
+                    companies={companies} 
+                    setDiversityAverage={setDiversityAverage}
+                    setLeadershipAverage={setLeadershipAverage}
+                    setWorklifeAverage={setWorklifeAverage}
+                    setInclusivenessAverage={setInclusivenessAverage}
+                    setBenefitsAverage={setBenefitsAverage}
+                    setRecommendationAverage={setRecommendationAverage}
+                    setTotalAverage={setTotalAverage}
                   /> 
                 )} /> 
                 <Route path='/new-review' render={(props) => (
                   <NewReviewForm
-                  {...props}
-                  userLoggedIn={userLoggedIn}
-                  companies={companies}
+                    {...props}
+                    userLoggedIn={userLoggedIn}
+                    companies={companies}
                   /> 
                 )} /> 
                 <Route path="/profile" render={(props) => (

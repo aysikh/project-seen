@@ -7,14 +7,14 @@ const URL = "http://localhost:3000/company/"
 
 
 export default function ReviewShow(props){
-  var hello = window.location.href.split('/');
+  var companyName = window.location.href.split('/');
   // if there is only 4 in array, get all companies
   // if there 4+, you know 4th position is a company
 
   const [reviews, setReviews] = useState([]);
 
   const getReviews = () => {
-    fetch(URL + hello[4] + "/reviews")
+    fetch(URL + companyName[4] + "/reviews")
     .then(rsp => rsp.json())
     .then(reviews => setReviews(reviews))
     // console.log(reviews)
@@ -34,9 +34,10 @@ export default function ReviewShow(props){
     }
     let average = total / reviews.length
     let rounded = Math.round(average * 10) / 10
-    // console.log(rounded)
+    props.setDiversityAverage(rounded)
     return rounded
   }
+
   const getLeadershipScore = () => {
     let total = 0; 
     for( let i = 0; i < reviews.length; i++){
@@ -44,7 +45,7 @@ export default function ReviewShow(props){
     }
     let average = total / reviews.length
     let rounded = Math.round(average * 10) / 10
-    // console.log(rounded)
+    props.setLeadershipAverage(rounded)
     return rounded
   }
 
@@ -55,7 +56,7 @@ export default function ReviewShow(props){
     }
     let average = total / reviews.length
     let rounded = Math.round(average * 10) / 10
-    // console.log(rounded)
+    props.setWorklifeAverage(rounded)
     return rounded
   }
 
@@ -66,7 +67,7 @@ export default function ReviewShow(props){
     }
     let average = total / reviews.length
     let rounded = Math.round(average * 10) / 10
-    // console.log(rounded)
+    props.setInclusivenessAverage(rounded)
     return rounded
   }
 
@@ -77,7 +78,7 @@ export default function ReviewShow(props){
     }
     let average = total / reviews.length
     let rounded = Math.round(average * 10) / 10
-    // console.log(rounded)
+    props.setBenefitsAverage(rounded)
     return rounded
   }
 
@@ -88,15 +89,15 @@ export default function ReviewShow(props){
     }
     let average = total / reviews.length
     let rounded = Math.round(average * 10) / 10
-    // console.log(rounded)
+    props.setRecommendationAverage(rounded)
     return rounded
   }
 
   const getTotalAverage = () => {
     let total = getDiversityScore() + getLeadershipScore() + getWorklifeScore() + getInclusivenessScore() + getBenefitsScore() + getRecommendationScore() 
     let average = total / 6 
+    props.setTotalAverage(average)
     return average 
-
   }
   // const updateUseful = (e) => {
     // console.log(e)
@@ -158,7 +159,7 @@ export default function ReviewShow(props){
   return (
     <div>
       {getCompanyReviews()}
-      {getTotalAverage()}
+      {/* {getTotalAverage()} */}
     </div>
   )
 }

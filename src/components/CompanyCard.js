@@ -80,44 +80,44 @@ export default function CompanyCard(props){
                     name="read-only" 
                     style={{color: '#D2C7E0', fontSize: '5rem'}} 
                     precision={0.5} 
-                    value={4.5} 
+                    value={props.totalAverage} 
                     readOnly />
                     <br/> <br/>
-                    <span style={{fontSize:'5rem'}}>4.3</span>
+                    <span style={{fontSize:'5rem'}}>{props.totalAverage}</span>
                       <br /> <br />
                       <Grid container xs={14}>
                         <Grid item xs={3} style={{marginLeft: '20px', fontSize: '25px'}}> 
-                            {/* {props.review.diversity} */} 4
+                            {props.diversityAverage}
                         </Grid>
                         <Grid item xs={8}>
                       <span style={{fontSize:'22px'}}>Diversity in Organization</span> <br/>
                         </Grid>
                         <Grid item xs={3} style={{marginLeft: '20px', fontSize: '25px'}}> 
-                            {/* {props.review.leadership} */} 5
+                            {props.leadershipAverage}
                         </Grid>
                         <Grid item xs={8}>
                         <span style={{fontSize:'22px'}}>Diversity in Leadership</span> <br /> 
                         </Grid>
                         <Grid item xs={3} style={{marginLeft: '20px', fontSize: '25px'}}> 
-                            {/* {props.review.worklife} */} 4
+                            {props.worklifeAverage}
                         </Grid>
                         <Grid item xs={8}>
                         <span style={{fontSize:'22px'}}>Work/Life Balance</span> <br /> 
                         </Grid>
                         <Grid item xs={3} style={{marginLeft: '20px', fontSize: '25px'}}> 
-                            {/* {props.review.inclusiveness} */} 4
+                            {props.inclusivenessAverage}
                         </Grid>
                         <Grid item xs={8}>
                         <span style={{fontSize:'22px'}}>Inclusiveness</span> <br /> 
                         </Grid>
                         <Grid item xs={3} style={{marginLeft: '20px', fontSize: '25px'}}> 
-                            {/* {props.review.benefits} */} 4
+                            {props.benefitsAverage}
                         </Grid>
                         <Grid item xs={8}>
                         <span style={{fontSize:'22px'}}>Benefits At Company</span> <br />
                         </Grid>
                         <Grid item xs={3} style={{marginLeft: '20px', fontSize: '25px'}}> 
-                            {/* {props.review.recommendation} */} 4
+                            {props.recommendationAverage}
                         </Grid>
                         <Grid item xs={8}>
                         <span style={{fontSize:'22px'}}>Recommend to Friend</span>

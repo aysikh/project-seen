@@ -6,6 +6,10 @@ import BG from '../assets/brown-bg.jpeg'
 import LinearProgress from '@material-ui/core/LinearProgress';
 import CompaniesAutocomplete from './CompaniesAutocomplete'
 
+
+// might have to pull the company's name off the URL and do the fetch call here
+// to grab the average scores....then pass i tdown to company card because I don't need the average anywhere else
+
 const COMPANY_URL = "http://localhost:3000/companies/"
 
 const useStyles = makeStyles((theme) => ({
@@ -62,7 +66,7 @@ export default function CompanyShow(props){
 
     </center>
     <br/> <br/>
-        {company ? <CompanyCard comp={company} key={company.id} /> : <LinearProgress className={classes.root}/>  }
+        {company ? <CompanyCard {...props} comp={company} key={company.id} /> : <LinearProgress className={classes.root}/>  }
     </div>
   )
 
