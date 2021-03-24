@@ -10,7 +10,7 @@ import ReviewShow from './components/ReviewShow'
 import NavBar from './components/NavBar'
 import ProfileShow from './containers/ProfileShow'
 
-const COMPANY_URL = "http://localhost:3000/companies"
+const COMPANY_URL = "https://project-seen-backend.herokuapp.com/companies"
 
 export default function App({history}) {
   const [companies, setCompanies] = useState([]);

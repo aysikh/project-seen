@@ -14,7 +14,7 @@ import FormControl from '@material-ui/core/FormControl';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import InputBase from '@material-ui/core/InputBase';
 
-const URL = "http://localhost:3000/company/"
+const URL = "https://project-seen-backend.herokuapp.com/company/"
 
 const StyleBox = withStyles((theme) => ({
   root: {

@@ -69,7 +69,7 @@ export default function SignUpForm(props){
             password: password,
         } )
     }
-    fetch( "http://localhost:3000/users", requestPackage )
+    fetch( "https://project-seen-backend.herokuapp.com/users", requestPackage )
       .then( rsp => rsp.json() )
     .then(console.log)
       // history.push( "/profile" )

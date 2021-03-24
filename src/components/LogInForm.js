@@ -7,8 +7,6 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button'
 import LogIn from '../assets/login.png'
 
-// import FlashMessage from "react-flash-message";
-
 const useStyles = makeStyles((theme) => ({
   paper: {
     backgroundColor: theme.palette.background.paper,
@@ -58,7 +56,7 @@ export default function LogInForm(props){
   const handleSubmit = (event) => {
     event.preventDefault()
       
-    fetch('http://localhost:3000/login', {
+    fetch('https://project-seen-backend.herokuapp.com/login', {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

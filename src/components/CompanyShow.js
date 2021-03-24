@@ -6,8 +6,8 @@ import BG from '../assets/brown-bg.jpeg'
 import LinearProgress from '@material-ui/core/LinearProgress';
 import CompaniesAutocomplete from './CompaniesAutocomplete'
 
-const COMPANIES_URL = "http://localhost:3000/companies/"
-const URL = "http://localhost:3000/company/"
+const COMPANIES_URL = "https://project-seen-backend.herokuapp.com/companies/"
+const URL = "https://project-seen-backend.herokuapp.com/company/"
 
 const useStyles = makeStyles((theme) => ({
   root: {

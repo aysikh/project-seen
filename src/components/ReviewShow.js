@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import ReviewCard from './ReviewCard'
 
 
-const URL = "http://localhost:3000/company/"
+const URL = "https://project-seen-backend.herokuapp.com/company/"
 
 
 export default function ReviewShow(props){
