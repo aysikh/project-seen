@@ -65,7 +65,7 @@ export default function CompanyShow(props){
 
   const getDiversityScore = () => {
     let total = 0; 
-    if(reviews.length > 1){
+    if(reviews.length >= 1){
       for( let i = 0; i < reviews.length; i++){
         total += reviews[i].diversity
       }
@@ -80,7 +80,7 @@ export default function CompanyShow(props){
 
   const getLeadershipScore = () => {
     let total = 0; 
-    if(reviews.length > 1){
+    if(reviews.length >= 1){
       for( let i = 0; i < reviews.length; i++){
         total += reviews[i].leadership
       }
@@ -95,7 +95,7 @@ export default function CompanyShow(props){
 
   const getWorklifeScore = () => {
     let total = 0; 
-    if(reviews.length > 1){
+    if(reviews.length >= 1){
       for( let i = 0; i < reviews.length; i++){
         total += reviews[i].worklife
       }
@@ -110,7 +110,7 @@ export default function CompanyShow(props){
 
   const getInclusivenessScore = () => {
     let total = 0; 
-    if(reviews.length > 1){
+    if(reviews.length >= 1){
       for( let i = 0; i < reviews.length; i++){
         total += reviews[i].inclusiveness
       }
@@ -125,7 +125,7 @@ export default function CompanyShow(props){
 
   const getBenefitsScore = () => {
     let total = 0; 
-    if(reviews.length > 1){
+    if(reviews.length >= 1){
       for( let i = 0; i < reviews.length; i++){
         total += reviews[i].benefits
       }
@@ -140,7 +140,7 @@ export default function CompanyShow(props){
 
   const getRecommendationScore = () => {
     let total = 0; 
-    if(reviews.length > 1){
+    if(reviews.length >= 1){
       for( let i = 0; i < reviews.length; i++){
         total += reviews[i].recommendation
       }

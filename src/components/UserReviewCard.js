@@ -22,7 +22,8 @@ const useStyles = makeStyles((theme) => ({
     margin: "1rem",
     border: "3px solid #000",
     borderRadius: '20px', 
-    overflow: 'scroll'
+    overflow: 'scroll',
+    overflowY: 'hidden',
   },
   content: {
     fontFamily: "Josefin Sans",
@@ -32,7 +33,8 @@ const useStyles = makeStyles((theme) => ({
     padding: '30px',
     border: "3px solid #000",
     borderRadius: '20px',
-    overflow: 'scroll'
+    overflow: 'scroll',
+    overflowY: 'hidden',
   },
   topInfo: {
     fontFamily: "Josefin Sans",
