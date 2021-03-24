@@ -16,14 +16,18 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 2),
     display: "absolute",
-    marginTop: '15rem',
+    marginTop: '10rem',
     height: '50vh', 
     width: '95%',
   },
   textfield: {
     width: '85%', 
     position: 'relative', 
-    marginLeft: '3.5rem'
+    marginLeft: '3.5rem',
+    backgroundColor: 'white',
+    color: 'black',
+    // border: '3px solid #000', 
+    borderRadius: '5px',
   },
   button: {
     fontSize: '1.1rem', 
@@ -31,7 +35,9 @@ const useStyles = makeStyles((theme) => ({
     width: '30rem', 
     backgroundColor: 'black', 
     color: 'white', 
-    fontFamily: 'Cardo'
+    fontFamily: 'Cardo',
+    border: '3px solid #000', 
+    borderRadius: '20px'
   }
 }))
 
@@ -107,7 +113,7 @@ export default function LogInForm(props){
             type="submit" 
             variant="contained"
             >
-            LOG IN
+            Log In
           </Button> 
         </form>
       </Paper>

@@ -15,7 +15,8 @@ import SignUp from '../assets/signup.png'
       padding: theme.spacing(2, 4),
       display: "absolute",
       height: "60vh",
-      width: "95%"
+      width: "95%",
+      marginTop: '5rem'
     },
     textfield: {
       width: '85%', 

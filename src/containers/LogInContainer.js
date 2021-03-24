@@ -9,10 +9,8 @@ const useStyles = makeStyles(() => ({
     minHeight: '90vh',
     backgroundImage: `url(${BG})`,
     backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
+    backgroundSize: '100% 100%',
     backgroundAttachment: 'fixed',
-    overflow:'hidden', 
-    overflowY: 'hidden'
   },
 }));
 

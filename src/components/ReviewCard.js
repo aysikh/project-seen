@@ -8,14 +8,21 @@ import StarsIcon from '@material-ui/icons/Stars';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import ThumbDownIcon from '@material-ui/icons/ThumbDown';
 import PersonIcon from '@material-ui/icons/Person';
+import BG from '../assets/tan-bg.jpeg'
 
 const useStyles = makeStyles((theme) => ({
+  bg: {
+    backgroundImage: `url(${BG})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: '100% 120%',
+    backgroundAttachment: 'fixed',
+  },
   root: {
     flexGrow: 1,
-    marginTop: '2rem',
+    // marginTop: '2rem',
+    padding: '20px'
   },
   whole: {
-    // backgroundColor: "pink",
     height: "auto",
     width: "45%",
     border: '3px solid #000',
@@ -66,7 +73,8 @@ export default function ReviewCard(props){
   const classes = useStyles();
 
   return(
-    <div>
+    <div className={classes.bg}>
+      <center> 
     {props.review == {} ? "No reviews yet. Please check back here soon!" :
         <Grid container className={classes.root} spacing={2}>
           <Grid item xs={12}>
@@ -168,6 +176,7 @@ export default function ReviewCard(props){
           </Grid>
         </Grid>
     }
+    </center>
     </div>
   )
 }

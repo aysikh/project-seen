@@ -5,10 +5,10 @@ import SignUpForm from '../components/SignUpForm';
 
 const useStyles = makeStyles(() => ({
   bg: {
-    minHeight: '90vh',
+    minHeight: '100vh',
     backgroundImage: `url(${BG})`,
     backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
+    backgroundSize: '100% 120%',
     backgroundAttachment: 'fixed'
   },
 }));

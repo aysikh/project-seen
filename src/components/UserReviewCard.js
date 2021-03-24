@@ -11,9 +11,11 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1
   },
   whole: {
-    backgroundColor: "#DBBA9C",
+    backgroundColor: "white",
     height: "auto",
-    width: "45%"
+    width: "45%", 
+    border: '3px solid black',
+    borderRadius: '10px'
   },
   rating: {
     fontFamily: "Josefin Sans",
