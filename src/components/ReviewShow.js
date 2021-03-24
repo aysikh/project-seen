@@ -12,6 +12,7 @@ export default function ReviewShow(props){
   // if there 4+, you know 4th position is a company
 
   const [reviews, setReviews] = useState([]);
+  const [review, setReview] = useState([]);
 
   const getReviews = () => {
     fetch(URL + companyName[4] + "/reviews")
@@ -23,6 +24,12 @@ export default function ReviewShow(props){
   useEffect(()=> {
     getReviews();
   }, [])
+  
+    const handleUp = (e) => {
+      // reviews.map(review => {
+      // setReview(review.id)
+      console.log(e)
+    }
   
 
   // const updateUseful = (e) => {
@@ -43,7 +50,6 @@ export default function ReviewShow(props){
     // })
   // }
 
-
   // const updateNotUseful = (review) => {
   //   console.log(review)
   //   fetch(REVIEW_URL + review.id), {
@@ -63,13 +69,12 @@ export default function ReviewShow(props){
   //   })
   // }
 
-  const getCompanyReviews = () => {
-    // console.log(reviews)
+  const getCompanyReviews = (e) => {
     let r = []
-    // debugger
     if(reviews){
       for(let i = 0; i < reviews.length; i ++){
         r.push(<ReviewCard 
+            handleUp={handleUp()}
           // updateUseful={updateUseful}
           // updateNotUseful={updateNotUseful}
             review={reviews[i]}

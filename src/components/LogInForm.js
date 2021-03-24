@@ -30,7 +30,8 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative', 
     width: '30rem', 
     backgroundColor: 'black', 
-    color: 'white'
+    color: 'white', 
+    fontFamily: 'Cardo'
   }
 }))
 

@@ -138,7 +138,7 @@ export default function ReviewCard(props){
                   <IconButton>
                     <ThumbUpIcon 
                     style={{fontSize: '2rem', padding: '1px'}}
-                    onClick={(e) => (props.updateUseful(e))} 
+                    onClick={(e) => this.handleUp(e)} 
                     />
                   </IconButton> 
                 <span> {props.review.isUseful} </span>

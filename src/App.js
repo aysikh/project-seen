@@ -13,21 +13,12 @@ import ProfileShow from './containers/ProfileShow'
 const COMPANY_URL = "http://localhost:3000/companies"
 
 export default function App({history}) {
-
   const [companies, setCompanies] = useState([]);
   const [isLoggedIn, setLoggedIn ] = useState(false)
   const [userLoggedIn, setUserLoggedIn] = useState('')
 
-  const [diversityAverage, setDiversityAverage] = useState(0)
-  const [leadershipAverage, setLeadershipAverage] = useState(0)
-  const [worklifeAverage, setWorklifeAverage] = useState(0)
-  const [inclusivenessAverage, setInclusivenessAverage] = useState(0)
-  const [benefitsAverage, setBenefitsAverage] = useState(0)
-  const [recommendationAverage, setRecommendationAverage] = useState(0)
-  const [totalAverage, setTotalAverage] = useState(0)
-
   localStorage.getItem("token")
-  
+
   const getCompanies = () => {
     fetch(COMPANY_URL)
     .then(rsp => rsp.json())
@@ -62,26 +53,12 @@ export default function App({history}) {
                   <CompanyShow 
                     {...props}
                     companies={companies}
-                    diversityAverage={diversityAverage}
-                    leadershipAverage={leadershipAverage}
-                    worklifeAverage={worklifeAverage}
-                    inclusivenessAverage={inclusivenessAverage}
-                    benefitsAverage={benefitsAverage}
-                    recommendationAverage={recommendationAverage}
-                    totalAverage={totalAverage}
                   /> 
                   )} />
                 <Route exact path="/company/:name/reviews" render={(props) => (
                   <ReviewShow
                     {...props}
                     companies={companies} 
-                    setDiversityAverage={setDiversityAverage}
-                    setLeadershipAverage={setLeadershipAverage}
-                    setWorklifeAverage={setWorklifeAverage}
-                    setInclusivenessAverage={setInclusivenessAverage}
-                    setBenefitsAverage={setBenefitsAverage}
-                    setRecommendationAverage={setRecommendationAverage}
-                    setTotalAverage={setTotalAverage}
                   /> 
                 )} /> 
                 <Route path='/new-review' render={(props) => (

@@ -9,7 +9,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'white',
     width: '60rem',
     marginBottom: '2rem',
-    // marginTop: '4rem',
   },
   grow: {
     flexGrow: 1,
@@ -17,14 +16,12 @@ const useStyles = makeStyles((theme) => ({
   text1:{
     fontSize: '4.8rem', 
     fontFamily: 'Josefin Sans', 
-    // margin: '50px', 
     padding: theme.spacing(2),
   },
   text2:{
     fontSize: '3rem', 
     fontFamily: 'Josefin Sans', 
     margin: '25px', 
-    // padding: '100px', 
     padding: theme.spacing(1),
   }
 }));

@@ -5,7 +5,6 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import Rating from '@material-ui/lab/Rating';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Popover from '@material-ui/core/Popover';
@@ -65,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'inline-block',
     padding: '15px',
     margin: '2px',
-    backgroundColor: '#c1b9f7',
+    backgroundColor: 'white',
   },
   imgBox: {
     height: 'auto',
@@ -126,8 +125,8 @@ export default function NewReviewForm(props) {
                 horizontal: 'center',
               }}
             >
-              <Box p={2} className={classes.info} >
-                <Typography>Rate your company on how diverse it is as a whole - are employees representative of the general population in disability, ethnicity, gender, race, religion, sexual orientation, etc., and is everyone seen as equals? </Typography>
+              <Box p={4} className={classes.info} >
+                <span style={{fontFamily: 'Cardo'}}>Rate your company on how diverse it is as a whole - are employees representative of the general population in disability, ethnicity, gender, race, religion, sexual orientation, etc., and is everyone seen as equals? </span >
               </Box>
             </Popover>
           </div>
@@ -156,7 +155,7 @@ export default function NewReviewForm(props) {
               }}
             >
               <Box p={2} className={classes.info} >
-                <Typography>Rate your company on how diverse the mid- and senior-level leadership is - are underrepresented employees equitably reperesented and welcomed in leadership positions? </Typography>
+                <span style={{fontFamily: 'Cardo'}}>Rate your company on how diverse the mid- and senior-level leadership is - are underrepresented employees equitably reperesented and welcomed in leadership positions? </span >
               </Box>
             </Popover>
           </div>
@@ -185,7 +184,7 @@ export default function NewReviewForm(props) {
               }}
             >
               <Box p={2} className={classes.info} >
-                <Typography>Rate your company on overall work/life balance - does the company encourage employeese to balance work and other aspects of life such as family, personal development, social life, health, and other needs?  </Typography>
+                <span style={{fontFamily: 'Cardo'}}>Rate your company on overall work/life balance - does the company encourage employeese to balance work and other aspects of life such as family, personal development, social life, health, and other needs?  </span >
               </Box>
             </Popover>
           </div>
@@ -214,7 +213,7 @@ export default function NewReviewForm(props) {
               }}
             >
               <Box p={2} className={classes.info} >
-                <Typography>Rate your company on its overall inclusion - do all employees feel like their voices are heard and treated fairly and respectfully? That they have equal access to opportunities and resources? And that they can contribute fully to the organization's success?  </Typography>
+                <span style={{fontFamily: 'Cardo'}}>Rate your company on its overall inclusion - do all employees feel like their voices are heard and treated fairly and respectfully? That they have equal access to opportunities and resources? And that they can contribute fully to the organization's success?  </span >
               </Box>
             </Popover>
           </div>
@@ -243,7 +242,7 @@ export default function NewReviewForm(props) {
               }}
             >
               <Box p={2} className={classes.info} >
-                <Typography>Rate your company on its D&I benefits and resources- does your company offer equivalent benefits and resources for all employees such as family and adoptive leave, fertility treatment, same sex partner benefits, flex time for religious observations, etc?  </Typography>
+                <span style={{fontFamily: 'Cardo'}}>Rate your company on its D&I benefits and resources- does your company offer equivalent benefits and resources for all employees such as family and adoptive leave, fertility treatment, same sex partner benefits, flex time for religious observations, etc?  </span >
               </Box>
             </Popover>
           </div>
@@ -272,7 +271,7 @@ export default function NewReviewForm(props) {
               }}
             >
               <Box p={2} className={classes.info} >
-                <Typography>Rate your company on how likely you would recommend as a place of employment to a friend. </Typography>
+                <span style={{fontFamily: 'Cardo'}}>Rate your company on how likely you would recommend as a place of employment to a friend. </span>
               </Box>
             </Popover>
           </div>
@@ -357,27 +356,133 @@ export default function NewReviewForm(props) {
   const findCompanyName = (value) => {
     let x = props.companies.filter(company => 
       company.id == value)
-      // console.log(x[0].name.toLowerCase())
       setCompanyName(x[0].name.toLowerCase())
   }
 
-// console.log(props.userLoggedIn.id)
-// console.log(reviewCompany)
-
   return (
     <div className={classes.bg}>
+      <center>
       <form 
         autoComplete="on"
         noValidate
         onSubmit={ ( event ) => {
             handleNewReviewSubmit( event )
         } }>
-      <Grid container xl={10} className={classes.root} >
-          <Grid container justify="center"  >
-              <Grid item xs={4} style={{marginTop: '2rem'}}>
+      {/* <Grid container xl={10} className={classes.root} > */}
+          {/* <Grid container justify="center"  > */}
+
+      {/* RATING */}
+      <Grid item xs={5} style={{marginTop: '2rem'}}>
+            <Paper style={{padding: '15px', height: '96.4%'}} elevation={5}>
+            <span style={{fontSize: '2rem', fontFamily: 'Josefine Sans'}}>Write about your experience!</span>
+            <br /> <br /> 
+            <Box component="fieldset" mb={2} borderColor="transparent">
+              <Grid container spacing={3}>
+                <Grid item xs={8}>
+                  <span style={{fontSize: '18px', fontFamily: 'Cardo'}}component="legend">Diversity in Organization</span>
+                </Grid>
+                <Grid item xs={4}>
+                  {Diversity()}
+                </Grid>
+                  <Rating
+                    name="diversity"
+                    precision={0.5}
+                    style={{color: '#D2C7E0', fontSize: '3.5rem', marginLeft: '6rem'}}
+                    value={diversity}
+                    onChange={handleDiversity}
+                  />
+              </Grid>    
+            </Box>
+            <Box component="fieldset" mb={2} borderColor="transparent">
+            <Grid container spacing={3}>
+                <Grid item xs={8}>
+                  <span style={{fontSize: '18px', fontFamily: 'Cardo'}} component="legend">Diversity in Leadership</span>
+                </Grid>
+                <Grid item xs={4}>
+                  {Leadership()}
+                </Grid>
+                <Rating
+                  name="leadership"
+                  precision={0.5}
+                  style={{color: '#b39ddb', fontSize: '3.5rem', marginLeft: '6rem'}}
+                  value={leadership}
+                  onChange={handleLeadership}
+                />
+              </Grid>    
+              </Box>
+              <Box component="fieldset" mb={2} borderColor="transparent">
+              <Grid container spacing={3}>
+                <Grid item xs={8}>
+                  <span style={{fontSize: '18px', fontFamily: 'Cardo'}} component="legend">The Work/Life Balance</span >
+                </Grid>
+                <Grid item xs={4}>
+                  {WorkLife()}
+                </Grid>
+                <Rating
+                  name="worklife"
+                  precision={0.5}
+                  style={{color: '#c1b9f7', fontSize: '3.5rem', marginLeft: '6rem'}}
+                  value={worklife}
+                  onChange={handleWorklife}
+                />
+              </Grid>    
+              </Box>
+              <Box component="fieldset" mb={2} borderColor="transparent">
+              <Grid container spacing={3}>
+                <Grid item xs={8}>
+                  <span style={{fontSize: '18px', fontFamily: 'Cardo'}} component="legend">Inclusivity</span >
+                </Grid>
+                <Grid item xs={4}>
+                  {Inclusiveness()}
+                </Grid>
+                <Rating
+                  name="inclusiveness"
+                  precision={0.5}
+                  style={{color: '#D2C7E0', fontSize: '3.5rem', marginLeft: '6rem'}}
+                  value={inclusiveness}
+                  onChange={handleInclusiveness}
+                />
+              </Grid>    
+              </Box>
+              <Box component="fieldset" mb={2} borderColor="transparent">
+              <Grid container spacing={3}>
+                <Grid item xs={8}>
+                  <span style={{fontSize: '18px', fontFamily: 'Cardo'}} component="legend">Rate the Company's Benefits</span >
+                </Grid>
+                <Grid item xs={4}>
+                  {Benefits()}
+                </Grid>
+                <Rating
+                  name="benefits"
+                  precision={0.5}
+                  style={{color: '#b39ddb', fontSize: '3.5rem', marginLeft: '6rem'}}
+                  value={benefits}
+                  onChange={handleBenefits}
+                />
+              </Grid>    
+              </Box>
+              <Box component="fieldset" mb={2} borderColor="transparent">
+              <Grid container spacing={3}>
+                <Grid item xs={8}>
+                  <span style={{fontSize: '18px', fontFamily: 'Cardo'}} component="legend">Would you recommend to a friend? </span >
+                </Grid>
+                <Grid item xs={4}>
+                  {Recommend()}
+                </Grid>
+                <Rating
+                  name="recommendation"
+                  precision={0.5}
+                  style={{color: '#bbabf7', fontSize: '3.5rem', marginLeft: '6rem'}}
+                  value={recommendation}
+                  onChange={handleRecommendation}
+                />
+              </Grid>    
+              </Box>
+            </Paper>
+          </Grid>
+          <Grid item xs={5} style={{marginTop: '2rem'}}>
                 <Paper className={classes.paper} elevation={5}>
-                  <h2>Write your Review!</h2>
-                  <span> Choose a company: </span> 
+                  <span style={{fontSize: 'rem', fontFamily: 'Cardo'}}> Choose a company:  </span> 
                   <br/> <br/>
                 <FormControl className={classes.selectionBox}>
                   {/* <InputLabel htmlFor="demo-customized-select-native">Choose one of the following companies: </InputLabel> */}
@@ -395,7 +500,7 @@ export default function NewReviewForm(props) {
                 </FormControl>
                 <br/> <br/>
                     <TextField 
-                      style={{backgroundColor: 'white', fontFamily: 'Josefin Sans', width: '100%'}}
+                      style={{backgroundColor: 'white', width: '100%'}}
                       onChange={handleTitle}
                       id="outlined-basic" 
                       label="Enter a title for your review..." 
@@ -419,138 +524,20 @@ export default function NewReviewForm(props) {
                       onChange={handleContent}
                       variant="outlined" 
                     />
-                  <br /> <br /> 
+                      <br /> <br /> 
+                    <Button 
+                      style={{backgroundColor: 'black', color: 'white', width: '23rem', fontFamily: 'Cardo'}}
+                      type="submit" 
+                      variant="contained" 
+                      color="primary">
+                      Submit
+                    </Button> 
                 </Paper> 
               </Grid>
-
-      {/* RATING */}
-      <Grid item xs={3} style={{marginTop: '2rem'}}>
-            <Paper style={{padding: '15px', height: '96.4%'}} elevation={5}>
-            <Box component="fieldset" mb={3} borderColor="transparent">
-              <Grid container spacing={3}>
-                <Grid item xs={9}>
-                  <Typography component="legend">Diversity in Organization</Typography>
-                </Grid>
-                <Grid item xs={2}>
-                  {Diversity()}
-                </Grid>
-                  <Rating
-                    name="diversity"
-                    precision={0.5}
-                    style={{color: '#D2C7E0', fontSize: '3.5rem'}}
-                    value={diversity}
-                    onChange={handleDiversity}
-                  />
-              </Grid>    
-            </Box>
-            <Box component="fieldset" mb={3} borderColor="transparent">
-            <Grid container spacing={3}>
-                <Grid item xs={9}>
-                  <Typography component="legend">Diversity in Leadership</Typography>
-                </Grid>
-                <Grid item xs={2}>
-                  {Leadership()}
-                </Grid>
-                <Rating
-                  name="leadership"
-                  precision={0.5}
-                  style={{color: '#b39ddb', fontSize: '3.5rem'}}
-                  value={leadership}
-                  onChange={handleLeadership}
-                />
-              </Grid>    
-              </Box>
-              <Box component="fieldset" mb={3} borderColor="transparent">
-              <Grid container spacing={3}>
-                <Grid item xs={9}>
-                  <Typography component="legend">Rate the Work/Life Balance</Typography>
-                </Grid>
-                <Grid item xs={2}>
-                  {WorkLife()}
-                </Grid>
-                <Rating
-                  name="worklife"
-                  precision={0.5}
-                  style={{color: '#c1b9f7', fontSize: '3.5rem'}}
-                  value={worklife}
-                  onChange={handleWorklife}
-                />
-              </Grid>    
-              </Box>
-              <Box component="fieldset" mb={3} borderColor="transparent">
-              <Grid container spacing={3}>
-                <Grid item xs={9}>
-                  <Typography component="legend">Inclusiveness</Typography>
-                </Grid>
-                <Grid item xs={2}>
-                  {Inclusiveness()}
-                </Grid>
-                <Rating
-                  name="inclusiveness"
-                  precision={0.5}
-                  style={{color: '#D2C7E0', fontSize: '3.5rem'}}
-                  value={inclusiveness}
-                  onChange={handleInclusiveness}
-                />
-              </Grid>    
-              </Box>
-              <Box component="fieldset" mb={3} borderColor="transparent">
-              <Grid container spacing={3}>
-                <Grid item xs={9}>
-                  <Typography component="legend">Rate the Benefits</Typography>
-                </Grid>
-                <Grid item xs={2}>
-                  {Benefits()}
-                </Grid>
-                <Rating
-                  name="benefits"
-                  precision={0.5}
-                  style={{color: '#b39ddb', fontSize: '3.5rem'}}
-                  value={benefits}
-                  onChange={handleBenefits}
-                />
-              </Grid>    
-              </Box>
-              <Box component="fieldset" mb={3} borderColor="transparent">
-              <Grid container spacing={3}>
-                <Grid item xs={9}>
-                  <Typography component="legend">Would you recommend to a friend? </Typography>
-                </Grid>
-                <Grid item xs={2}>
-                  {Recommend()}
-                </Grid>
-                <Rating
-                  name="recommendation"
-                  precision={0.5}
-                  style={{color: '#bbabf7', fontSize: '3.5rem'}}
-                  value={recommendation}
-                  onChange={handleRecommendation}
-                />
-              </Grid>    
-              </Box>
-            </Paper>
-          </Grid>
-          <Grid container xs={3} >
-                <Grid container justify="center" >
-                    <Grid item xs={2} style={{marginTop: '-3rem'}}>
-                      <Paper className={classes.imgBox} elevation={5}>
-                          <center>
-                          <img src={desk} alt="woman-at-desk" style={{width: '24rem'}}/>
-                          <Button 
-                            style={{backgroundColor: '#c1b9f7', width: '23rem'}}
-                            type="submit" 
-                            variant="contained" 
-                            color="primary">
-                            Submit
-                          </Button> 
-                          </center>
-                        </Paper> 
-                    </Grid> 
-                </Grid>
-            </Grid> 
-        </Grid>
-      </Grid>
+        {/* </Grid> */}
+      {/* </Grid> */}
       </form>
+      </center>
     </div>
     
   );

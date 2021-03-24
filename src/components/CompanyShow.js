@@ -73,11 +73,8 @@ export default function CompanyShow(props){
     else{
       return 0
     }
-
     let average = total / reviews.length
     let rounded = Math.round(average * 10) / 10
-    // props.setDiversityAverage(rounded)
-    // console.log(rounded)
     return rounded
   }
 
@@ -93,7 +90,6 @@ export default function CompanyShow(props){
     }
     let average = total / reviews.length
     let rounded = Math.round(average * 10) / 10
-    // props.setLeadershipAverage(rounded)
     return rounded
   }
 
@@ -109,7 +105,6 @@ export default function CompanyShow(props){
     }
     let average = total / reviews.length
     let rounded = Math.round(average * 10) / 10
-    // props.setWorklifeAverage(rounded)
     return rounded
   }
 
@@ -125,7 +120,6 @@ export default function CompanyShow(props){
     }
     let average = total / reviews.length
     let rounded = Math.round(average * 10) / 10
-    // props.setInclusivenessAverage(rounded)
     return rounded
   }
 
@@ -141,7 +135,6 @@ export default function CompanyShow(props){
     }
     let average = total / reviews.length
     let rounded = Math.round(average * 10) / 10
-    // props.setBenefitsAverage(rounded)
     return rounded
   }
 
@@ -168,7 +161,7 @@ export default function CompanyShow(props){
       return rounded 
     }
     else{
-      return 0
+      return "No Reviews"
     }
   }
 
