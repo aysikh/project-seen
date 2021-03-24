@@ -1,5 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
+import UserReviewCard from '../components//UserReviewCard'
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -25,7 +26,8 @@ export default function ProfileShow(props){
           <h1 className={classes.welcome}>Welcome back, {props.userLoggedIn.user.firstname}</h1>
           <h1> Here are a list of all the reviews you've written: </h1> 
            {props.userLoggedIn.reviews.map(review => 
-            review.title)} 
+            <UserReviewCard review={review}/>
+            )} 
         </div>
       : 
       null

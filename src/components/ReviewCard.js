@@ -59,95 +59,99 @@ export default function ReviewCard(props){
   const classes = useStyles();
 
   return(
-    <Grid container className={classes.root} spacing={2}>
-      <Grid item xs={12}>
-      <div className={classes.whole} id="review-container">
-        <div id="review-info" className={classes.topInfo}>
-          {/* image for review or icon for the review?  */}
-          {/* gotta insert the date of the review  */}
-          <span style={{fontSize: '2.5rem'}}>{props.review.title} </span>
-          <br />
-          <span style={{fontSize: '1rem'}}>{props.review.position}</span>
+    <div>
+    {props.review == {} ? "No reviews yet. Please check back here soon!" :
+      <Grid container className={classes.root} spacing={2}>
+        <Grid item xs={12}>
+        <div className={classes.whole} id="review-container">
+          <div id="review-info" className={classes.topInfo}>
+            {/* image for review or icon for the review?  */}
+            {/* gotta insert the date of the review  */}
+            <span style={{fontSize: '2.5rem'}}>{props.review.title} </span>
+            <br />
+            <span style={{fontSize: '1rem'}}>{props.review.position}</span>
+          </div>
+          <div className={classes.user}>
+            <h4 style={{color: 'white', marginLeft: '20px'}}><PersonIcon /> BY ANONYMOUS USER</h4>
+          </div>
+          <div>
+            <Grid container justify="center">
+                <Grid id="rating">
+                  <Paper className={classes.rating} >
+                    <StarsIcon style={{fontSize:'2.5rem'}}/> 
+                    <br/><br/>
+                    <Grid container>
+                      <Grid item xs={2} style={{marginLeft: '18px'}}> 
+                          {props.review.diversity}
+                      </Grid>
+                      <Grid item xs={8}>
+                    <span style={{fontSize:'15px'}}>Diversity in Organization</span> <br/>
+                      </Grid>
+                      <Grid item xs={2} style={{marginLeft: '18px'}}> 
+                          {props.review.leadership}
+                      </Grid>
+                      <Grid item xs={8}>
+                      <span style={{fontSize:'15px'}}>Diversity in Leadership</span> <br /> 
+                      </Grid>
+                      <Grid item xs={2} style={{marginLeft: '18px'}}> 
+                          {props.review.worklife}
+                      </Grid>
+                      <Grid item xs={8}>
+                      <span style={{fontSize:'15px'}}>Work/Life Balance</span> <br /> 
+                      </Grid>
+                      <Grid item xs={2} style={{marginLeft: '18px'}}> 
+                          {props.review.inclusiveness}
+                      </Grid>
+                      <Grid item xs={8}>
+                      <span style={{fontSize:'15px'}}>Inclusiveness</span> <br /> 
+                      </Grid>
+                      <Grid item xs={2} style={{marginLeft: '18px'}}> 
+                          {props.review.benefits}
+                      </Grid>
+                      <Grid item xs={8}>
+                      <span style={{fontSize:'15px'}}>Benefits At Company</span> <br />
+                      </Grid>
+                      <Grid item xs={2} style={{marginLeft: '18px'}}> 
+                          {props.review.recommendation}
+                      </Grid>
+                      <Grid item xs={8}>
+                      <span style={{fontSize:'15px'}}>Recommend to Friend</span>
+                      </Grid>
+                    </Grid>
+                  </Paper>
+                </Grid>
+                <Grid id="content">
+                  <Paper className={classes.content} >
+                    <center> 
+                      <br /> 
+                    <span style={{fontSize:'22px'}}>{props.review.content}</span>
+                    </center>
+                  </Paper>
+                </Grid>
+              <Grid xs={5} style={{marginTop: '-10px'}}> 
+                <center>
+                  <span> {props.review.isNotUseful} </span>
+                    <IconButton>
+                      <ThumbDownIcon 
+                      style={{fontSize: '2rem', padding: '1px'}} 
+                      // onClick={(e) => (props.updateNotUseful(e))} 
+                      />
+                    </IconButton> 
+                    <IconButton>
+                      <ThumbUpIcon 
+                      style={{fontSize: '2rem', padding: '1px'}}
+                      onClick={(e) => this.handleUp(e)} 
+                      />
+                    </IconButton> 
+                  <span> {props.review.isUseful} </span>
+                </center>
+              </Grid> 
+            </Grid>
+          </div>
         </div>
-        <div className={classes.user}>
-          <h4 style={{color: 'white', marginLeft: '20px'}}><PersonIcon /> BY ANONYMOUS USER</h4>
-        </div>
-        <div>
-          <Grid container justify="center">
-              <Grid id="rating">
-                <Paper className={classes.rating} >
-                  <StarsIcon style={{fontSize:'2.5rem'}}/> 
-                  <br/><br/>
-                  <Grid container>
-                    <Grid item xs={2} style={{marginLeft: '18px'}}> 
-                        {props.review.diversity}
-                    </Grid>
-                    <Grid item xs={8}>
-                  <span style={{fontSize:'15px'}}>Diversity in Organization</span> <br/>
-                    </Grid>
-                    <Grid item xs={2} style={{marginLeft: '18px'}}> 
-                        {props.review.leadership}
-                    </Grid>
-                    <Grid item xs={8}>
-                    <span style={{fontSize:'15px'}}>Diversity in Leadership</span> <br /> 
-                    </Grid>
-                    <Grid item xs={2} style={{marginLeft: '18px'}}> 
-                        {props.review.worklife}
-                    </Grid>
-                    <Grid item xs={8}>
-                    <span style={{fontSize:'15px'}}>Work/Life Balance</span> <br /> 
-                    </Grid>
-                    <Grid item xs={2} style={{marginLeft: '18px'}}> 
-                        {props.review.inclusiveness}
-                    </Grid>
-                    <Grid item xs={8}>
-                    <span style={{fontSize:'15px'}}>Inclusiveness</span> <br /> 
-                    </Grid>
-                    <Grid item xs={2} style={{marginLeft: '18px'}}> 
-                        {props.review.benefits}
-                    </Grid>
-                    <Grid item xs={8}>
-                    <span style={{fontSize:'15px'}}>Benefits At Company</span> <br />
-                    </Grid>
-                    <Grid item xs={2} style={{marginLeft: '18px'}}> 
-                        {props.review.recommendation}
-                    </Grid>
-                    <Grid item xs={8}>
-                    <span style={{fontSize:'15px'}}>Recommend to Friend</span>
-                    </Grid>
-                  </Grid>
-                </Paper>
-              </Grid>
-              <Grid id="content">
-                <Paper className={classes.content} >
-                  <center> 
-                    <br /> 
-                  <span style={{fontSize:'22px'}}>{props.review.content}</span>
-                  </center>
-                </Paper>
-              </Grid>
-            <Grid xs={5} style={{marginTop: '-10px'}}> 
-              <center>
-                <span> {props.review.isNotUseful} </span>
-                  <IconButton>
-                    <ThumbDownIcon 
-                    style={{fontSize: '2rem', padding: '1px'}} 
-                    // onClick={(e) => (props.updateNotUseful(e))} 
-                    />
-                  </IconButton> 
-                  <IconButton>
-                    <ThumbUpIcon 
-                    style={{fontSize: '2rem', padding: '1px'}}
-                    onClick={(e) => this.handleUp(e)} 
-                    />
-                  </IconButton> 
-                <span> {props.review.isUseful} </span>
-              </center>
-            </Grid> 
-          </Grid>
-        </div>
-      </div>
+        </Grid>
       </Grid>
-    </Grid>
+    }
+    </div>
   )
 }

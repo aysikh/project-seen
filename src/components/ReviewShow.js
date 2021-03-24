@@ -74,7 +74,7 @@ export default function ReviewShow(props){
     if(reviews){
       for(let i = 0; i < reviews.length; i ++){
         r.push(<ReviewCard 
-            handleUp={handleUp()}
+            // handleUp={handleUp()}
           // updateUseful={updateUseful}
           // updateNotUseful={updateNotUseful}
             review={reviews[i]}

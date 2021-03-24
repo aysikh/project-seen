@@ -14,8 +14,6 @@ import FormControl from '@material-ui/core/FormControl';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import InputBase from '@material-ui/core/InputBase';
 
-import desk from '../assets/woman-at-desk.png'
-
 const URL = "http://localhost:3000/company/"
 
 const StyleBox = withStyles((theme) => ({
@@ -81,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
     height: 'auto'
   },
   question: {
-    backgroundColor: "#b39ddb", 
+    backgroundColor: "#4A2B1C", 
     color: 'white', 
     maxHeight: '20px'
   },
@@ -387,7 +385,7 @@ export default function NewReviewForm(props) {
                   <Rating
                     name="diversity"
                     precision={0.5}
-                    style={{color: '#D2C7E0', fontSize: '3.5rem', marginLeft: '6rem'}}
+                    style={{color: '#A16338', fontSize: '3.5rem', marginLeft: '6rem'}}
                     value={diversity}
                     onChange={handleDiversity}
                   />
@@ -404,7 +402,7 @@ export default function NewReviewForm(props) {
                 <Rating
                   name="leadership"
                   precision={0.5}
-                  style={{color: '#b39ddb', fontSize: '3.5rem', marginLeft: '6rem'}}
+                  style={{color: '#7B4C2B', fontSize: '3.5rem', marginLeft: '6rem'}}
                   value={leadership}
                   onChange={handleLeadership}
                 />
@@ -421,7 +419,7 @@ export default function NewReviewForm(props) {
                 <Rating
                   name="worklife"
                   precision={0.5}
-                  style={{color: '#c1b9f7', fontSize: '3.5rem', marginLeft: '6rem'}}
+                  style={{color: '#DBBA9C', fontSize: '3.5rem', marginLeft: '6rem'}}
                   value={worklife}
                   onChange={handleWorklife}
                 />
@@ -438,7 +436,7 @@ export default function NewReviewForm(props) {
                 <Rating
                   name="inclusiveness"
                   precision={0.5}
-                  style={{color: '#D2C7E0', fontSize: '3.5rem', marginLeft: '6rem'}}
+                  style={{color: '#A16338', fontSize: '3.5rem', marginLeft: '6rem'}}
                   value={inclusiveness}
                   onChange={handleInclusiveness}
                 />
@@ -455,7 +453,7 @@ export default function NewReviewForm(props) {
                 <Rating
                   name="benefits"
                   precision={0.5}
-                  style={{color: '#b39ddb', fontSize: '3.5rem', marginLeft: '6rem'}}
+                  style={{color: '#7B4C2B', fontSize: '3.5rem', marginLeft: '6rem'}}
                   value={benefits}
                   onChange={handleBenefits}
                 />
@@ -472,7 +470,7 @@ export default function NewReviewForm(props) {
                 <Rating
                   name="recommendation"
                   precision={0.5}
-                  style={{color: '#bbabf7', fontSize: '3.5rem', marginLeft: '6rem'}}
+                  style={{color: '#DBBA9C', fontSize: '3.5rem', marginLeft: '6rem'}}
                   value={recommendation}
                   onChange={handleRecommendation}
                 />
