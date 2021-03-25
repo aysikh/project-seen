@@ -6,8 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button'
 import LogIn from '../assets/login.png'
-
-// import FlashMessage from "react-flash-message";
+import Alert from '@material-ui/lab/Alert';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -47,6 +46,7 @@ export default function LogInForm(props){
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [openError, setOpenError] = useState(false)
 
   const handleEmail = (e) => {
     setEmail(e.target.value)
@@ -68,11 +68,15 @@ export default function LogInForm(props){
     })
       .then(response => response.json())
       .then(data => {
-        localStorage.setItem('token', data.token)
-        console.log(data)
-        props.setUserLoggedIn(data)
-        props.setLoggedIn(true)
-        history.push('/profile')
+        if(data.error){
+          setOpenError(true)
+        }
+        else{
+          localStorage.setItem('token', data.token)
+          props.setUserLoggedIn(data)
+          props.setLoggedIn(true)
+          history.push('/profile')
+        }
       })
   };
 
@@ -80,6 +84,13 @@ export default function LogInForm(props){
     <div>
     <Container>
       <br /> <br /> 
+      {openError ? 
+        <Alert variant="filled" severity="error" style={{backgroundColor: '#b71c1c'}}>
+          Invalid email & password combination. Please try again. 
+        </Alert>
+        : 
+        ""
+      }
       <center>
       <Paper elevation={5} className={classes.paper}>
       <img src={LogIn} alt="log-in-banner" style={{width: '20rem'}}/> 
