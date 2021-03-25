@@ -8,8 +8,6 @@ const URL = "http://localhost:3000/company/"
 
 export default function ReviewShow(props){
   var companyName = window.location.href.split('/');
-  // if there is only 4 in array, get all companies
-  // if there 4+, you know 4th position is a company
 
   const [reviews, setReviews] = useState([]);
   const [review, setReview] = useState([]);
@@ -18,19 +16,11 @@ export default function ReviewShow(props){
     fetch(URL + companyName[4] + "/reviews")
     .then(rsp => rsp.json())
     .then(reviews => setReviews(reviews))
-    // console.log(reviews)
   }
 
   useEffect(()=> {
     getReviews();
   }, [])
-  
-    const handleUp = (e) => {
-      // reviews.map(review => {
-      // setReview(review.id)
-      console.log(e)
-    }
-  
 
   // const updateUseful = (e) => {
     // console.log(e)
@@ -74,7 +64,6 @@ export default function ReviewShow(props){
     if(reviews){
       for(let i = 0; i < reviews.length; i ++){
         r.push(<ReviewCard 
-            // handleUp={handleUp()}
           // updateUseful={updateUseful}
           // updateNotUseful={updateNotUseful}
             review={reviews[i]}

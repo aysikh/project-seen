@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import CompanyCard from './CompanyCard'
 import AppBar from '@material-ui/core/AppBar';
-import BG from '../assets/brown-bg.jpeg'
+import BG from '../assets/purple.png'
 import LinearProgress from '@material-ui/core/LinearProgress';
 import CompaniesAutocomplete from './CompaniesAutocomplete'
 
@@ -18,12 +18,13 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   bg: {
-    width: '100%', 
-    minHeight: '90vh',
+    // width: '100%', 
+    minHeight: '100%',
     backgroundImage: `url(${BG})`,
     backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
+    backgroundSize: '100% 100%',
     backgroundAttachment: 'fixed',
+    backgroundPosition: 'bottom'
   }
 }));
 
