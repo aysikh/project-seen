@@ -292,6 +292,10 @@ export default function NewReviewForm(props) {
   const [benefits, setBenefits] = React.useState(1)
   const [recommendation, setRecommendation] = React.useState(1)
 
+  const [openError, setOpenErrors] = React.useState(false)
+  const [errors, setErrors] = React.useState('')
+
+  
   const handleTitle = (event) => {
     setTitle(event.target.value)
   }
@@ -344,7 +348,7 @@ export default function NewReviewForm(props) {
           company_id: parseInt(reviewCompany)
         } )
     }
-    console.log(requestPackage.body)
+    // console.log(requestPackage.body)
     fetch( URL + companyName + "/reviews", requestPackage )
       .then( rsp => rsp.json() )
       .then(console.log)

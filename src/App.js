@@ -65,6 +65,7 @@ export default function App({history}) {
         isLoggedIn={isLoggedIn} 
         setLoggedIn={setLoggedIn}
         setUserLoggedIn={setUserLoggedIn}
+        token={token}
         /> 
           <div >
             <Switch>
