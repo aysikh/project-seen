@@ -31,7 +31,11 @@ export default function App({history}) {
   return(
     <div>
       <Router>
-        <NavBar isLoggedIn={isLoggedIn} /> 
+        <NavBar 
+          isLoggedIn={isLoggedIn} 
+          setLoggedIn={setLoggedIn}
+          setUserLoggedIn={setUserLoggedIn}
+        /> 
           <div >
             <Switch>
               <div>

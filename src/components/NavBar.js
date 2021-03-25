@@ -32,6 +32,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function NavBar(props) {
   const classes = useStyles();
+  
+  const handleLogout = () => {
+    props.setLoggedIn(false)
+    props.setUserLoggedIn('')
+    localStorage.clear();
+  }
 
   return(
     <div>
@@ -49,7 +55,7 @@ export default function NavBar(props) {
           <Button component={Link} to="/profile">
             Profile
           </Button>
-          <Button component={Link} to="/login">
+          <Button onClick={handleLogout} component={Link} to="/login">
             Log Out
           </Button>
         </Toolbar>
