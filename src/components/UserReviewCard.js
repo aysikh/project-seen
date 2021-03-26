@@ -2,10 +2,10 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
-import IconButton from "@material-ui/core/IconButton";
-import ThumbUpIcon from "@material-ui/icons/ThumbUp";
-import ThumbDownIcon from "@material-ui/icons/ThumbDown";
 import Divider from '@material-ui/core/Divider';
+
+// import ThumbUpIcon from "@material-ui/icons/ThumbUp";
+// import ThumbDownIcon from "@material-ui/icons/ThumbDown";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -85,7 +85,7 @@ export default function UserReviewCard(props) {
           <div id="review-info" className={classes.topInfo}>
             <span style={{ fontSize: "2rem" }}>
               Company: 
-              <img src={findCompanyLogo()} style={{width: '2rem', marginLeft: '8px', marginRight: '5px', marginBottom: '-2px'}}/>
+              <img src={findCompanyLogo()} alt="company-logo" style={{width: '2rem', marginLeft: '8px', marginRight: '5px', marginBottom: '-2px'}}/>
               {findCompany()}
               </span>
             

@@ -10,7 +10,6 @@ import Button from '@material-ui/core/Button';
 import Popover from '@material-ui/core/Popover';
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 import Divider from '@material-ui/core/Divider';
-import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import InputBase from '@material-ui/core/InputBase';
@@ -503,8 +502,8 @@ export default function NewReviewForm(props) {
                       <br /> <br /> 
                         <TextField
                           style={{backgroundColor: 'white', width: '80%'}}
-                          // multiline
-                          // rows={15}
+                          multiline
+                          rows={15}
                           id="content-box"
                           label="Talk more about your experience here..."
                           onChange={handleContent}

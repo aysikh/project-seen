@@ -4,10 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import IconButton from '@material-ui/core/IconButton';
-import StarsIcon from '@material-ui/icons/Stars';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import ThumbDownIcon from '@material-ui/icons/ThumbDown';
-import PersonIcon from '@material-ui/icons/Person';
 import BG from '../assets/tan-bg.jpeg'
 
 const useStyles = makeStyles((theme) => ({

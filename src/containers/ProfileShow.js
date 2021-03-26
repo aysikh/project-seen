@@ -4,9 +4,6 @@ import UserReviewCard from '../components//UserReviewCard'
 import BG from '../assets/tan-person-bg.png'
 
 const useStyles = makeStyles((theme) => ({
-  grow: {
-    flexGrow: 1,
-  }, 
   welcome: {
     fontSize: '4.8rem', 
     fontFamily: 'Josefin Sans', 
@@ -14,12 +11,11 @@ const useStyles = makeStyles((theme) => ({
   },
   bg: {
     // width: '100%', 
-    // minHeight: '50vh',
     backgroundImage: `url(${BG})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: '100%, 80%',
     backgroundAttachment: 'fixed',
-    backgroundPosition: 'top'
+    backgroundPosition: 'center'
   },
   review:{
     fontSize: '2rem', 

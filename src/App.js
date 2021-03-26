@@ -10,9 +10,6 @@ import ReviewShow from './components/ReviewShow'
 import NavBar from './components/NavBar'
 import ProfileShow from './containers/ProfileShow'
 
-import LinearProgress from '@material-ui/core/LinearProgress';
-
-
 const COMPANY_URL = "http://localhost:3000/companies"
 
 export default function App({history}) {
@@ -39,7 +36,7 @@ export default function App({history}) {
       })
       .then(response => response.json())
       .then(data => {
-        console.log(data)
+        // console.log(data)
         setUserLoggedIn(data)
         setLoggedIn(true)
       })
@@ -99,7 +96,7 @@ export default function App({history}) {
                   /> 
                   )} /> 
                 <Route path='/new-review' render={(props) => (
-                isLoggedIn ? 
+                isLoggedIn || token ? 
                   <NewReviewForm
                   {...props}
                   userLoggedIn={userLoggedIn}
