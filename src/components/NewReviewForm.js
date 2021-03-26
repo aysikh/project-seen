@@ -295,7 +295,7 @@ export default function NewReviewForm(props) {
   const [openError, setOpenErrors] = React.useState(false)
   const [errors, setErrors] = React.useState('')
 
-  
+
   const handleTitle = (event) => {
     setTitle(event.target.value)
   }
@@ -334,7 +334,7 @@ export default function NewReviewForm(props) {
     let requestPackage = {
         headers: { 'Content-Type': 'application/json' },
         method: 'POST',
-        body: JSON.stringify( {
+        body: JSON.stringify({
           title: title, 
           position: position, 
           content: content,
@@ -344,15 +344,15 @@ export default function NewReviewForm(props) {
           inclusiveness: inclusiveness, 
           benefits: benefits, 
           recommendation: recommendation,
-          user_id: props.userLoggedIn.id,
+          user_id: props.userLoggedIn.user.id,
           company_id: parseInt(reviewCompany)
-        } )
+        })
     }
     // console.log(requestPackage.body)
     fetch( URL + companyName + "/reviews", requestPackage )
       .then( rsp => rsp.json() )
       .then(console.log)
-      history.push( "/profile" )
+      history.push( "/company/reviews" )
   }
 
   const findCompanyName = (value) => {
@@ -364,6 +364,7 @@ export default function NewReviewForm(props) {
   return (
     <div className={classes.bg}>
       <center>
+        
       <form 
         autoComplete="on"
         noValidate

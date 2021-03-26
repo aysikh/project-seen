@@ -32,6 +32,7 @@ export default function CompanyShow(props){
   const classes = useStyles(); 
   const [company, setCompany] = useState(null);
   const [reviews, setReviews] = useState([]);
+  
   var companyName = window.location.href.split('/');
 
   // console.log(companyName[4].toLowerCase()) 
@@ -48,7 +49,7 @@ export default function CompanyShow(props){
 
   useEffect(()=> {
     getReviews();
-  }, [])
+  }, [name])
 
   useEffect(() => {
     fetch(COMPANIES_URL + `${name}`, {
