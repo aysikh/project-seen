@@ -337,8 +337,8 @@ export default function NewReviewForm(props) {
     // console.log(requestPackage.body)
     fetch( URL + companyName + "/reviews", requestPackage )
       .then( rsp => rsp.json() )
-      .then(console.log)
-      history.push( "/company/reviews" )
+      .then(
+        history.push( "/profile" ))
   }
 
   const findCompanyName = (value) => {
@@ -365,7 +365,6 @@ export default function NewReviewForm(props) {
                 <span style={{fontSize: '20px', fontFamily: 'Cardo'}}> Choose a company:  </span> 
                   <br/> <br/>
                     <FormControl className={classes.selectionBox}>
-                  {/* <InputLabel htmlFor="demo-customized-select-native">Choose one of the following companies: </InputLabel> */}
                       <NativeSelect
                         id="demo-customized-select-native"
                         value={reviewCompany}
@@ -379,7 +378,7 @@ export default function NewReviewForm(props) {
                       </NativeSelect>
                     </FormControl>
                     <br /> <br /> <br/> 
-                    <Divider variant='center'/>
+                    <Divider variant='center' style={{width: '80%'}}/>
                     <br /> <br />
                 <Box component="fieldset" mb={2} borderColor="transparent">
                   <Grid container spacing={3}>
@@ -392,7 +391,7 @@ export default function NewReviewForm(props) {
                       <Rating
                         name="diversity"
                         precision={0.5}
-                        style={{color: '#A16338', fontSize: '4rem', marginLeft: '9rem'}}
+                        style={{color: '#A16338', fontSize: '4rem', marginLeft: '15%'}}
                         value={diversity}
                         onChange={handleDiversity}
                       />
@@ -409,7 +408,7 @@ export default function NewReviewForm(props) {
                     <Rating
                       name="leadership"
                       precision={0.5}
-                      style={{color: '#7B4C2B', fontSize: '4rem', marginLeft: '9rem'}}
+                      style={{color: '#7B4C2B', fontSize: '4rem', marginLeft: '15%'}}
                       value={leadership}
                       onChange={handleLeadership}
                     />
@@ -426,7 +425,7 @@ export default function NewReviewForm(props) {
                     <Rating
                       name="worklife"
                       precision={0.5}
-                      style={{color: '#DBBA9C', fontSize: '4rem', marginLeft: '9rem'}}
+                      style={{color: '#A16338', fontSize: '4rem', marginLeft: '15%'}}
                       value={worklife}
                       onChange={handleWorklife}
                     />
@@ -443,7 +442,7 @@ export default function NewReviewForm(props) {
                     <Rating
                       name="inclusiveness"
                       precision={0.5}
-                      style={{color: '#A16338', fontSize: '4rem', marginLeft: '9rem'}}
+                      style={{color: '#7B4C2B', fontSize: '4rem', marginLeft: '15%'}}
                       value={inclusiveness}
                       onChange={handleInclusiveness}
                     />
@@ -460,7 +459,7 @@ export default function NewReviewForm(props) {
                     <Rating
                       name="benefits"
                       precision={0.5}
-                      style={{color: '#7B4C2B', fontSize: '4rem', marginLeft: '9rem'}}
+                      style={{color: '#A16338', fontSize: '4rem', marginLeft: '15%'}}
                       value={benefits}
                       onChange={handleBenefits}
                     />
@@ -477,13 +476,14 @@ export default function NewReviewForm(props) {
                     <Rating
                       name="recommendation"
                       precision={0.5}
-                      style={{color: '#DBBA9C', fontSize: '4rem', marginLeft: '9rem'}}
+                      style={{color: '#7B4C2B', fontSize: '4rem', marginLeft: '15%'}}
                       value={recommendation}
                       onChange={handleRecommendation}
                     />
                   </Grid>    
                   </Box>
-                    <Divider variant='center'/>
+                    <br/> 
+                    <Divider variant='center' style={{width: '80%'}}/>
                     <br/> <br/>
                         <TextField 
                           style={{backgroundColor: 'white', width: '80%'}}
@@ -503,8 +503,8 @@ export default function NewReviewForm(props) {
                       <br /> <br /> 
                         <TextField
                           style={{backgroundColor: 'white', width: '80%'}}
-                          multiline
-                          rows={15}
+                          // multiline
+                          // rows={15}
                           id="content-box"
                           label="Talk more about your experience here..."
                           onChange={handleContent}

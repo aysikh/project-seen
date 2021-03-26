@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     width: '95%',
   },
   textfield: {
-    width: '85%', 
+    width: '75%', 
     position: 'relative', 
     marginLeft: '3.5rem',
     backgroundColor: 'white',

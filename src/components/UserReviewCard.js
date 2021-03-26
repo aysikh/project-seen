@@ -5,6 +5,7 @@ import Paper from "@material-ui/core/Paper";
 import IconButton from "@material-ui/core/IconButton";
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import ThumbDownIcon from "@material-ui/icons/ThumbDown";
+import Divider from '@material-ui/core/Divider';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,7 +16,8 @@ const useStyles = makeStyles((theme) => ({
     height: "auto",
     width: "45%", 
     border: '3px solid black',
-    borderRadius: '5px'
+    borderRadius: '5px',
+    margin: '10px'
   },
   rating: {
     fontFamily: "Josefin Sans",
@@ -23,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     width: "auto",
     margin: "1rem",
     border: "3px solid #000",
-    borderRadius: '20px', 
+    borderRadius: '15px', 
     // overflow: 'scroll',
     overflowY: 'hidden',
   },
@@ -31,10 +33,10 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Josefin Sans",
     height: "15rem",
     width: "auto",
-    margin: "1rem",
+    margin: "15px",
     padding: '30px',
     border: "3px solid #000",
-    borderRadius: '20px',
+    borderRadius: '15px',
     // overflow: 'scroll',
     overflowY: 'hidden',
   },
@@ -92,6 +94,7 @@ export default function UserReviewCard(props) {
             <br />
             <span style={{ fontSize: "1.2rem" }}>Position: {props.review.position}</span>
           </div>
+          <Divider variant='center' style={{width: '80%'}}/>
           <div>
             <Grid container justify="center">
               <Grid id="rating">
@@ -102,6 +105,7 @@ export default function UserReviewCard(props) {
                     <Grid item xs={2} style={{ marginLeft: "15%" }}>
                       <span style={{fontSize: '25px'}}>{props.review.diversity}</span>
                     </Grid>
+                    <Divider orientation="vertical" flexItem />
                     <Grid item xs={6}>
                       <span style={{ fontSize: '22px' }}>
                         Diversity in Organization
@@ -111,6 +115,7 @@ export default function UserReviewCard(props) {
                     <Grid item xs={2} style={{ marginLeft: "15%" }}>
                       <span style={{fontSize: '25px'}}>{props.review.leadership}</span>
                     </Grid>
+                    <Divider orientation="vertical" flexItem />
                     <Grid item xs={6}>
                       <span style={{ fontSize: '22px' }}>
                         Diversity in Leadership
@@ -120,6 +125,7 @@ export default function UserReviewCard(props) {
                     <Grid item xs={2} style={{ marginLeft: "15%" }}>
                       <span style={{fontSize: '25px'}}>{props.review.worklife}</span>
                     </Grid>
+                    <Divider orientation="vertical" flexItem />
                     <Grid item xs={6}>
                       <span style={{ fontSize: '22px' }}>
                         Work/Life Balance
@@ -129,6 +135,7 @@ export default function UserReviewCard(props) {
                     <Grid item xs={2} style={{ marginLeft: "15%" }}>
                       <span style={{fontSize: '25px'}}>{props.review.inclusiveness}</span>
                     </Grid>
+                    <Divider orientation="vertical" flexItem />
                     <Grid item xs={6}>
                       <span style={{ fontSize: '22px' }}>Inclusiveness</span>{" "}
                       <br />
@@ -136,6 +143,7 @@ export default function UserReviewCard(props) {
                     <Grid item xs={2} style={{ marginLeft: "15%" }}>
                       <span style={{fontSize: '25px'}}>{props.review.benefits}</span>
                     </Grid>
+                    <Divider orientation="vertical" flexItem />
                     <Grid item xs={6}>
                       <span style={{ fontSize: '22px' }}>
                         Benefits At Company
@@ -145,6 +153,7 @@ export default function UserReviewCard(props) {
                     <Grid item xs={2} style={{ marginLeft: "15%" }}>
                       <span style={{fontSize: '25px'}}>{props.review.recommendation}</span>
                     </Grid>
+                    <Divider orientation="vertical" flexItem />
                     <Grid item xs={6}>
                       <span style={{ fontSize: '22px' }}>
                         Recommend to Friend
