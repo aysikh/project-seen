@@ -24,9 +24,11 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: '15px',
   },
   navlogo: {
-    display: 'fixed',
+    // display: 'relative',
     width: '6rem', 
-    marginLeft: '52rem'
+    marginLeft: '70rem',
+    textAlign: 'center',
+    flexGrow: 1,
   }
 }));
 
@@ -45,11 +47,11 @@ export default function NavBar(props) {
       {props.isLoggedIn  ? 
       <AppBar position="static" className={classes.logo}>
         <Toolbar>
-          <Box> 
+          {/* <Box >  */}
           <Link to="/"> 
           <img src={SeenSimple} alt="nav-seen-logo-logged-in" className={classes.navlogo}/>
           </Link> 
-          </Box>
+          {/* </Box> */}
           <Button component={Link} className={classes.profileButton} to="/new-review">
             Write a Review
           </Button>
@@ -64,11 +66,11 @@ export default function NavBar(props) {
        : 
       <AppBar position="static" className={classes.logo}>
         <Toolbar>
-          <Box> 
+          {/* <Box>  */}
           <Link to="/"> 
           <img src={SeenSimple} alt="nav-seen-logo-logged-out" className={classes.navlogo}/>
           </Link> 
-          </Box>
+          {/* </Box> */}
           <Button className={classes.profileButton} component={Link} to="/login"> 
             Sign In
           </Button> 

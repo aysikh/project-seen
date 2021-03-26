@@ -14,8 +14,9 @@ const useStyles = makeStyles((theme) => ({
   bg: {
     backgroundImage: `url(${BG})`,
     backgroundRepeat: 'no-repeat',
-    backgroundSize: '100% 120%',
+    backgroundSize: '100% 110%',
     backgroundAttachment: 'fixed',
+    backgroundPosition: 'top',
   },
   root: {
     flexGrow: 1,

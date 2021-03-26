@@ -19,10 +19,11 @@ const useStyles = makeStyles((theme) => ({
   },
   bg: {
     // width: '100%', 
-    // minHeight: '100%',
+    // minHeight: '100%', 
+    // backgroundColor: 'black',
     backgroundImage: `url(${BG})`,
     backgroundRepeat: 'no-repeat',
-    backgroundSize: '110% 85%',
+    backgroundSize: '100% 85%',
     backgroundAttachment: 'fixed',
     backgroundPosition: 'center',
     overflowX: 'hidden'
