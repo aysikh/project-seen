@@ -66,6 +66,7 @@ export default function ReviewShow(props){
         r.push(<ReviewCard 
           // updateUseful={updateUseful}
           // updateNotUseful={updateNotUseful}
+            {...props}
             review={reviews[i]}
             key={reviews[i].id} 
           /> )}

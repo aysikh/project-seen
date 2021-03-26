@@ -20,9 +20,9 @@ import Alert from '@material-ui/lab/Alert';
       marginTop: '5rem'
     },
     textfield: {
-      width: '85%', 
+      width: '50%', 
       position: 'relative', 
-      marginLeft: '3.5rem',
+      // marginLeft: '1rem',
       backgroundColor: 'white',
       color: 'black',
       // border: '3px solid #000', 
@@ -34,7 +34,8 @@ import Alert from '@material-ui/lab/Alert';
       width: '30rem', 
       backgroundColor: 'black', 
       color: 'white',
-      fontFamily: 'Cardo'
+      fontFamily: 'Cardo',
+      borderRadius: '20px'
     },
     formBox: {
       marginTop: '5rem'

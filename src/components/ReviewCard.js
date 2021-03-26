@@ -73,6 +73,16 @@ const useStyles = makeStyles((theme) => ({
 export default function ReviewCard(props){
   const classes = useStyles();
 
+  const findCompany = () => {
+    let companyLogo = ''
+    props.companies.map(company => {
+      if(company.id == props.review.company_id){
+        companyLogo = company.logo
+      }
+    }) 
+    return companyLogo
+  }
+
   return(
     <div className={classes.bg}>
       <center> 
@@ -86,6 +96,8 @@ export default function ReviewCard(props){
                 <span style={{ fontSize: "2.5rem" }}>{props.review.title}</span>
                 <br />
                 <span style={{ fontSize: "1rem" }}>{props.review.position}</span>
+                <br /> <br /> 
+                <img src={findCompany()} style={{width: '4rem'}}/> 
               </div>
               <div>
                 <Grid container justify="center">

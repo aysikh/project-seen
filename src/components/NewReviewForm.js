@@ -9,10 +9,13 @@ import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Popover from '@material-ui/core/Popover';
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
+import Divider from '@material-ui/core/Divider';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import InputBase from '@material-ui/core/InputBase';
+import BG from '../assets/light-grey.png';
+
 
 const URL = "http://localhost:3000/company/"
 
@@ -58,21 +61,11 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     height: '96%',
-    width: '90%',
+    width: '100%',
     display: 'inline-block',
     padding: '15px',
     margin: '2px',
     backgroundColor: 'white',
-  },
-  imgBox: {
-    height: 'auto',
-    width: 'auto',
-    display: 'inline-block',
-    padding: '10px',
-    margin: '2px',
-    backgroundColor: 'white',
-    marginLeft: '-9.3rem',
-    marginTop: '30rem',
   },
   info: {
     width: '20rem', 
@@ -84,20 +77,13 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: '20px'
   },
   bg: {
-    width: '100%', 
-    minHeight: '90vh',
     backgroundColor: 'white',
-    // backgroundImage: `url(${BG})`,
+    backgroundImage: `url(${BG})`,
     backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
+    backgroundSize: '100% 95%',
     backgroundAttachment: 'fixed',
+    // marginBottom: '5rem',
   },
-  row: {
-    WebkitBoxSizing: 'border-box', 
-    MozBoxSizing: 'border-box',
-    boxSizing: 'border-box', 
-    width: '30rem'
-  }, 
   selectionBox: {
     width: '22rem'
   }
@@ -364,181 +350,181 @@ export default function NewReviewForm(props) {
   return (
     <div className={classes.bg}>
       <center>
-        
-      <form 
-        autoComplete="on"
-        noValidate
-        onSubmit={ ( event ) => {
-            handleNewReviewSubmit( event )
-        } }>
-      {/* <Grid container xl={10} className={classes.root} > */}
-          {/* <Grid container justify="center"  > */}
+        <form 
+          autoComplete="on"
+          noValidate
+          onSubmit={ ( event ) => {
+              handleNewReviewSubmit( event )
+          } }>
 
       {/* RATING */}
-      <Grid item xs={5} style={{marginTop: '2rem'}}>
-            <Paper style={{padding: '15px', height: '96.4%'}} elevation={5}>
-            <span style={{fontSize: '2rem', fontFamily: 'Josefine Sans'}}>Write about your experience!</span>
-            <br /> <br /> 
-            <Box component="fieldset" mb={2} borderColor="transparent">
-              <Grid container spacing={3}>
-                <Grid item xs={8}>
-                  <span style={{fontSize: '18px', fontFamily: 'Cardo'}}component="legend">Diversity in Organization</span>
-                </Grid>
-                <Grid item xs={4}>
-                  {Diversity()}
-                </Grid>
-                  <Rating
-                    name="diversity"
-                    precision={0.5}
-                    style={{color: '#A16338', fontSize: '3.5rem', marginLeft: '6rem'}}
-                    value={diversity}
-                    onChange={handleDiversity}
-                  />
-              </Grid>    
-            </Box>
-            <Box component="fieldset" mb={2} borderColor="transparent">
-            <Grid container spacing={3}>
-                <Grid item xs={8}>
-                  <span style={{fontSize: '18px', fontFamily: 'Cardo'}} component="legend">Diversity in Leadership</span>
-                </Grid>
-                <Grid item xs={4}>
-                  {Leadership()}
-                </Grid>
-                <Rating
-                  name="leadership"
-                  precision={0.5}
-                  style={{color: '#7B4C2B', fontSize: '3.5rem', marginLeft: '6rem'}}
-                  value={leadership}
-                  onChange={handleLeadership}
-                />
-              </Grid>    
-              </Box>
-              <Box component="fieldset" mb={2} borderColor="transparent">
-              <Grid container spacing={3}>
-                <Grid item xs={8}>
-                  <span style={{fontSize: '18px', fontFamily: 'Cardo'}} component="legend">The Work/Life Balance</span >
-                </Grid>
-                <Grid item xs={4}>
-                  {WorkLife()}
-                </Grid>
-                <Rating
-                  name="worklife"
-                  precision={0.5}
-                  style={{color: '#DBBA9C', fontSize: '3.5rem', marginLeft: '6rem'}}
-                  value={worklife}
-                  onChange={handleWorklife}
-                />
-              </Grid>    
-              </Box>
-              <Box component="fieldset" mb={2} borderColor="transparent">
-              <Grid container spacing={3}>
-                <Grid item xs={8}>
-                  <span style={{fontSize: '18px', fontFamily: 'Cardo'}} component="legend">Inclusivity</span >
-                </Grid>
-                <Grid item xs={4}>
-                  {Inclusiveness()}
-                </Grid>
-                <Rating
-                  name="inclusiveness"
-                  precision={0.5}
-                  style={{color: '#A16338', fontSize: '3.5rem', marginLeft: '6rem'}}
-                  value={inclusiveness}
-                  onChange={handleInclusiveness}
-                />
-              </Grid>    
-              </Box>
-              <Box component="fieldset" mb={2} borderColor="transparent">
-              <Grid container spacing={3}>
-                <Grid item xs={8}>
-                  <span style={{fontSize: '18px', fontFamily: 'Cardo'}} component="legend">Rate the Company's Benefits</span >
-                </Grid>
-                <Grid item xs={4}>
-                  {Benefits()}
-                </Grid>
-                <Rating
-                  name="benefits"
-                  precision={0.5}
-                  style={{color: '#7B4C2B', fontSize: '3.5rem', marginLeft: '6rem'}}
-                  value={benefits}
-                  onChange={handleBenefits}
-                />
-              </Grid>    
-              </Box>
-              <Box component="fieldset" mb={2} borderColor="transparent">
-              <Grid container spacing={3}>
-                <Grid item xs={8}>
-                  <span style={{fontSize: '18px', fontFamily: 'Cardo'}} component="legend">Would you recommend to a friend? </span >
-                </Grid>
-                <Grid item xs={4}>
-                  {Recommend()}
-                </Grid>
-                <Rating
-                  name="recommendation"
-                  precision={0.5}
-                  style={{color: '#DBBA9C', fontSize: '3.5rem', marginLeft: '6rem'}}
-                  value={recommendation}
-                  onChange={handleRecommendation}
-                />
-              </Grid>    
-              </Box>
-            </Paper>
-          </Grid>
-          <Grid item xs={5} style={{marginTop: '2rem'}}>
-                <Paper className={classes.paper} elevation={5}>
-                  <span style={{fontSize: 'rem', fontFamily: 'Cardo'}}> Choose a company:  </span> 
+        <Grid item xs={6} >
+            <Paper className={classes.paper} elevation={5}>
+              <span style={{fontSize: '2.5rem', fontFamily: 'Josefine Sans'}}>Write about your experience!</span>
+              <br /> <br /> 
+                <span style={{fontSize: '20px', fontFamily: 'Cardo'}}> Choose a company:  </span> 
                   <br/> <br/>
-                <FormControl className={classes.selectionBox}>
+                    <FormControl className={classes.selectionBox}>
                   {/* <InputLabel htmlFor="demo-customized-select-native">Choose one of the following companies: </InputLabel> */}
-                  <NativeSelect
-                    id="demo-customized-select-native"
-                    value={reviewCompany}
-                    onChange={handleCompany}
-                    input={<StyleBox />}
-                  >
-                    <option aria-label="Company" />
-                    {props.companies.map(company => 
-                      <option key={company.id} value={company.id}> {company.name} </option> 
-                    )}
-                  </NativeSelect>
-                </FormControl>
-                <br/> <br/>
-                    <TextField 
-                      style={{backgroundColor: 'white', width: '100%'}}
-                      onChange={handleTitle}
-                      id="outlined-basic" 
-                      label="Enter a title for your review..." 
-                      variant="outlined" 
+                      <NativeSelect
+                        id="demo-customized-select-native"
+                        value={reviewCompany}
+                        onChange={handleCompany}
+                        input={<StyleBox />}
+                      >
+                        <option aria-label="Company" />
+                        {props.companies.map(company => 
+                          <option key={company.id} value={company.id}> {company.name} </option> 
+                        )}
+                      </NativeSelect>
+                    </FormControl>
+                    <br /> <br /> <br/> 
+                    <Divider variant='center'/>
+                    <br /> <br />
+                <Box component="fieldset" mb={2} borderColor="transparent">
+                  <Grid container spacing={3}>
+                    <Grid item xs={8}>
+                      <span style={{fontSize: '20px', fontFamily: 'Cardo'}}component="legend">Diversity in Organization</span>
+                    </Grid>
+                    <Grid item xs={4} >
+                      {Diversity()}
+                    </Grid>
+                      <Rating
+                        name="diversity"
+                        precision={0.5}
+                        style={{color: '#A16338', fontSize: '4rem', marginLeft: '9rem'}}
+                        value={diversity}
+                        onChange={handleDiversity}
                       />
-                  <br /> <br />
-                    <TextField 
-                      style={{backgroundColor: 'white', width: '100%'}}
-                      onChange={handlePosition}
-                      id="outlined-basic" 
-                      label="What was your position here? " 
-                      variant="outlined" 
+                  </Grid>    
+                </Box>
+                <Box component="fieldset" mb={2} borderColor="transparent">
+                <Grid container spacing={3}>
+                    <Grid item xs={8}>
+                      <span style={{fontSize: '20px', fontFamily: 'Cardo'}} component="legend">Diversity in Leadership</span>
+                    </Grid>
+                    <Grid item xs={4}>
+                      {Leadership()}
+                    </Grid>
+                    <Rating
+                      name="leadership"
+                      precision={0.5}
+                      style={{color: '#7B4C2B', fontSize: '4rem', marginLeft: '9rem'}}
+                      value={leadership}
+                      onChange={handleLeadership}
                     />
-                  <br /> <br /> 
-                    <TextField
-                      style={{backgroundColor: 'white', width: '100%'}}
-                      multiline
-                      rows={15}
-                      id="content-box"
-                      label="Talk more about your experience here..."
-                      onChange={handleContent}
-                      variant="outlined" 
+                  </Grid>    
+                  </Box>
+                  <Box component="fieldset" mb={2} borderColor="transparent">
+                  <Grid container spacing={3}>
+                    <Grid item xs={8}>
+                      <span style={{fontSize: '20px', fontFamily: 'Cardo'}} component="legend">The Work/Life Balance</span >
+                    </Grid>
+                    <Grid item xs={4}>
+                      {WorkLife()}
+                    </Grid>
+                    <Rating
+                      name="worklife"
+                      precision={0.5}
+                      style={{color: '#DBBA9C', fontSize: '4rem', marginLeft: '9rem'}}
+                      value={worklife}
+                      onChange={handleWorklife}
                     />
+                  </Grid>    
+                  </Box>
+                  <Box component="fieldset" mb={2} borderColor="transparent">
+                  <Grid container spacing={3}>
+                    <Grid item xs={8}>
+                      <span style={{fontSize: '20px', fontFamily: 'Cardo'}} component="legend">Inclusivity</span >
+                    </Grid>
+                    <Grid item xs={4}>
+                      {Inclusiveness()}
+                    </Grid>
+                    <Rating
+                      name="inclusiveness"
+                      precision={0.5}
+                      style={{color: '#A16338', fontSize: '4rem', marginLeft: '9rem'}}
+                      value={inclusiveness}
+                      onChange={handleInclusiveness}
+                    />
+                  </Grid>    
+                  </Box>
+                  <Box component="fieldset" mb={2} borderColor="transparent">
+                  <Grid container spacing={3}>
+                    <Grid item xs={8}>
+                      <span style={{fontSize: '20px', fontFamily: 'Cardo'}} component="legend">Rate the Company's Benefits</span >
+                    </Grid>
+                    <Grid item xs={4}>
+                      {Benefits()}
+                    </Grid>
+                    <Rating
+                      name="benefits"
+                      precision={0.5}
+                      style={{color: '#7B4C2B', fontSize: '4rem', marginLeft: '9rem'}}
+                      value={benefits}
+                      onChange={handleBenefits}
+                    />
+                  </Grid>    
+                  </Box>
+                  <Box component="fieldset" mb={2} borderColor="transparent">
+                  <Grid container spacing={3}>
+                    <Grid item xs={8}>
+                      <span style={{fontSize: '20px', fontFamily: 'Cardo'}} component="legend">Would you recommend to a friend? </span >
+                    </Grid>
+                    <Grid item xs={4}>
+                      {Recommend()}
+                    </Grid>
+                    <Rating
+                      name="recommendation"
+                      precision={0.5}
+                      style={{color: '#DBBA9C', fontSize: '4rem', marginLeft: '9rem'}}
+                      value={recommendation}
+                      onChange={handleRecommendation}
+                    />
+                  </Grid>    
+                  </Box>
+                    <Divider variant='center'/>
+                    <br/> <br/>
+                        <TextField 
+                          style={{backgroundColor: 'white', width: '80%'}}
+                          onChange={handleTitle}
+                          id="outlined-basic" 
+                          label="Enter a title for your review..." 
+                          variant="outlined" 
+                          />
+                      <br /> <br />
+                        <TextField 
+                          style={{backgroundColor: 'white', width: '80%'}}
+                          onChange={handlePosition}
+                          id="outlined-basic" 
+                          label="What was your position here? " 
+                          variant="outlined" 
+                        />
                       <br /> <br /> 
-                    <Button 
-                      style={{backgroundColor: 'black', color: 'white', width: '23rem', fontFamily: 'Cardo'}}
-                      type="submit" 
-                      variant="contained" 
-                      color="primary">
-                      Submit
-                    </Button> 
-                </Paper> 
+                        <TextField
+                          style={{backgroundColor: 'white', width: '80%'}}
+                          multiline
+                          rows={15}
+                          id="content-box"
+                          label="Talk more about your experience here..."
+                          onChange={handleContent}
+                          variant="outlined" 
+                        />
+                          <br /> <br /> 
+                        <Button 
+                          style={{backgroundColor: 'black', color: 'white', width: '23rem', fontFamily: 'Cardo'}}
+                          type="submit" 
+                          variant="contained" 
+                          color="primary">
+                          Submit
+                        </Button> 
+                </Paper>
               </Grid>
-        {/* </Grid> */}
-      {/* </Grid> */}
+          {/* <Grid item xs={5} style={{marginTop: '2rem'}}>
+                <Paper className={classes.paper} elevation={5}>
+                  
+                </Paper> 
+              </Grid> */}
       </form>
       </center>
     </div>

@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     height: "auto",
     width: "45%", 
     border: '3px solid black',
-    borderRadius: '10px'
+    borderRadius: '5px'
   },
   rating: {
     fontFamily: "Josefin Sans",
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     margin: "1rem",
     border: "3px solid #000",
     borderRadius: '20px', 
-    overflow: 'scroll',
+    // overflow: 'scroll',
     overflowY: 'hidden',
   },
   content: {
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     padding: '30px',
     border: "3px solid #000",
     borderRadius: '20px',
-    overflow: 'scroll',
+    // overflow: 'scroll',
     overflowY: 'hidden',
   },
   topInfo: {
@@ -57,12 +57,22 @@ export default function UserReviewCard(props) {
 
   const findCompany = () => {
     let companyName = ''
-    let x = props.companies.map(company => {
+    props.companies.map(company => {
       if(company.id == props.review.company_id){
         companyName = company.name
       }
     }) 
     return companyName
+  }
+
+  const findCompanyLogo = () => {
+    let logo = ''
+    props.companies.map(company => {
+      if(company.id == props.review.company_id){
+        logo = company.logo
+      }
+    }) 
+    return logo
   }
 
   return (
@@ -71,9 +81,14 @@ export default function UserReviewCard(props) {
       <Grid item xs={12}>
         <div className={classes.whole} id="review-container">
           <div id="review-info" className={classes.topInfo}>
-            <span style={{ fontSize: "2rem" }}>Company: {findCompany()}</span>
+            <span style={{ fontSize: "2rem" }}>
+              Company: 
+              <img src={findCompanyLogo()} style={{width: '2rem', marginLeft: '8px', marginRight: '5px', marginBottom: '-2px'}}/>
+              {findCompany()}
+              </span>
+            
             <br /><br /> 
-            <span style={{ fontSize: "1.5rem" }}>Title: {props.review.title} </span>
+            <span style={{ fontSize: "1.5rem"}}>Title: {props.review.title} </span>
             <br />
             <span style={{ fontSize: "1.2rem" }}>Position: {props.review.position}</span>
           </div>
