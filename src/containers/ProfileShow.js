@@ -15,12 +15,11 @@ const useStyles = makeStyles((theme) => ({
   bg: {
     // width: '100%', 
     // minHeight: '50vh',
-    backgroundColor: 'black',
     backgroundImage: `url(${BG})`,
     backgroundRepeat: 'no-repeat',
-    backgroundSize: '100%, 100%',
+    backgroundSize: '100%, 80%',
     backgroundAttachment: 'fixed',
-    backgroundPosition: 'center'
+    backgroundPosition: 'top'
   },
   review:{
     fontSize: '2rem', 

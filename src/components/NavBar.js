@@ -26,9 +26,11 @@ const useStyles = makeStyles((theme) => ({
   navlogo: {
     // display: 'relative',
     width: '6rem', 
-    marginLeft: '70rem',
-    textAlign: 'center',
-    flexGrow: 1,
+    // marginLeft: '70rem',
+    position: "absolute",
+    left: "50%",
+    top: "50%",
+    transform: "translate(-50%, -50%)"
   }
 }));
 
