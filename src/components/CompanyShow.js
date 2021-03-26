@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     minHeight: '100%',
     backgroundImage: `url(${BG})`,
     backgroundRepeat: 'no-repeat',
-    backgroundSize: '100% 100%',
+    backgroundSize: '100% 95%',
     backgroundAttachment: 'fixed',
     backgroundPosition: 'bottom'
   }

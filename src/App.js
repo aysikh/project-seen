@@ -20,8 +20,6 @@ export default function App({history}) {
   const [isLoggedIn, setLoggedIn ] = useState(false)
   const [userLoggedIn, setUserLoggedIn] = useState('')
   const [token, setToken] = useState('');
-  // const [isLoading, setIsLoading] = useState(false);
-  //get users 
 
   const getCompanies = () => {
     fetch(COMPANY_URL)
@@ -51,13 +49,8 @@ export default function App({history}) {
   useEffect(()=>{
     getCompanies()
     checkLogin()
-    // setIsLoading(true)
   }, [])
-  
 
-// redirect
-
-  
   return(
     <div>
       <Router>

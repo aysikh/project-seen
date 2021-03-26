@@ -6,8 +6,9 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import Rating from '@material-ui/lab/Rating';
 import Divider from '@material-ui/core/Divider';
-
-
+import LocationOnIcon from '@material-ui/icons/LocationOn';
+import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
+import BusinessIcon from '@material-ui/icons/Business';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -55,17 +56,20 @@ export default function CompanyCard(props){
             <Grid item xs={3} style={{marginLeft: '-20%'}}>
               <span style={{fontSize: '20px'}}>Headquarters: </span>
                 <br/> 
-              <span style={{fontSize: '15px'}}>{props.comp.location}</span>
+                <LocationOnIcon style={{fontSize:'1rem'}}/> 
+              <span style={{fontSize: '15px'}}> {props.comp.location}</span>
             </Grid>
             <Grid item xs={3}>
                 <span style={{fontSize: '20px'}}> Number of Employees </span>
                 <br/>
-                <span style={{fontSize: '15px'}} >{props.comp.size}</span>
+                <PeopleOutlineIcon style={{fontSize:'1rem'}}/>
+                <span style={{fontSize: '15px'}} > {props.comp.size}</span>
                 </Grid>
                 <Grid item xs={3}>
                   <span style={{fontSize: '20px'}}>Industry: </span>
                 <br/> 
-                <span style={{fontSize: '15px'}}>{props.comp.industry} </span>
+                <BusinessIcon style={{fontSize:'1rem'}}/>
+                <span style={{fontSize: '15px'}}> {props.comp.industry} </span>
             </Grid>
         </Grid>
       </div>
