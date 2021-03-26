@@ -58,6 +58,7 @@ export default function App({history}) {
         isLoggedIn={isLoggedIn} 
         setLoggedIn={setLoggedIn}
         setUserLoggedIn={setUserLoggedIn}
+        setToken={setToken}
         token={token}
         /> 
           <div >
@@ -69,7 +70,14 @@ export default function App({history}) {
                   companies={companies}
                   /> 
                   )} />
-                <Route exact path="/sign-up" component={SignUpContainer} />
+                <Route exact path="/sign-up" render={(props) => (
+                  <SignUpContainer
+                  {...props}
+                  setLoggedIn={setLoggedIn}
+                  setUserLoggedIn={setUserLoggedIn}
+                  setToken={setToken}
+                  />
+                )} /> 
                 <Route path="/login" render={(props) => (
                   <LogInContainer 
                   {...props} 

@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '20px'
   },
   formBox: {
-    marginTop: '8rem'
+    marginTop: '10rem'
   }
 }))
 
@@ -97,7 +97,7 @@ export default function LogInForm(props){
       <center>
       {/* <Paper elevation={5} className={classes.paper}> */}
       <div id="log-in-form" className={classes.formBox}>
-        <img src={LogIn} alt="log-in-banner" style={{width: '20rem'}}/> 
+        <img src={LogIn} alt="log-in-banner" style={{width: '15rem'}}/> 
           <form autoComplete="on"
             noValidate
             onSubmit={handleSubmit}

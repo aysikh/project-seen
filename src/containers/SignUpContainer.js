@@ -8,7 +8,7 @@ const useStyles = makeStyles(() => ({
     minHeight: '100vh',
     backgroundImage: `url(${BG})`,
     backgroundRepeat: 'no-repeat',
-    backgroundSize: '100% 120%',
+    backgroundSize: '100% 115%',
     backgroundAttachment: 'fixed'
   },
 }));

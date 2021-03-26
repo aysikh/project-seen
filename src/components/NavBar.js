@@ -35,13 +35,14 @@ export default function NavBar(props) {
   
   const handleLogout = () => {
     props.setLoggedIn(false)
+    props.setToken('')
     props.setUserLoggedIn('')
     localStorage.clear();
   }
 
   return(
     <div>
-      {props.isLoggedIn && props.token ? 
+      {props.isLoggedIn  ? 
       <AppBar position="static" className={classes.logo}>
         <Toolbar>
           <Box> 

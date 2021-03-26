@@ -1,15 +1,15 @@
 import React from 'react'; 
 import { makeStyles } from '@material-ui/core/styles';
-import BG from '../assets/brown-bg.jpeg';
+import BG from '../assets/tan-bg.jpeg';
 
 import LogInForm from '../components/LogInForm'
 
 const useStyles = makeStyles(() => ({
   bg: {
-    minHeight: '90vh',
+    minHeight: '100vh',
     backgroundImage: `url(${BG})`,
     backgroundRepeat: 'no-repeat',
-    backgroundSize: '100% 100%',
+    backgroundSize: '100% 115%',
     backgroundAttachment: 'fixed',
   },
 }));

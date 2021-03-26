@@ -6,6 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button'
 import SignUp from '../assets/signup.png'
+import Alert from '@material-ui/lab/Alert';
 
   const useStyles = makeStyles((theme) => ({
     paper: {
@@ -21,7 +22,11 @@ import SignUp from '../assets/signup.png'
     textfield: {
       width: '85%', 
       position: 'relative', 
-      marginLeft: '3.5rem'
+      marginLeft: '3.5rem',
+      backgroundColor: 'white',
+      color: 'black',
+      // border: '3px solid #000', 
+      borderRadius: '5px',
     },
     button: {
       fontSize: '1.1rem', 
@@ -30,6 +35,9 @@ import SignUp from '../assets/signup.png'
       backgroundColor: 'black', 
       color: 'white',
       fontFamily: 'Cardo'
+    },
+    formBox: {
+      marginTop: '5rem'
     }
   }))
 
@@ -41,6 +49,7 @@ export default function SignUpForm(props){
   const [ lastname, setLastname ] = useState("")
   const [ email, setEmail ] = useState("")
   const [ password, setPassword ] = useState("")
+  const [ openError, setOpenError ] = useState(false)
 
   const handleFirstname = ( event ) => {
     setFirstname( event.target.value )
@@ -71,17 +80,35 @@ export default function SignUpForm(props){
     }
     fetch( "http://localhost:3000/users", requestPackage )
       .then( rsp => rsp.json() )
-    .then(console.log)
-      // history.push( "/profile" )
+    .then(data => {
+      if(data.error){
+        setOpenError(true)
+      }
+      else{
+        // console.log(data)
+        localStorage.setItem('token', data.token)
+        props.setUserLoggedIn(data)
+        props.setLoggedIn(true)
+        history.push('/')
+      }
+    })
   }
 
 
   return (
     <div>
-      <Container >
+      <Container>
         <br /> <br /> 
+        {openError ? 
+        <Alert variant="filled" severity="error" style={{backgroundColor: '#b71c1c'}}>
+          Please make sure all fields are filled out.
+        </Alert>
+        : 
+          ""
+      }
         <center>
-        <Paper elevation={3} className={classes.paper}>
+        {/* <Paper elevation={3} className={classes.paper}> */}
+        <div id="sign-in-form" className={classes.formBox}>
           <img src={SignUp} alt="sign-up-banner" style={{width: '20rem'}}/> 
           <form autoComplete="on"
             noValidate
@@ -134,7 +161,8 @@ export default function SignUpForm(props){
               SUBMIT
             </Button> 
           </form>
-        </Paper>
+          </div>
+        {/* </Paper> */}
         </center>
         <br /> <br /> 
       </Container>

@@ -19,12 +19,13 @@ const useStyles = makeStyles((theme) => ({
   },
   bg: {
     // width: '100%', 
-    minHeight: '100%',
+    // minHeight: '100%',
     backgroundImage: `url(${BG})`,
     backgroundRepeat: 'no-repeat',
-    backgroundSize: '100% 95%',
+    backgroundSize: '110% 85%',
     backgroundAttachment: 'fixed',
-    backgroundPosition: 'bottom'
+    backgroundPosition: 'center',
+    overflowX: 'hidden'
   }
 }));
 
