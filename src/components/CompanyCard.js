@@ -60,7 +60,7 @@ export default function CompanyCard(props){
               <span style={{fontSize: '15px'}}> {props.comp.location}</span>
             </Grid>
             <Grid item xs={3}>
-                <span style={{fontSize: '20px'}}> Number of Employees </span>
+                <span style={{fontSize: '20px'}}> Number of Employees: </span>
                 <br/>
                 <PeopleOutlineIcon style={{fontSize:'1rem'}}/>
                 <span style={{fontSize: '15px'}} > {props.comp.size}</span>
@@ -83,7 +83,7 @@ export default function CompanyCard(props){
                 <h2>About the company</h2>
                 <Divider variant='center'/>
                 <br/> <br/>
-                <span> {props.comp.description} </span>
+                <span style={{fontSize:'20px'}}> {props.comp.description} </span>
               </Paper>
             </Grid>
   

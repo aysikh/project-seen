@@ -44,7 +44,7 @@ export default function ProfileShow(props){
           <span className={classes.review}> Here are a list of all the reviews you've written: </span> 
           <br /> <br /> 
            {props.userLoggedIn.reviews.map(review => 
-            <UserReviewCard review={review}/>
+            <UserReviewCard {...props} review={review}/>
             )} 
         </div>
       : 

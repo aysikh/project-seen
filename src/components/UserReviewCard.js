@@ -46,12 +46,6 @@ const useStyles = makeStyles((theme) => ({
     height: "auto",
     width: "auto"
   },
-  // user: {
-  //   fontFamily: "Cardo",
-  //   backgroundColor: "black",
-  //   border: "1px solid #000",
-  //   boxShadow: theme.shadows[5]
-  // },
   info: {
     fontFamily: "Cardo",
     display: "absolute"
@@ -61,18 +55,27 @@ const useStyles = makeStyles((theme) => ({
 export default function UserReviewCard(props) {
   const classes = useStyles();
 
+  const findCompany = () => {
+    let companyName = ''
+    let x = props.companies.map(company => {
+      if(company.id == props.review.company_id){
+        companyName = company.name
+      }
+    }) 
+    return companyName
+  }
+
   return (
-    
+    <div>
     <Grid container className={classes.root} spacing={2}>
-      
       <Grid item xs={12}>
         <div className={classes.whole} id="review-container">
           <div id="review-info" className={classes.topInfo}>
-            {/* image for review or icon for the review?  */}
-            {/* gotta insert the date of the review  */}
-            <span style={{ fontSize: "2.5rem" }}>{props.review.title} </span>
+            <span style={{ fontSize: "2rem" }}>Company: {findCompany()}</span>
+            <br /><br /> 
+            <span style={{ fontSize: "1.5rem" }}>Title: {props.review.title} </span>
             <br />
-            <span style={{ fontSize: "1.2rem" }}>{props.review.position}</span>
+            <span style={{ fontSize: "1.2rem" }}>Position: {props.review.position}</span>
           </div>
           <div>
             <Grid container justify="center">
@@ -163,5 +166,6 @@ export default function UserReviewCard(props) {
         </div>
       </Grid>
     </Grid>
+  </div>
   );
 }

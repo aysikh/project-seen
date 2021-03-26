@@ -112,6 +112,7 @@ export default function App({history}) {
                   <ProfileShow
                   {...props}
                   userLoggedIn={userLoggedIn}
+                  companies={companies}
                   />
                  )} />
               </div>
