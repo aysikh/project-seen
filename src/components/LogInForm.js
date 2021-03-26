@@ -37,6 +37,9 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Cardo',
     border: '3px solid #000', 
     borderRadius: '20px'
+  },
+  formBox: {
+    marginTop: '8rem'
   }
 }))
 
@@ -81,8 +84,8 @@ export default function LogInForm(props){
   };
 
   return(
-    <div>
-    <Container>
+    <div >
+    <Container >
       <br /> <br /> 
       {openError ? 
         <Alert variant="filled" severity="error" style={{backgroundColor: '#b71c1c'}}>
@@ -92,43 +95,45 @@ export default function LogInForm(props){
         ""
       }
       <center>
-      <Paper elevation={5} className={classes.paper}>
-      <img src={LogIn} alt="log-in-banner" style={{width: '20rem'}}/> 
-        <form autoComplete="on"
-          noValidate
-          onSubmit={handleSubmit}
-          >                      
-          <br /> <br />
-          <TextField 
-            required
-            className={classes.textfield}
-            onChange={handleEmail}
-            id="email" 
-            label="Email" 
-            name="email"
-            variant="outlined" 
-          />
-          <br /> <br />
-          <TextField
-            required
-            className={classes.textfield}
-            onChange={handlePassword}
-            id="password"
-            name="password"
-            type="password"
-            label="Password"
-            variant="outlined"
-          />
-          <br/> <br/> 
-          <Button 
-            className={classes.button}
-            type="submit" 
-            variant="contained"
-            >
-            Log In
-          </Button> 
-        </form>
-      </Paper>
+      {/* <Paper elevation={5} className={classes.paper}> */}
+      <div id="log-in-form" className={classes.formBox}>
+        <img src={LogIn} alt="log-in-banner" style={{width: '20rem'}}/> 
+          <form autoComplete="on"
+            noValidate
+            onSubmit={handleSubmit}
+            >                      
+            <br /> <br />
+            <TextField 
+              required
+              className={classes.textfield}
+              onChange={handleEmail}
+              id="email" 
+              label="Email" 
+              name="email"
+              variant="outlined" 
+              />
+            <br /> <br />
+            <TextField
+              required
+              className={classes.textfield}
+              onChange={handlePassword}
+              id="password"
+              name="password"
+              type="password"
+              label="Password"
+              variant="outlined"
+              />
+            <br/> <br/> 
+            <Button 
+              className={classes.button}
+              type="submit" 
+              variant="contained"
+              >
+              Log In
+            </Button> 
+          </form>
+        {/* </Paper> */}
+        </div>
       </center>
     </Container>
   </div>
