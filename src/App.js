@@ -83,6 +83,7 @@ export default function App({history}) {
                   {...props} 
                   setLoggedIn={setLoggedIn}
                   setUserLoggedIn={setUserLoggedIn}
+                  isLoggedIn={isLoggedIn}
                   />
                   )} /> 
                 <Route exact path="/company/:name" render={(props) => (
@@ -98,7 +99,7 @@ export default function App({history}) {
                   /> 
                   )} /> 
                 <Route path='/new-review' render={(props) => (
-                token ? 
+                isLoggedIn ? 
                   <NewReviewForm
                   {...props}
                   userLoggedIn={userLoggedIn}

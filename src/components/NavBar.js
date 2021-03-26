@@ -46,7 +46,7 @@ export default function NavBar(props) {
 
   return(
     <div>
-      {props.isLoggedIn  ? 
+      {props.isLoggedIn ? 
       <AppBar position="static" className={classes.logo}>
         <Toolbar>
           {/* <Box >  */}
