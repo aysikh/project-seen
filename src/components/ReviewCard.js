@@ -1,5 +1,4 @@
 import React from 'react';
-// import { matchPath } from "react-router";
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -18,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
   },
   root: {
     flexGrow: 1,
-    // marginTop: '2rem',
     padding: '20px'
   },
   whole: {

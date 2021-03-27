@@ -100,6 +100,7 @@ export default function App({history}) {
                   <NewReviewForm
                   {...props}
                   userLoggedIn={userLoggedIn}
+                  setUserLoggedIn={setUserLoggedIn}
                   companies={companies}
                   /> 
                   :

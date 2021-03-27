@@ -85,7 +85,7 @@ export default function SignUpForm(props){
         setOpenError(true)
       }
       else{
-        // console.log(data)
+        console.log(data)
         localStorage.setItem('token', data.token)
         props.setUserLoggedIn(data)
         props.setLoggedIn(true)

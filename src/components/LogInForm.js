@@ -19,12 +19,11 @@ const useStyles = makeStyles((theme) => ({
     width: '95%',
   },
   textfield: {
-    width: '75%', 
+    width: '70%', 
     position: 'relative', 
     marginLeft: '3.5rem',
     backgroundColor: 'white',
     color: 'black',
-    // border: '3px solid #000', 
     borderRadius: '5px',
   },
   button: {
@@ -93,9 +92,8 @@ export default function LogInForm(props){
         : 
         ""
       }
-      <center>
-      {/* <Paper elevation={5} className={classes.paper}> */}
       <div id="log-in-form" className={classes.formBox}>
+      <center>
         <img src={LogIn} alt="log-in-banner" style={{width: '15rem'}}/> 
           <form autoComplete="on"
             noValidate
@@ -131,9 +129,9 @@ export default function LogInForm(props){
               Log In
             </Button> 
           </form>
-        {/* </Paper> */}
-        </div>
-      </center>
+
+        </center>
+      </div>
     </Container>
   </div>
   )

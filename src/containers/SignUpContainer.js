@@ -13,12 +13,12 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default function SignUpContainer() {
+export default function SignUpContainer(props) {
   const classes = useStyles();
 
   return (
     <div className={classes.bg}>
-      <SignUpForm /> 
+      <SignUpForm {...props} /> 
     </div>
   )
 }

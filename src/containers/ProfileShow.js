@@ -28,7 +28,7 @@ export default function ProfileShow(props){
   const classes = useStyles(); 
 
   // console.log(props.userLoggedIn.user)
-  // console.log(props.userLoggedIn.reviews)
+  console.log(props.userLoggedIn.reviews)
   return(
     <div className={classes.bg}>
       <center> 
@@ -39,9 +39,19 @@ export default function ProfileShow(props){
           <br /> <br />
           <span className={classes.review}> Here are a list of all the reviews you've written: </span> 
           <br /> <br /> 
-           {props.userLoggedIn.reviews.map(review => 
+
+           {props.userLoggedIn.reviews && props.userLoggedIn.reviews.length >= 1 ? 
+           props.userLoggedIn.reviews.map(review => 
             <UserReviewCard {...props} review={review}/>
-            )} 
+            ) 
+            :
+            <div>
+            <span style={{fontSize:'3rem'}}>
+            "You haven't written any reviews yet!"
+            </span>
+            </div>
+            }
+
         </div>
       : 
       null

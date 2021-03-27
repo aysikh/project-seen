@@ -336,8 +336,21 @@ export default function NewReviewForm(props) {
     // console.log(requestPackage.body)
     fetch( URL + companyName + "/reviews", requestPackage )
       .then( rsp => rsp.json() )
-      .then(
-        history.push( "/profile" ))
+      .then( data => {
+        if(props.userLoggedIn.reviews && props.userLoggedIn.reviews.length){
+          let newReviewArray = [...props.userLoggedIn.reviews]
+          console.log(newReviewArray)
+          console.log(data.review)
+          newReviewArray.push(data.review)
+          props.setUserLoggedIn({user: props.userLoggedIn.user, reviews: newReviewArray})
+        }
+        else{
+          let newReviewArray = []
+          newReviewArray.push(data.review)
+          props.setUserLoggedIn({user: props.userLoggedIn.user, reviews: newReviewArray})
+        }
+      })
+      history.push( "/profile" )
   }
 
   const findCompanyName = (value) => {
@@ -503,7 +516,7 @@ export default function NewReviewForm(props) {
                         <TextField
                           style={{backgroundColor: 'white', width: '80%'}}
                           multiline
-                          rows={15}
+                          rows={5}
                           id="content-box"
                           label="Talk more about your experience here..."
                           onChange={handleContent}
