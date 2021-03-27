@@ -1,27 +1,30 @@
 {
   "files": {
-    "main.css": "/project-seen/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/project-seen/static/js/main.bdb0ba11.chunk.js",
-    "main.js.map": "/project-seen/static/js/main.bdb0ba11.chunk.js.map",
+    "main.css": "/project-seen/static/css/main.e29866f6.chunk.css",
+    "main.js": "/project-seen/static/js/main.23a05479.chunk.js",
+    "main.js.map": "/project-seen/static/js/main.23a05479.chunk.js.map",
     "runtime-main.js": "/project-seen/static/js/runtime-main.6d6b99c7.js",
     "runtime-main.js.map": "/project-seen/static/js/runtime-main.6d6b99c7.js.map",
-    "static/js/2.18430f54.chunk.js": "/project-seen/static/js/2.18430f54.chunk.js",
-    "static/js/2.18430f54.chunk.js.map": "/project-seen/static/js/2.18430f54.chunk.js.map",
+    "static/js/2.888432bc.chunk.js": "/project-seen/static/js/2.888432bc.chunk.js",
+    "static/js/2.888432bc.chunk.js.map": "/project-seen/static/js/2.888432bc.chunk.js.map",
     "index.html": "/project-seen/index.html",
-    "static/css/main.6dea0f05.chunk.css.map": "/project-seen/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.18430f54.chunk.js.LICENSE.txt": "/project-seen/static/js/2.18430f54.chunk.js.LICENSE.txt",
-    "static/media/brown-bg.bcbda261.jpeg": "/project-seen/static/media/brown-bg.bcbda261.jpeg",
+    "static/css/main.e29866f6.chunk.css.map": "/project-seen/static/css/main.e29866f6.chunk.css.map",
+    "static/js/2.888432bc.chunk.js.LICENSE.txt": "/project-seen/static/js/2.888432bc.chunk.js.LICENSE.txt",
+    "static/media/girl.436e17a3.png": "/project-seen/static/media/girl.436e17a3.png",
+    "static/media/light-grey.63157254.png": "/project-seen/static/media/light-grey.63157254.png",
     "static/media/login.5f90a291.png": "/project-seen/static/media/login.5f90a291.png",
+    "static/media/purple.b4f6c71c.png": "/project-seen/static/media/purple.b4f6c71c.png",
     "static/media/seen-simple.a468f19e.png": "/project-seen/static/media/seen-simple.a468f19e.png",
     "static/media/seenlogo1.49743bd8.png": "/project-seen/static/media/seenlogo1.49743bd8.png",
     "static/media/signup.a50ed543.png": "/project-seen/static/media/signup.a50ed543.png",
     "static/media/tan-bg.62420498.jpeg": "/project-seen/static/media/tan-bg.62420498.jpeg",
-    "static/media/tan-person-bg.aa4af6e8.png": "/project-seen/static/media/tan-person-bg.aa4af6e8.png"
+    "static/media/tan-person-bg.aa4af6e8.png": "/project-seen/static/media/tan-person-bg.aa4af6e8.png",
+    "static/media/tans-bg.3bf84ae6.png": "/project-seen/static/media/tans-bg.3bf84ae6.png"
   },
   "entrypoints": [
     "static/js/runtime-main.6d6b99c7.js",
-    "static/js/2.18430f54.chunk.js",
-    "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.bdb0ba11.chunk.js"
+    "static/js/2.888432bc.chunk.js",
+    "static/css/main.e29866f6.chunk.css",
+    "static/js/main.23a05479.chunk.js"
   ]
 }
