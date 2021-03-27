@@ -55,12 +55,6 @@ const useStyles = makeStyles((theme) => ({
     height: "auto",
     width: "auto"
   },
-  // user: {
-  //   fontFamily: "Cardo",
-  //   backgroundColor: "black",
-  //   border: "1px solid #000",
-  //   boxShadow: theme.shadows[5]
-  // },
   info: {
     fontFamily: "Cardo",
     display: "absolute"

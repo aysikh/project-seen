@@ -6,6 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button'
 import LogIn from '../assets/login.png'
 import Alert from '@material-ui/lab/Alert';
+import Fade from '@material-ui/core/Fade';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -94,7 +95,11 @@ export default function LogInForm(props){
       }
       <div id="log-in-form" className={classes.formBox}>
       <center>
+        <Fade in timeout={{enter:2500}}>
         <img src={LogIn} alt="log-in-banner" style={{width: '15rem'}}/> 
+        </Fade>
+        <Fade in timeout={{enter:3000}}>
+
           <form autoComplete="on"
             noValidate
             onSubmit={handleSubmit}
@@ -129,6 +134,7 @@ export default function LogInForm(props){
               Log In
             </Button> 
           </form>
+        </Fade>
 
         </center>
       </div>

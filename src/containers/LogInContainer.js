@@ -6,10 +6,11 @@ import LogInForm from '../components/LogInForm'
 
 const useStyles = makeStyles(() => ({
   bg: {
+    width: '100%', 
     minHeight: '100vh',
     backgroundImage: `url(${BG})`,
     backgroundRepeat: 'no-repeat',
-    backgroundSize: '100% 98%',
+    backgroundSize: '100% 100%',
     backgroundAttachment: 'fixed',
   },
 }));

@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-import BG from '../assets/tan-bg.jpeg';
+import BG from '../assets/girl.png';
 import SignUpForm from '../components/SignUpForm';
 
 const useStyles = makeStyles(() => ({
@@ -8,8 +8,9 @@ const useStyles = makeStyles(() => ({
     minHeight: '100vh',
     backgroundImage: `url(${BG})`,
     backgroundRepeat: 'no-repeat',
-    backgroundSize: '100% 115%',
-    backgroundAttachment: 'fixed'
+    backgroundSize: 'cover',
+    backgroundAttachment: 'fixed',
+    backgroundPosition: 'center'
   },
 }));
 

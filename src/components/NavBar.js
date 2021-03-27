@@ -59,7 +59,7 @@ export default function NavBar(props) {
           <Button component={Link} to="/profile">
             Profile
           </Button>
-          <Button onClick={handleLogout} component={Link} to="/login">
+          <Button onClick={handleLogout} component={Link} to="/">
             Log Out
           </Button>
         </Toolbar>

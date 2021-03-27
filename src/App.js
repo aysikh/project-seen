@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { makeStyles } from "@material-ui/core/styles";
+
 import LandingPageContainer from './containers/LandingPageContainer';
 import LogInContainer from './containers/LogInContainer';
 import SignUpContainer from './containers/SignUpContainer';
@@ -12,10 +14,21 @@ import ProfileShow from './containers/ProfileShow'
 
 const COMPANY_URL = "http://localhost:3000/companies"
 
+const useStyles = makeStyles((theme) => ({
+  bg: {
+    width: '100%',
+    height: '100%',
+    margin: '0px',
+    padding: '0px',
+    overflowX: 'hidden',
+  }
+}))
 export default function App({history}) {
+  const classes = makeStyles();
+
   const [companies, setCompanies] = useState([]);
-  const [isLoggedIn, setLoggedIn ] = useState(false)
-  const [userLoggedIn, setUserLoggedIn] = useState('')
+  const [isLoggedIn, setLoggedIn ] = useState(false);
+  const [userLoggedIn, setUserLoggedIn] = useState('');
   const [token, setToken] = useState('');
 
   const getCompanies = () => {

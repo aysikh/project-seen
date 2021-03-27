@@ -6,6 +6,8 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button'
 import SignUp from '../assets/signup.png'
 import Alert from '@material-ui/lab/Alert';
+import Paper from '@material-ui/core/Paper';
+import Fade from '@material-ui/core/Fade';
 
   const useStyles = makeStyles((theme) => ({
     paper: {
@@ -14,8 +16,8 @@ import Alert from '@material-ui/lab/Alert';
       boxShadow: theme.shadows[5],
       padding: theme.spacing(2, 4),
       display: "absolute",
-      height: "60vh",
-      width: "95%",
+      height: "60%",
+      width: "80%",
       marginTop: '5rem'
     },
     textfield: {
@@ -109,58 +111,62 @@ export default function SignUpForm(props){
         <center>
         {/* <Paper elevation={3} className={classes.paper}> */}
         <div id="sign-in-form" className={classes.formBox}>
-          <img src={SignUp} alt="sign-up-banner" style={{width: '20rem'}}/> 
-          <form autoComplete="on"
-            noValidate
-            onSubmit={ ( event ) => {
-                handleNewUserSubmit( event )
-            } }>                      
-            <TextField 
-              required
-              className={classes.textfield}
-              onChange={handleFirstname}
-              id="first-name" 
-              label="First Name" 
-              variant="outlined" 
-            />
-            <br /> <br />
-            <TextField 
-              required
-              className={classes.textfield}
-              onChange={handleLastname}
-              id="last-name" 
-              label="Last Name" 
-              variant="outlined" 
-            />
-            <br /> <br />
-            <TextField 
-              required
-              className={classes.textfield}
-              onChange={handleEmail}
-              id="email" 
-              label="Email" 
-              variant="outlined" 
-            />
-            <br /> <br />
-            <TextField
-              required
-              className={classes.textfield}
-              onChange={handlePassword}
-              label="Password"
-              type="password"
-              id="password"
-              name="password"
-              variant="outlined"
-            />
-            <br/> <br/> 
-            <Button 
-              className={classes.button}
-              type="submit" 
-              variant="contained" 
-              >
-              SUBMIT
-            </Button> 
-          </form>
+          <Fade in timeout={{enter:2500}}>
+            <img src={SignUp} alt="sign-up-banner" style={{width: '20rem', marginTop: '-40px'}}/> 
+          </Fade>
+          <Fade in timeout={{enter:3200}}>
+            <form autoComplete="on"
+              noValidate
+              onSubmit={ ( event ) => {
+                  handleNewUserSubmit( event )
+              } }>                      
+              <TextField 
+                required
+                className={classes.textfield}
+                onChange={handleFirstname}
+                id="first-name" 
+                label="First Name" 
+                variant="outlined" 
+              />
+              <br /> <br />
+              <TextField 
+                required
+                className={classes.textfield}
+                onChange={handleLastname}
+                id="last-name" 
+                label="Last Name" 
+                variant="outlined" 
+              />
+              <br /> <br />
+              <TextField 
+                required
+                className={classes.textfield}
+                onChange={handleEmail}
+                id="email" 
+                label="Email" 
+                variant="outlined" 
+              />
+              <br /> <br />
+              <TextField
+                required
+                className={classes.textfield}
+                onChange={handlePassword}
+                label="Password"
+                type="password"
+                id="password"
+                name="password"
+                variant="outlined"
+              />
+              <br/> <br/> 
+              <Button 
+                className={classes.button}
+                type="submit" 
+                variant="contained" 
+                >
+                SUBMIT
+              </Button> 
+            </form>
+          </Fade>
           </div>
         {/* </Paper> */}
         </center>

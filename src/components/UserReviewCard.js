@@ -12,9 +12,9 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1
   },
   whole: {
-    backgroundColor: "white",
     height: "auto",
     width: "45%", 
+    backgroundColor: "white",
     border: '3px solid black',
     borderRadius: '5px',
     margin: '10px'
@@ -80,7 +80,7 @@ export default function UserReviewCard(props) {
   return (
     <div>
     <Grid container className={classes.root} spacing={2}>
-      <Grid item xs={12}>
+      <Grid item xs={12} style={{backgroundColor: 'transparent'}}>
         <div className={classes.whole} id="review-container">
           <div id="review-info" className={classes.topInfo}>
             <span style={{ fontSize: "2rem" }}>

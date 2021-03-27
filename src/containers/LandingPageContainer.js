@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles'
 import Logo from '../assets/seenlogo1.png'
 import LandingPageAppInfo from '../components/LandingPageAppInfo'
-
+import Fade from '@material-ui/core/Fade';
 
 const useStyles = makeStyles((theme) => ({
   bg: {
@@ -25,7 +25,11 @@ export default function LandingPageContainer(props) {
   return (
     <div className={classes.bg} > 
       <LandingPageAppInfo {...props} /> 
-      <center> <img src={Logo} alt="landing-page-logo" className={classes.image}/>  </center>
+      <center> 
+        <Fade in timeout={{enter:15000}}>
+          <img src={Logo} alt="landing-page-logo" className={classes.image}/>  
+        </Fade>
+      </center>
     </div> 
   )
 }

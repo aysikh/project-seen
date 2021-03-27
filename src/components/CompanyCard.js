@@ -9,6 +9,8 @@ import Divider from '@material-ui/core/Divider';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
 import BusinessIcon from '@material-ui/icons/Business';
+import Fade from '@material-ui/core/Fade';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,31 +55,42 @@ export default function CompanyCard(props){
         <span style={{fontSize: '3.5rem'}}>{props.comp.name}</span>
         <br /><br />
         <Grid container justify="center" >
+
+          <Fade in timeout={{enter:1000}}>
             <Grid item xs={3} style={{marginLeft: '-20%'}}>
               <span style={{fontSize: '20px'}}>Headquarters: </span>
                 <br/> 
                 <LocationOnIcon style={{fontSize:'1rem'}}/> 
               <span style={{fontSize: '15px'}}> {props.comp.location}</span>
             </Grid>
+          </Fade>
+
+          <Fade in timeout={{enter:1000}}>
             <Grid item xs={3}>
-                <span style={{fontSize: '20px'}}> Number of Employees: </span>
+              <span style={{fontSize: '20px'}}> Number of Employees: </span>
                 <br/>
                 <PeopleOutlineIcon style={{fontSize:'1rem'}}/>
-                <span style={{fontSize: '15px'}} > {props.comp.size}</span>
-                </Grid>
-                <Grid item xs={3}>
+              <span style={{fontSize: '15px'}} > {props.comp.size}</span>
+            </Grid>
+          </Fade>
+
+          <Fade in timeout={{enter:1000}}>
+            <Grid item xs={3}>
                   <span style={{fontSize: '20px'}}>Industry: </span>
                 <br/> 
                 <BusinessIcon style={{fontSize:'1rem'}}/>
                 <span style={{fontSize: '15px'}}> {props.comp.industry} </span>
             </Grid>
+          </Fade>
         </Grid>
       </div>
 
       <div id="company-desciption">
       <Grid container spacing={2} justify="center" style={{marginLeft:'5%'}}>
+
       <Grid item xs={12}>
         <Grid container justify="center" >
+      <Fade in timeout={{enter:2300}}>
             <Grid item xs={6}>
             <Paper className={classes.about} >
                 <h2>About the company</h2>
@@ -86,10 +99,13 @@ export default function CompanyCard(props){
                 <span style={{fontSize:'20px'}}> {props.comp.description} </span>
               </Paper>
             </Grid>
+      </Fade>
   
 
         <Grid item xs={6}>
         <Grid container justify="center">
+
+        <Fade in timeout={{enter:2300}}>
           <Paper className={classes.ratingBox}>
                 <Grid container item xs={12} style={{padding: '10px', marginBottom:'30px'}}>
                   <Grid item xs={12} >
@@ -173,9 +189,10 @@ export default function CompanyCard(props){
                 </center>
                 </Grid>
               </Paper>
-            </Grid>
-          </Grid>
+            </Fade>
 
+          </Grid>
+        </Grid>
         </Grid>
       </Grid>
     </Grid>
