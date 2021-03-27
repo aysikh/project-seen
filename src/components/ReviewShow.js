@@ -1,13 +1,23 @@
 import React, { useState, useEffect } from 'react'
-// import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import ReviewCard from './ReviewCard'
-
+import Paper from '@material-ui/core/Paper';
 
 const URL = "http://localhost:3000/company/"
 
+const useStyles = makeStyles((theme) => ({
+  total: {
+    // width: '20%', 
+    // height: '10%',
+    fontSize: '30px', 
+    fontFamily: 'Josefine Sans', 
+    padding: '20px',
+  }
+}))
 
 export default function ReviewShow(props){
   var companyName = window.location.href.split('/');
+  const classes = useStyles(); 
 
   const [reviews, setReviews] = useState([]);
   const [review, setReview] = useState([]);
@@ -67,6 +77,7 @@ export default function ReviewShow(props){
           // updateUseful={updateUseful}
           // updateNotUseful={updateNotUseful}
             {...props}
+
             review={reviews[i]}
             key={reviews[i].id} 
           /> )}
@@ -79,6 +90,9 @@ export default function ReviewShow(props){
 
   return (
     <div>
+      {/* <center> */}
+        {/* <span className={classes.total}> Total # of Reviews: {reviews.length} </span> */}
+      {/* </center> */}
       {getCompanyReviews()}
     </div>
   )
